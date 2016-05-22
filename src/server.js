@@ -10,9 +10,9 @@ app.use('/scripts', express.static('../node_modules/angular/'));
 app.use('/public', express.static('../public/'));
 app.use('/fonts', express.static('../node_modules/bootstrap/dist/fonts/'));
 
-/*app.get('/', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(__dirname + '/posts.html');
-})*/
+})
 
 
 app.get('/api/posts', function (req, res, next) {

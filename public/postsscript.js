@@ -1,22 +1,16 @@
 var app = angular.module('app', [])
-app.controller('PostsCtrl', function ($scope) {
+app.controller('PostsCtrl', function ($scope, $http) {
   $scope.addPost = function () {
     if ($scope.postBody) {
       $scope.posts.unshift({
-        username: 'dickeyxxx',
+        username: 'jackroberts',
         body: $scope.postBody
       })
     }
   }
 
-  $scope.posts = [
-    {
-      username: 'dickeyxxx',
-      body: 'Node rules!'
-    },
-    {
-      username: 'jeffdickey',
-      body: 'been trying out angular.js...'
-    }
-  ]
+  $http.get('http://localhost:3000/api/posts')
+    .success(function(posts) {
+      $scope.posts = posts;
+    })
 })
