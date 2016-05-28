@@ -16,12 +16,12 @@ app.controller('PostsCtrl', function ($scope, $http) {
     }
   }
 
-  $scope.todoRemove = function(post){
+  /*$scope.todoRemove = function(post){
     $http.delete('/api/posts/' + $scope.posts[post]._id )
     .success(function() {
         $scope.posts.splice(post, 1);
       })
-  }
+  }*/
 
   $http.get('/api/posts')
     .success(function(posts) {
