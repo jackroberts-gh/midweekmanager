@@ -1,5 +1,5 @@
 var router = require('express').Router();
-var rootPath = '/Users/Jack/GitHub/midweekmanager/layouts'
+var rootPath = __dirname + '/../layouts'
 
 
 router.get('/', function(req, res) {
