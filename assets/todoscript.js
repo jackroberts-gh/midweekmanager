@@ -4,7 +4,7 @@ var todo_calc_App = angular.module('todo_calc_App', []);
 		$scope.lastChanged = '';
 
 		$scope.addTodo = function(){
-			$scope.todos.push({textSaved:$scope.todotext, editedText:'', done:false, isUpdating:false, statu:''});
+			$scope.todos.push({textSaved:$scope.todotext, editedText:'', done:false, isUpdating:false});
       $scope.lastChanged = $scope.todos[$scope.todos.length-1].textSaved + " Added";
 			$scope.todotext = '';
 		}

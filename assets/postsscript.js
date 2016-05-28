@@ -1,8 +1,8 @@
 var app = angular.module('app', [])
+
 app.controller('PostsCtrl', function ($scope, $http) {
-
   $scope.user = 'jackroberts';
-
+  $scope.posts = [];
   $scope.addPost = function () {
     if ($scope.postBody) {
       $http.post('/api/posts',
@@ -17,7 +17,14 @@ app.controller('PostsCtrl', function ($scope, $http) {
     }
   }
 
-  $http.get('http://localhost:3000/api/posts')
+  /*$scope.todoRemove = function(post){
+    $http.put('/api/posts', { params: { _id: $scope.posts[post]._id } } )
+    .success(function() {
+        $scope.posts.splice(post, 1);
+      })
+  }*/
+
+  $http.get('/api/posts')
     .success(function(posts) {
       $scope.posts = posts;
     })

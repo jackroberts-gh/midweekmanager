@@ -7,6 +7,15 @@ h1{
     padding-bottom:20px;
     text-align:center;
 }
+.pull-right {
+  line-height: 0.25em;
+}
+
+.list-group-item {
+padding: 15px 15px;
+}
+
+}
 form {
 	margin: 0 0 10px;
 	overflow: hidden;
