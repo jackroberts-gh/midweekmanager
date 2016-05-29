@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="/scripts/angular.js"></script>
     <link rel="stylesheet" href="/public/style.css" />
-    <script src="/public/todoscript.js"></script>
+    <script src="/public/todo_js.js"></script>
   </head>
 
   <body>
-    <div class="col-md-4" data-ng-controller="TodoListController">
+    <div class="col-md-4" data-ng-controller="ToDoCtrl">
       <h1>Todo</h1>
       <form data-ng-submit="addTodo()">
         <input type="text" data-ng-model="todotext" placeholder="Add new todo here" class="col-md-12 todoField" required="" />
