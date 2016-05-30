@@ -13,7 +13,6 @@ app.use('/scripts', express.static('node_modules/angular-route/'));
 
 app.use('/public', express.static('assets/'));
 app.use('/fonts', express.static('node_modules/bootstrap/dist/fonts/'));
-app.use('/public', express.static('styles/'));
 
 app.listen(3000, function() {
   console.log('Server running on port 3000.');

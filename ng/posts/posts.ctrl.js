@@ -14,7 +14,7 @@ angular.module('app')
     })
     }
   }
-
+  
   PostsService.fetch().success(function(posts) {
       $scope.posts = posts;
     })
