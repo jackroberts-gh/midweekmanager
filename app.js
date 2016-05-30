@@ -9,7 +9,9 @@ app.use('/api/sessions', require('./controllers/api/sessions'))
 app.use('/api/users', require('./controllers/api/users'))
 app.use(require('./controllers/static'));
 
+app.use('/scripts', express.static('node_modules/jquery/dist/'));
 app.use('/scripts', express.static('node_modules/bootstrap/dist/css/'));
+app.use('/scripts', express.static('node_modules/bootstrap/dist/js/'));
 app.use('/scripts', express.static('node_modules/angular/'));
 app.use('/scripts', express.static('node_modules/angular-route/'));
 
