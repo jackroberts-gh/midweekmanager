@@ -9,6 +9,8 @@ app.use(require('./controllers/static'));
 
 app.use('/scripts', express.static('node_modules/bootstrap/dist/css/'));
 app.use('/scripts', express.static('node_modules/angular/'));
+app.use('/scripts', express.static('node_modules/angular-route/'));
+
 app.use('/public', express.static('assets/'));
 app.use('/fonts', express.static('node_modules/bootstrap/dist/fonts/'));
 app.use('/public', express.static('styles/'));
