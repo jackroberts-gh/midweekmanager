@@ -1,6 +1,5 @@
 angular.module('app')
 .controller('PostsCtrl', function ($scope, PostsService) {
-  $scope.user = 'jackroberts';
   $scope.addPost = function () {
     if ($scope.postBody) {
       PostsService.create(
@@ -14,7 +13,7 @@ angular.module('app')
     })
     }
   }
-  
+
   PostsService.fetch().success(function(posts) {
       $scope.posts = posts;
     })

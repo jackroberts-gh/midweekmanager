@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Start -->
+    <!--Scripts-->
     <script src="/scripts/jquery.min.js"></script>
     <link rel="stylesheet" href="/scripts/bootstrap.min.css">
     <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/angular.js"></script>
+    <script src="/scripts/angular-route.js"></script>
+    <script src="/public/midweek_js.js"></script>
+    <!-- Styles and Viewports -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/public/style.css" />
+    <!-- end -->
   </head>
-  <body ng-app='app'>
+  <body ng-app='app' ng-controller='ApplicationCtrl'>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -17,13 +24,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/#/">Midweek Manager</a>
+          <a class="navbar-brand" href="/#/">MM</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/#/">Posts</a></li>
+          <!--<p ng-if="currentUser" class="navbar-text navbar-right">
+            Signed in as {{currentUser.username}}
+          </p>-->
+          <ul ng-if="!currentUser" class="nav navbar-nav navbar-right">
             <li><a href="/#/register">Register</a></li>
             <li><a href="/#/login">Login</a></li>
+          </ul>
+          <ul ng-if="currentUser" class="nav navbar-nav navbar-right">
+            <li><a href="">Signed in as {{currentUser.username}}</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/#/">Home</a></li>
+          </ul>
             <!-- MIGHT WANT THIS FOR LATER
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -42,8 +58,5 @@
       </div>
     </nav>
     <div ng-view></div>
-    <script src="/scripts/angular.js"></script>
-    <script src="/scripts/angular-route.js"></script>
-    <script src="/public/midweek_js.js"></script>
   </body>
 </html>
