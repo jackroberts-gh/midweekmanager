@@ -1,6 +1,6 @@
 var router = require('express').Router()
 var bcrypt = require('bcrypt')
-var jwt    = require('jwt-simple')
+var jwt    = require('jsonwebtoken')
 var config = require('../../config')
 var User   = require('../../models/user')
 
@@ -14,7 +14,8 @@ router.post('/', function (req, res, next) {
     bcrypt.compare(req.body.password, user.password, function (err, valid) {
       if (err) { return next(err) }
       if (!valid) { return res.sendStatus(401) }
-      var token = jwt.encode({username: username}, config.secret)
+      var jsonToken = {username: username}
+      var token = jwt.sign(jsonToken, config.secret, {expiresIn:'1440m'})
       res.send(token)
     })
   })

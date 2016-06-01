@@ -1,6 +1,6 @@
 var router = require('express').Router()
 var bcrypt = require('bcrypt')
-var jwt    = require('jwt-simple')
+var jwt    = require('jsonwebtoken')
 var User   = require('../../models/user')
 var config = require('../../config')
 
@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
   }
-  var auth = jwt.decode(req.headers['x-auth'], config.secret)
+  var auth = jwt.verify(req.headers['x-auth'], config.secret)
   User.findOne({username: auth.username}, function (err, user) {
     if (err) { return next(err) }
     res.json(user)
