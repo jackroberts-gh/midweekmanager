@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
     res.json(posts)
   })
 })
-  
+
 router.post('/', function (req, res, next) {
   var post = new Post({
     body:     req.body.body,

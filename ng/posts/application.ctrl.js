@@ -10,6 +10,10 @@ angular.module('app')
     $scope.currentUser = user;
   })
 
+  $scope.$on('register', function(_, user) {
+    $scope.currentUser = user;
+  })
+
     $scope.logout = function () {
       $scope.currentUser = ''
       window.localStorage.removeItem("token")
