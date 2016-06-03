@@ -4,6 +4,9 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
 }
+.top-buffer {
+  margin-top: 20px;
+}
 .jumbotron {
   background-color: #6f5499;
   width: 100%;
