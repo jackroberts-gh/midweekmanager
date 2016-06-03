@@ -14,9 +14,9 @@ svc.login = function(username, password) {
     })
   }
 
-  svc.register = function(username, password) {
+  svc.register = function(username, firstname, surname, dateofbirth, password) {
     return $http.post('/api/users', {
-      username: username, password: password
+      username: username, firstname: firstname, surname: surname, dateofbirth: dateofbirth, password: password
     }).then(function() {
       return svc.login(username, password)
     })
