@@ -3,7 +3,7 @@ angular.module('app')
   $scope.register = function (username, email, firstname, surname, dateofbirth, password) {
     UserSvc.register(username, email, firstname, surname, dateofbirth, password)
     .then(function(response) {
-      $scope.$emit('register', response.data)
+      $scope.$emit('login', response.data)
       window.location.href = '/#/';
       })
     }

@@ -9,14 +9,7 @@ angular.module('app')
   $scope.$on('login', function(_, user) {
     $scope.currentUser = user;
   })
-
-  $scope.$on('register', function(_, user) {
-    $scope.currentUser = user;
+  $scope.$on('logout', function(_, user) {
+    $scope.currentUser = '';
   })
-
-    $scope.logout = function () {
-      $scope.currentUser = ''
-      window.localStorage.removeItem("token")
-      window.location.reload(true)
-    }
 })

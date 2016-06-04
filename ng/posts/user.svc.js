@@ -22,4 +22,8 @@ svc.login = function(username, password) {
       return svc.login(username, password)
     })
   }
+
+  svc.logout = function() {
+      window.localStorage.removeItem("token")
+  }
 })
