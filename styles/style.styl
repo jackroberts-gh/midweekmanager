@@ -1,5 +1,13 @@
 body
 {
+    background-color:#FFFFFF;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.grey
+{
     background-color:#EEEEEE;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     padding-top: 50px;
@@ -21,15 +29,10 @@ body
   color: white;
 }
 
-.lead {
-  color: white;
-}
-
 h1
 {
     margin:0;
     padding-bottom:5px;
-    text-align:left;
 }
 .pull-right {
   line-height: 0.25em;
@@ -106,9 +109,186 @@ a {
     padding: 10px;
     overflow: hidden;
 }
-.active {
-    display: none !important;
-}
+
 .pre {
     color: blue;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 625px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height:625px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 100%;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .carousel {
+  height: 300px;
+  }
+  .carousel .item {
+    height:300px
+    background-color: #777;
+  }
+  .carousel-inner > .item > img {
+
+  }
+}
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+
+  }
+
+  .navbar-inverse .navbar-brand {
+      color: #eeeeee;
+  }
+
+  .navbar-inverse .navbar-nav>li>a {
+    color: #eeeeee;
+}
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+/* More */
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+
+/* Carousel Overlay */
+.carousel-overlay {
+	position: absolute;
+	bottom: 400px;
+	right: 0;
+	left: 0;
+}
+
+@media(min-width: 768px) {
+  .carousel-overlay {
+  bottom: 275px;
+  }
+}
+@media(max-width: 500px) {
+  .carousel-overlay {
+  bottom: 350px;
+  }
+}
+
+.carousel-overlay {
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.75);
+}
+.carousel-overlay h1 {
+    font-size: 3.5em;
+}
+.carousel-overlay .btn {
+	border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 4px solid #398439;
+    border-radius: 6px;
+}
+.carousel-overlay .btn-lg {
+    font-size: 1.75em;
+    padding: 10px 30px;
 }

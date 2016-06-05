@@ -17,6 +17,7 @@ app.use('/scripts', express.static('node_modules/angular/'));
 app.use('/scripts', express.static('node_modules/angular-route/'));
 
 app.use('/public', express.static('assets/'));
+app.use('/public', express.static('assets/images/'));
 app.use('/fonts', express.static('node_modules/bootstrap/dist/fonts/'));
 
 app.listen(3000, function() {
