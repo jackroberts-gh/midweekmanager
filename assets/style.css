@@ -107,13 +107,13 @@ a {
 -------------------------------------------------- */
 /* Carousel base class */
 .carousel {
-  height: 625px;
+  height: 525px;
   margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 625px;
+  height: 525px;
   background-color: #777;
 }
 .carousel-inner > .item > img {
@@ -150,12 +150,12 @@ a {
 }
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .carousel {
-    height: 300px;
+    height: 450px;
   }
   .carousel .item {
-    height: 300px;
+    height: 450px;
     background-color: #777;
   }
 }
@@ -217,14 +217,14 @@ a {
   right: 0;
   left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .carousel-overlay {
     bottom: 275px;
   }
 }
 @media (max-width: 500px) {
   .carousel-overlay {
-    bottom: 350px;
+    bottom: 275px;
   }
 }
 .carousel-overlay {
