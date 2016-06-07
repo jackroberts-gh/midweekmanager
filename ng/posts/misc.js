@@ -5,11 +5,9 @@ $(function() {
             $(".navbar-toggle").trigger( "click" );
         }
     });
-});
-$(function() {
 $('.tab').on('click', function (event) {
     event.preventDefault();
     $('.active').removeClass('active');
     $(event.target).closest('.tab').addClass('active');
   });
-});
+})

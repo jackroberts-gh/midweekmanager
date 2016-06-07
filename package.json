@@ -18,6 +18,7 @@
     "gulp-stylus": "^2.4.0",
     "gulp-uglify": "^1.5.3",
     "jquery": "^2.2.4",
+    "jquery-color": "^1.0.0",
     "mongodb": "^2.1.6",
     "mongoose": "^4.4.19",
     "node-uuid": "^1.4.7"
