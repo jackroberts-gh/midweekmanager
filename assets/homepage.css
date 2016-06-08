@@ -4,6 +4,20 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 /* Jack's Navbar overwrites */
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #000 !important;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
 .navbar-default .navbar-nav>li>a {
   color: #fff;
 }
@@ -49,6 +63,7 @@ h6 {
 .topnav {
   font-size: 14px;
   background-color: transparent;
+  transition-duration: 0.2s;
 }
 .lead {
   font-size: 18px;
