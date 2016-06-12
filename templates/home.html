@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Midweek Manager</h1>
-                        <h3>Manager your fives, sevens, and elevens</h3>
+                        <h3>Manage your fives, sevens, and elevens</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
@@ -138,61 +138,5 @@
             </div>
         </div>
     </footer>
-<script>
-$('.carousel').carousel({
-               interval: 5000,
-               pause: "false",
-               wrap: true
-});
-
-$(document).ready(function(){
-    // Set overriding CSS
-
-    $('.topnav').css('background-color', 'transparent');
-    $(".navbar-default .navbar-nav>li>a").css('color', '#ffffff');
-    $(".navbar-default .navbar-brand ").css('color', '#ffffff');
-    // Add on-scroll listener
-     var scroll_start = 0;
-     var startchange = $('.intro-message');
-     var offset = startchange.offset();
-      if (startchange.length){
-        var scrollHandler = function(){
-        $(document).scroll(function() {
-          scroll_start = $(this).scrollTop();
-          if(scroll_start > offset.top) {
-              $(".navbar-default .navbar-nav>li>a").css('color', '#000000');
-              $(".navbar-default .navbar-brand ").css('color', '#000000');
-              $(".topnav").css('background-color', '#ffffff');
-              $(".navbar-default .navbar-toggle .icon-bar").css('background-color', '#000000');
-              }
-          else {
-              $('.topnav').css('background-color', 'transparent');
-              $(".navbar-default .navbar-nav>li>a").css('color', '#ffffff');
-              $(".navbar-default .navbar-brand ").css('color', '#ffffff');
-              $(".navbar-default .navbar-toggle .icon-bar").css('background-color', '#ffffff');
-          }
-        })
-      }();
-    }
-    $('#navigation').children().on('click', function (e) {
-      $(".navbar-default .navbar-nav>li>a").css('color', '#000000');
-      $(".navbar-default .navbar-brand ").css('color', '#000000');
-      $(".topnav").css('background-color', '#ffffff');
-      $(document).off("scroll", scrollHandler);
-    });
-    $( ".navbar-toggle" ).click(function() {
-      $(".navbar-default .navbar-nav>li>a").css('color', '#000000');
-      $(".navbar-default .navbar-brand ").css('color', '#000000');
-      $(".topnav").css('background-color', '#ffffff');
-      $(".navbar-default .navbar-toggle .icon-bar").css('background-color', '#000000');
-    if ($(this).attr('aria-expanded') === "true") {
-      $('.topnav').css('background-color', 'transparent');
-      $(".navbar-default .navbar-nav>li>a").css('color', '#ffffff');
-      $(".navbar-default .navbar-brand").css('color', '#ffffff');
-      $(".navbar-default .navbar-toggle .icon-bar").css('background-color', '#ffffff');
-
-    }
-    });
-});
-
-</script>
+<!--Scripts for this page-->
+<script src="/public/midweek_js.js"></script>

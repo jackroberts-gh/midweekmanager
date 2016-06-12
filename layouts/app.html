@@ -8,7 +8,6 @@
     <script src="/scripts/bootstrap.min.js"></script>
     <script src="/scripts/angular.js"></script>
     <script src="/scripts/angular-route.js"></script>
-    <script src="/public/midweek_js.js"></script>
     <!-- Styles and Viewports -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +37,7 @@
               <a href="#/feed">Feed</a>
             </li>
           </ul>
-            <ul id="navigation" class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li id="link1" ng-if="!currentUser">
                     <a id="link4" href="#/register">Register</a>
                 </li>
@@ -51,9 +50,6 @@
                   <li ng-if="currentUser">
                     <a href="/#/logout">Logout</a>
                   </li>
-                  <li id="link3">
-                    <a href="#contact">Contact</a>
-                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -62,4 +58,5 @@
 </nav>
     <div ng-view></div>
   </body>
+  <script src="/public/midweek_js.js"></script>
 </html>

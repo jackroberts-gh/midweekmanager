@@ -2,6 +2,9 @@ var Post = require('../../models/post');
 var router = require('express').Router();
 
 router.get('/', function (req, res, next) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
   if (req.auth.username) {
     Post.find()
     .sort('-date')

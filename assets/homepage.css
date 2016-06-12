@@ -27,6 +27,18 @@
 .navbar-default {
   border: none;
 }
+.jumbotron {
+  background-color: #6f5499;
+  width: 100%;
+}
+.jumbotron h1,
+.jumbotron .h1 {
+  color: #fff;
+}
+.lead-jumbotron {
+  color: #fff;
+}
+/* EOCHANGES */
 @media (min-width: 768px) {
   .navbar-default.affix {
     background-color: #fff;
@@ -62,8 +74,7 @@ h6 {
 }
 .topnav {
   font-size: 14px;
-  background-color: transparent;
-  transition-duration: 0.2s;
+  background-color: #000;
 }
 .lead {
   font-size: 18px;

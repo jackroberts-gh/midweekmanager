@@ -25,5 +25,6 @@ svc.login = function(username, password) {
 
   svc.logout = function() {
       window.localStorage.removeItem("token")
+          $http.defaults.headers.common['X-Auth'] = ''
   }
 })
