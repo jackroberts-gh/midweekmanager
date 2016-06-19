@@ -1,0 +1,244 @@
+<div class='container top-buffer'>
+</div>
+<div class="banner">
+<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+  <div class='container'>
+    <h1>Midweek Manager</h1>
+    <p class='lead-jumbotron'>
+      Manage your fives, sevens, and elevens.
+    </p>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+            <p>Team Details</p>
+        </div>
+        <!--<div class="stepwizard-step">
+            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <p>Invite players</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+            <p>Set up Fixtures</p>
+        </div>-->
+        <div class="stepwizard-step">
+            <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+            <p>Preview & Submit</p>
+        </div>
+    </div>
+</div>
+<form role="form" ng-submit="registerTeam(teamname, teamtype, dayofplay)">
+    <div class="row setup-content" id="step-1">
+
+        <div class="col-xs-12">
+            <div class="col-md-12">
+                <h3>Create your team</h3>
+                <hr/>
+
+                <!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="service_name">Team Name</label>
+  <div class="col-md-5">
+    <input ng-model="teamname" id="service_name" name="service_name" type="text" placeholder="" class="form-control input-md">
+  </div>
+</div>
+<br>
+<br>
+<!--Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="stack_id">Team type</label>
+  <div class="col-md-5">
+    <select ng-model="teamtype" id="stack_id" name="stack_id" class="form-control">
+      <option value="Football">Football</option>
+    </select>
+  </div>
+</div>
+<br>
+<br>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="service_architecture">What day do you play?</label>
+  <div class="col-md-5">
+    <select ng-model="dayofplay" id="stack_id" name="stack_id" class="form-control">
+      <option value="1">Monday</option>
+      <option value="2">Tuesday</option>
+      <option value="3">Wednesday</option>
+      <option value="4">Thursday</option>
+      <option value="5">Friday</option>
+      <option value="6">Saturday</option>
+      <option value="7">Sunday</option>
+    </select>
+</div>
+</div>
+<br>
+<br>
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content" id="step-2">
+        <div class="col-xs-12">
+            <div class="col-md-12">
+                <h3>Add your players</h3>
+                  <hr/>
+               <!-- File Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sep_json">SEP JSON File</label>
+  <div class="col-md-4">
+      		<input type="file" id="sep_json" name="sep_json" class="input-file" accept=".txt,.json">
+     <div id="sep_jsondisplay"></div>
+  </div>
+</div>
+<br><br>
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="possible_instances">Possible Instances</label>
+  <div class="col-md-5">
+    <select id="possible_instances" name="possible_instances" class="form-control">
+      <option value="0">0</option>
+      <option value="-1">Infinite</option>
+      <option value=">0">1 or more</option>
+    </select>
+  </div>
+</div>
+<br><br>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="doc_url">Documentation File Location</label>
+  <div class="col-md-5">
+  <input id="doc_url" name="doc_url" type="text" placeholder="docs/filename.html" class="form-control input-md">
+
+  </div>
+</div>
+
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12">
+                <h3>Add your fixtures</h3>
+                  <hr/>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sd_modulepath">SD ModulePath</label>
+  <div class="col-md-5">
+  <input id="sd_modulepath" name="sd_modulepath" type="text" placeholder="" class="form-control input-md">
+
+  </div>
+</div>
+<br>
+<br>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sd_filename">SD File Name</label>
+  <div class="col-md-5">
+  <input id="sd_filename" name="sd_filename" type="text" placeholder="" class="form-control input-md">
+
+  </div>
+</div>
+<br>
+<br>
+                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content" id="step-4">
+        <div class="col-xs-12">
+            <div class="col-md-12" >
+                <h3>Preview & Submit</h3>
+                <hr/>
+
+<!-- Button -->
+<br><br>
+                <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<script>
+$(document).ready(function () {
+
+    var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn');
+
+    allWells.hide();
+
+    navListItems.click(function (e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+                $item = $(this);
+
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('btn-primary').addClass('btn-default');
+            $item.addClass('btn-primary');
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+        }
+    });
+
+    allNextBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
+
+        $(".form-group").removeClass("has-error");
+        for(var i=0; i<curInputs.length; i++){
+            if (!curInputs[i].validity.valid){
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+
+        if (isValid)
+            nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    $('div.setup-panel div a.btn-primary').trigger('click');
+
+
+    //custom code by @naresh for file input sep
+
+var fileInput = document.getElementById('sep_json');
+var fileDisplayArea = document.getElementById('sep_jsondisplay');
+var fileInput1 = document.getElementById('action_json');
+var fileDisplayArea1 = document.getElementById('action_jsondisplay');
+
+    //@naresh action dynamic childs
+    var next = 0;
+    $("#add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = ' <div id="field'+ next +'" name="field'+ next +'"><!-- Text input--><div class="form-group"> <label class="col-md-4 control-label" for="action_id">Action Id</label> <div class="col-md-5"> <input id="action_id" name="action_id" type="text" placeholder="" class="form-control input-md"> </div></div><br><br><!-- Text input--><div class="form-group"> <label class="col-md-4 control-label" for="action_name">Action Name</label> <div class="col-md-5"> <input id="action_name" name="action_name" type="text" placeholder="" class="form-control input-md"> </div></div><br><br><!-- File Button --> <div class="form-group"> <label class="col-md-4 control-label" for="action_json">Action JSON File</label> <div class="col-md-4"> <input id="action_json" name="action_json" class="input-file" type="file"> </div></div></div>';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >Remove</button></div></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);
+
+            $('.remove-me').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+    });
+});
+</script>

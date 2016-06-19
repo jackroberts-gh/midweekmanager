@@ -60,6 +60,13 @@ $(document).ready(function(){
       $(".topnav").css('background-color', '#000000');
       $(document).off("scroll", scrollHandler);
     });
+    $('#create-buttons').children().on('click', function (e) {
+      $(".topnav").css('transition-duration', '0s');
+      $(".navbar-default .navbar-nav>li>a").css('color', '#ffffff');
+      $(".navbar-default .navbar-brand ").css('color', '#ffffff');
+      $(".topnav").css('background-color', '#000000');
+      $(document).off("scroll", scrollHandler);
+    });
     $( ".navbar-toggle" ).click(function() {
       $(".navbar-default .navbar-nav>li>a").css('color', '#000000');
       $(".navbar-default .navbar-brand ").css('color', '#000000');

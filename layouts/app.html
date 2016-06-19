@@ -36,12 +36,15 @@
             <li ng-if="currentUser">
               <a href="#/feed">Feed</a>
             </li>
+            <li ng-if="currentUser">
+              <a href="#/teams">Teams</a>
+            </li>
           </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li id="link1" ng-if="!currentUser">
-                    <a id="link4" href="#/register">Register</a>
+                <li ng-if="!currentUser">
+                    <a href="#/register">Register</a>
                 </li>
-                <li id="link2" ng-if="!currentUser">
+                <li ng-if="!currentUser">
                     <a href="#/login">Login</a>
                 </li>
                 <li ng-if="currentUser">

@@ -20,6 +20,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   var post = new Post({
+    username: req.body.username,
     body:     req.body.body,
   })
   post.username = req.auth.username
