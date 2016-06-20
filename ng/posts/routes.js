@@ -3,7 +3,7 @@ angular.module('app')
   $httpProvider.interceptors.push('httpRequestInterceptor');
   $routeProvider
   .when('/', { controller: 'HomeCtrl', templateUrl: 'home.html'})
-  .when('/createteam', { controller: 'TeamCtrl', templateUrl: 'createteam.html', resolve: {
+  .when('/createteam', { controller: 'CreateTeamCtrl', templateUrl: 'createteam.html', resolve: {
     user: function(UserSvc) {
       return UserSvc.getUser();
     }

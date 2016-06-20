@@ -11,10 +11,18 @@
 </div>
 </div>
 <div class="container top-buffer">
-  <ul class='list-group'>
-    <li ng-repeat="team in teams | orderBy:'-date'" class='list-group-item'>
-      <strong>@{{ team.name }}</strong>
-      <span class='comment'>{{ team.playday }}</span>
-    </li>
-  </ul>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Day of play</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="team in teams">
+    <td>{{ team.name }}</td>
+    <td>{{ team.type }}</td>
+    <td>{{ team.playday }}</td>
+</tr>
+</table>
 </div>

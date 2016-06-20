@@ -1,7 +1,7 @@
 angular.module('app')
 .controller('TeamCtrl', function ($scope, UserSvc, TeamService) {
-  $scope.registerTeam = function (teamname, teamtype, dayofplay) {
-    TeamService.create(teamname, teamtype, dayofplay, $scope.currentUser._id)
-    }
-
+  TeamService.fetchMyTeams($scope.currentUser._id).success(function(teams) {
+      console.log($scope.currentUser._id);
+      $scope.teams = teams;
+    })
 })

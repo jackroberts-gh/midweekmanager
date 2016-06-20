@@ -1,4 +1,5 @@
 var Team = require('../../models/team');
+var User = require('../../models/user');
 var router = require('express').Router();
 
 router.get('/', function (req, res, next) {
@@ -7,6 +8,25 @@ router.get('/', function (req, res, next) {
   //}
   //if (req.auth.username) {
     Team.find()
+    .sort('-date')
+    .exec(function (err, teams) {
+      if (err) { return next(err) }
+      res.json(teams)
+    })
+  //}
+  //else {
+    //res.status(401)
+  //}
+})
+
+router.get('/:manager_id', function (req, res, next) {
+  //if (!req.headers['x-auth']) {
+  //  return res.sendStatus(401)
+  //}
+  //if (req.auth.username) {
+  //var tony = new User({_id: req.params.manager_id});
+
+    Team.find({'manager': req.params.manager_id})
     .sort('-date')
     .exec(function (err, teams) {
       if (err) { return next(err) }
