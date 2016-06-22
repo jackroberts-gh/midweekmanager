@@ -15,7 +15,9 @@ $('.tab').on('click', function (event) {
 $(document).ready(function(){
     // Set overriding CSS
   if (window.location.href === 'http://localhost:3000/#/login' ||
-      window.location.href === 'http://localhost:3000/#/register') {
+      window.location.href === 'http://localhost:3000/#/register' ||
+      window.location.href === 'http://localhost:3000/#/logout'
+    ) {
         $(".topnav").css('transition-duration', '0s');
         $('.topnav').css('background-color', 'black');
         $(".navbar-default .navbar-nav>li>a").css('color', '#ffffff');

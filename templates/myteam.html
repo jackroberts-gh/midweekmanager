@@ -14,19 +14,17 @@
 <table class="table">
   <thead class="thead-inverse">
     <tr>
-      <th></th>
+      <th>No.</th>
       <th>Name</th>
-      <th>Type</th>
-      <th>Day of play</th>
-      <th>No. of players</th>
+      <th>Goals</th>
+      <th>MoMs</th>
     </tr>
   </thead>
-  <tr ng-repeat="team in teams" ng-click="showTeam(team)">
-    <td><a class="btn btn-primary" ng-href="#/teams/{{team._id}}">View</a></td>
-    <td>{{ team.name }}</td>
-    <td>{{ team.type }}</td>
-    <td>{{ team.playday }}</td>
-    <td>{{ team.players.length }}</td>
+  <tr ng-repeat="player in team.players">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ player.name }}</td>
+    <td>{{ player.goals }}</td>
+    <td>{{ player.moms }}</td>
 </tr>
 </table>
 </div>

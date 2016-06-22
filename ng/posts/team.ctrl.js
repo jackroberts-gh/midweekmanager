@@ -1,7 +1,11 @@
 angular.module('app')
-.controller('TeamCtrl', function ($scope, UserSvc, TeamService) {
+.controller('TeamCtrl', function ($scope, $location, UserSvc, TeamService) {
   TeamService.fetchMyTeams($scope.currentUser._id).success(function(teams) {
-      console.log($scope.currentUser._id);
       $scope.teams = teams;
     })
+
+  $scope.showTeam = function(team) {
+    $location.path('#/teams/' + team._id);
+  };
+
 })

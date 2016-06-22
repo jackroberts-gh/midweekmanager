@@ -9,6 +9,7 @@ app.use('/api/posts', require('./controllers/api/posts'));
 app.use('/api/sessions', require('./controllers/api/sessions'))
 app.use('/api/users', require('./controllers/api/users'))
 app.use('/api/teams', require('./controllers/api/teams'))
+app.use('/api/players', require('./controllers/api/players'))
 app.use(require('./controllers/static'));
 
 app.use('/scripts', express.static('node_modules/jquery/dist/'));

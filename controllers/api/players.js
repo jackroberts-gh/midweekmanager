@@ -1,51 +1,38 @@
-var Team = require('../../models/team');
+var Player = require('../../models/player');
 var router = require('express').Router();
 
-// \\ ** TEAM SERVICE ** \\ //
-
 router.get('/', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401)
-  }
+  //if (!req.headers['x-auth']) {
+  //  return res.sendStatus(401)
+  //}
   if (req.auth.username) {
-    Team.find()
+    Player.find()
     .sort('-date')
-    .exec(function (err, teams) {
+    .exec(function (err, players) {
       if (err) { return next(err) }
-      res.json(teams)
+      res.json(players)
     })
   }
-  else {
-    res.status(401)
-  }
+//  else {
+//    res.status(401)
+//  }
 })
 
-router.get('/:manager_id', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401)
-  }
-    if (req.auth.username) {
-    Team.find({'manager': req.params.manager_id})
-    .sort('-date')
-    .exec(function (err, teams) {
-      if (err) { return next(err) }
-      res.json(teams)
-    })
-  }
-  else {
-    res.status(401)
-  }
-})
-
-router.get('/team/:team_id', function (req, res, next) {
-    Team.findById(req.params.team_id)
-    .populate('players')
-    .sort('-date')
-    .exec(function (err, teams) {
-      if (err) { return next(err) }
-      res.json(teams)
-    })
-
+router.get('/:team_id', function (req, res, next) {
+//  if (!req.headers['x-auth']) {
+//    return res.sendStatus(401)
+//  }
+  //if (req.auth.username) {
+      Player.find({'manager': req.params.team_id})
+      .sort('-date')
+      .exec(function (err, teams) {
+        if (err) { return next(err) }
+        res.json(teams)
+      })
+  //}
+//  else {
+  //  res.status(401)
+  //}
 })
 
 router.post('/', function (req, res, next) {
