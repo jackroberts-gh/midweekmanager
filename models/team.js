@@ -1,4 +1,5 @@
 var db = require('../db')
+
 var Team = db.model('Team', {
   name:     { type: String, required: true },
   manager:  { type: db.Schema.Types.ObjectId, ref: 'User'},

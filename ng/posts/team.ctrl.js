@@ -5,7 +5,7 @@ angular.module('app')
     })
 
   $scope.showTeam = function(team) {
-    $location.path('#/teams/' + team._id);
+    $location.path('/teams/' + team._id);
   };
 
 })
