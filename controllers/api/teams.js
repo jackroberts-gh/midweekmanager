@@ -1,4 +1,5 @@
 var Team = require('../../models/team');
+var Fixture = require('../../models/fixture');
 var router = require('express').Router();
 
 // \\ ** TEAM SERVICE ** \\ //
@@ -40,6 +41,8 @@ router.get('/:manager_id', function (req, res, next) {
 router.get('/team/:team_id', function (req, res, next) {
     Team.findById(req.params.team_id)
     .populate('players')
+    .populate('manager')
+    .populate('fixtures')
     .sort('-date')
     .exec(function (err, teams) {
       if (err) { return next(err) }

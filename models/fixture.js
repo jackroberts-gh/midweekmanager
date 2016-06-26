@@ -1,12 +1,18 @@
 var db = require('../db')
 
+var SelectedPlayer = new db.Schema({
+  _playerid: { type: db.Schema.Types.ObjectId, ref: 'Player' },
+  goals: { type: Number },
+  moms: { type: Number },
+  in: { type: Boolean }
+});
+
 var Fixture = db.model('Fixture', {
-  _teamid : { type: db.Schema.Types.ObjectId, ref: 'Team' },
   date:                { type: Date },
   opposition:          { type: String },
-  teamgoals:           { type: Number },
-  oppositiongoals:     { type: Number },
-  played:              [Player]
+  goalsfor:            { type: Number },
+  goalsagainst:        { type: Number },
+  played:              { type: [SelectedPlayer] }
 })
 
 module.exports = Fixture

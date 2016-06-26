@@ -10,8 +10,13 @@ var Team = db.model('Team', {
                 type: db.Schema.Types.ObjectId, ref: 'Player'
               }
             ],
+  fixtures:  [
+              {
+                type: db.Schema.Types.ObjectId, ref: 'Fixture'
+              }
+            ],
   goalsfr: { type: Number },
-  goalsag: { type: Number },
+  goalsag: { type: Number }
 })
 
 module.exports = Team

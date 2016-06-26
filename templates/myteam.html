@@ -11,22 +11,63 @@
 </div>
 </div>
 <div class="container top-buffer">
-  <h1>{{ team.name | uppercase }}</h1>
+  <div class="container">
+  <h2>{{ team.name | uppercase }}</h2>
   <hr />
-<table class="table">
-  <thead class="thead-inverse">
-    <tr>
-      <th>No.</th>
-      <th>Name</th>
-      <th>Goals</th>
-      <th>MoMs</th>
-    </tr>
-  </thead>
-  <tr ng-repeat="player in team.players">
-    <td>{{ $index + 1 }}</td>
-    <td>{{ player.name }}</td>
-    <td>{{ player.goals }}</td>
-    <td>{{ player.moms }}</td>
-</tr>
-</table>
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
+    <li><a data-toggle="tab" data-target="#fixs">Fixtures</a></li>
+    <li><a data-toggle="tab" data-target="#stats">Statistics</a></li>
+    <li><a data-toggle="tab" data-target="#hons">Honours</a></li>
+  </ul>
+  <br />
+  <h4>Managed by {{ team.manager.surname | uppercase }}, {{ team.manager.firstname | uppercase }} </h4>
+  <div class="tab-content">
+    <div id="team" class="tab-pane fade in active">
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Goals</th>
+            <th>MoMs</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="player in team.players">
+          <td>{{ $index + 1 }}</td>
+          <td>{{ player.surname | uppercase }}, {{ player.firstname }}</td>
+          <td>{{ player.goals }}</td>
+          <td>{{ player.moms }}</td>
+      </tr>
+      </table>
+    </div>
+    <div id="fixs" class="tab-pane fade">
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Date</th>
+            <th>Opposition</th>
+            <th>Score</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="fixture in team.fixtures | orderBy:'date'">
+          <td>{{ fixture.date | date:'dd/MM/yyyy' }}</td>
+          <td>{{ fixture.opposition }}</td>
+          <td>{{ fixture.goalsfor }} - {{ fixture.goalsagainst }}</td>
+          <td ng-show="fixture.goalsfor > fixture.goalsagainst">Win</td>
+          <td ng-show="fixture.goalsfor < fixture.goalsagainst">Lose</td>
+      </tr>
+      </table>
+    </div>
+    <div id="stats" class="tab-pane fade">
+      <h3>Stats placeholder</h3>
+      <p>Lorem ipsum.</p>
+    </div>
+    <div id="hons" class="tab-pane fade">
+      <h3>Honours placeholder</h3>
+      <p>Eaque ipsa.</p>
+    </div>
+  </div>
+</div>
 </div>
