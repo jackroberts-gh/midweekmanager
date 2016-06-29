@@ -18,16 +18,16 @@ router.get('/', function (req, res, next) {
 //  }
 })
 
-router.get('/:team_id', function (req, res, next) {
+router.get('/:user_id', function (req, res, next) {
 //  if (!req.headers['x-auth']) {
 //    return res.sendStatus(401)
 //  }
   //if (req.auth.username) {
-      Player.find({'manager': req.params.team_id})
+      Player.find({'_userid': req.params.user_id}, '_id')
       .sort('-date')
-      .exec(function (err, teams) {
+      .exec(function (err, players) {
         if (err) { return next(err) }
-        res.json(teams)
+        res.json(players)
       })
   //}
 //  else {

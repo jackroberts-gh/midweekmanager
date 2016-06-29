@@ -38,6 +38,25 @@ router.get('/:manager_id', function (req, res, next) {
   }
 })
 
+router.get('/myteams/:players', function (req, res, next) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
+    if (req.auth.username) {
+      var ids = req.params.players.split(",");
+
+      Team.find({'players': { $in : ids } })
+      .sort('-date')
+      .exec(function (err, teams) {
+        if (err) { return next(err) }
+        res.json(teams)
+      })
+    }
+    else {
+      res.status(401)
+    }
+})
+
 router.get('/team/:team_id', function (req, res, next) {
     Team.findById(req.params.team_id)
     .populate('players')

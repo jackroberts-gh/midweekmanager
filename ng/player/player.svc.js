@@ -3,6 +3,9 @@ angular.module('app')
   this.fetchAll = function() {
     return $http.get('/api/players')
   }
+  this.fetchMyPlayers = function(user_id) {
+    return $http.get('/api/players/' + user_id)
+  }
   this.fetchPlayers = function(team_id) {
     return $http.get('/api/players/' + team_id)
   }

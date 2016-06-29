@@ -3,8 +3,8 @@ var db = require('../db')
 var SelectedPlayer = new db.Schema({
   _playerid: { type: db.Schema.Types.ObjectId, ref: 'Player' },
   goals: { type: Number },
-  moms: { type: Number },
-  in: { type: Boolean }
+  moms:  { type: Number },
+  in:    { type: Boolean }
 });
 
 var Fixture = db.model('Fixture', {

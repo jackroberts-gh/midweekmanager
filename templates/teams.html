@@ -11,12 +11,12 @@
 </div>
 </div>
 <div class="container top-buffer">
-  <h1>Teams</h1>
+  <h1>Manager</h1>
     <hr />
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4" ng-repeat="team in teams" ng-click="showTeam(team)">
+    <div class="col-sm-4" ng-repeat="team in teamsManaged" ng-click="showTeam(team)">
       <div class="card card-inverse">
         <img class="card-img-{{team.type | lowercase}}" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
         <div class="card-img-overlay">
@@ -27,5 +27,22 @@
       </div>
     </div>
   </div>
+</div>
+<h1>Player</h1>
+  <hr />
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-4" ng-repeat="team in teamsPlayedFor" ng-click="showTeam(team)">
+    <div class="card card-inverse">
+      <img class="card-img-{{team.type | lowercase}}" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
+      <div class="card-img-overlay">
+        <p class="card-text"><a class="btn btn-success" ng-href="#/teams/{{team._id}}">View</a></p>
+        <h2 class="card-title">{{team.name | uppercase}}</h2>
+        <p class="card-text">{{team.type}} on {{team.playday}}'s</p>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 </div>
