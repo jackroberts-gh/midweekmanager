@@ -5,8 +5,8 @@ var Player = db.model('Player', {
   firstname:    { type: String },
   surname:      { type: String },
   position:     { type: String},
-  goals:        { type: Number },
-  moms:         { type: Number }
+  goals:        { type: Number, default: 0 },
+  moms:         { type: Number, default: 0 }
 })
 
 module.exports = Player

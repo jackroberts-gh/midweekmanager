@@ -97,7 +97,7 @@
 }
 .card-img-player {
   border-radius: 4px;
-  background: url("../public/playericon.jpg") no-repeat center center;
+  /*background: url("../public/playericon.jpg") no-repeat center center;*/
   background-size: cover;
 }
 .card-img-overlay {
