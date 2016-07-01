@@ -26,9 +26,9 @@
     <div id="team" class="tab-pane fade in active">
       <div class="container">
         <div class="row">
-          <div class="col-md-2" ng-repeat="player in team.players">
+          <div class="col-md-2" ng-repeat="player in team.players | orderBy: positionOrder">
             <div class="card card-inverse">
-              <img class="card-img-player" src="../public/{{$index + 1}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
+              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
               <div class="card-img-overlay">
                 <h1 class="card-title">{{ $index + 1 }}</h1>
                 <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
