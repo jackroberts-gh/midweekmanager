@@ -25,4 +25,12 @@ $(document).ready(function () {
   $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');
   });
+
+  $(function(){
+     var navMain = $("#sidebar-wrapper");
+     navMain.on("click", "a", null, function () {
+       $("#wrapper").removeClass('toggled');
+       hamburger_cross();
+     });
+ });
 });
