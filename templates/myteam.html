@@ -13,6 +13,7 @@
 <div class="container top-buffer">
   <div class="container">
   <h2>{{ team.name | uppercase }}</h2>
+    <h4>Managed by {{ team.manager.surname | uppercase }}, {{ team.manager.firstname | uppercase }} </h4>
   <hr />
   <ul class="nav nav-pills">
     <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
@@ -21,16 +22,55 @@
     <li><a data-toggle="tab" data-target="#hons">Honours</a></li>
   </ul>
   <br />
-  <h4>Managed by {{ team.manager.surname | uppercase }}, {{ team.manager.firstname | uppercase }} </h4>
   <div class="tab-content">
     <div id="team" class="tab-pane fade in active">
       <div class="container">
         <div class="row">
-          <div class="col-md-2" ng-repeat="player in team.players | orderBy: positionOrder">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Goalkeeper' | orderBy: positionOrder">
             <div class="card card-inverse">
               <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
               <div class="card-img-overlay">
-                <h1 class="card-title">{{ $index + 1 }}</h1>
+                <h1 class="card-title">{{ team.players.indexOf(player) + 1 }}</h1>
+                <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
+                <p class="card-text">Goals: {{player.goals}}</p>
+                <p class="card-text">MOMs: {{player.moms}}</p>
+              </div>
+            </div>
+            <h1>hi</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Defender' | orderBy: positionOrder">
+            <div class="card card-inverse">
+              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
+              <div class="card-img-overlay">
+                <h1 class="card-title">{{ team.players.indexOf(player) + 1 }}</h1>
+                <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
+                <p class="card-text">Goals: {{player.goals}}</p>
+                <p class="card-text">MOMs: {{player.moms}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Midfielder' | orderBy: positionOrder">
+            <div class="card card-inverse">
+              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
+              <div class="card-img-overlay">
+                <h1 class="card-title">{{ team.players.indexOf(player) + 1 }}</h1>
+                <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
+                <p class="card-text">Goals: {{player.goals}}</p>
+                <p class="card-text">MOMs: {{player.moms}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Forward' | orderBy: positionOrder">
+            <div class="card card-inverse">
+              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
+              <div class="card-img-overlay">
+                <h1 class="card-title">{{ team.players.indexOf(player) + 1}}</h1>
                 <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
                 <p class="card-text">Goals: {{player.goals}}</p>
                 <p class="card-text">MOMs: {{player.moms}}</p>

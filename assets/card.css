@@ -10,6 +10,7 @@
 .card-title {
   margin-top: 0;
   margin-bottom: .5em;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .card-subtitle {
   margin-top: 0;
@@ -75,11 +76,13 @@
 .card-inverse .card-title,
 .card-inverse .card-blockquote {
   color: #fff;
+  font-size: 1.4em;
 }
 .card-inverse .card-link,
 .card-inverse .card-text,
 .card-inverse .card-blockquote > footer {
   color: #ffffff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .card-inverse .card-link:hover,
 .card-inverse .card-link:focus {
