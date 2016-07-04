@@ -10,13 +10,21 @@
                         <h1>Midweek Manager</h1>
                         <h3>Manage your fives, sevens, and elevens</h3>
                         <hr class="intro-divider">
-                        <div id="create-buttons">
+                        <div ng-if="currentUser" id="create-buttons">
                           <ul class="list-inline create-team">
                             <a class="btn btn-lg btn-success" href="#/createteam" role="button">Create a Team</a>
                           </ul>
                           <ul class="list-inline create-team">
                           <a class="btn btn-lg btn-primary" href="#/createteam" role="button">Join a Team</a>
                         </ul>
+                        </div>
+                        <div ng-if="!currentUser" id="create-buttons">
+                          <ul class="list-inline create-team">
+                            <a class="btn btn-lg btn-success" href="#/register" role="button">Sign up now!</a>
+                          </ul>
+                          <ul class="list-inline create-team">
+                            <a class="btn btn-lg btn-primary" href="#/login" role="button">Log in</a>
+                          </ul>
                         </div>
                     </div>
                 </div>
@@ -133,6 +141,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p class="copyright text-muted small">Copyright &copy; Midweek Manager. All Rights Reserved</p>
+                    <p class="copyright text-muted small">BUILD VERSION 0.1</p>
                 </div>
             </div>
         </div>
