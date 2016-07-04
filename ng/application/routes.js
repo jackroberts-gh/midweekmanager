@@ -18,6 +18,11 @@ angular.module('app')
       return UserSvc.getUser();
     }
   }})
+  .when('/manage', { controller: 'TeamCtrl', templateUrl: 'manageteams.html', resolve: {
+    user: function(UserSvc) {
+      return UserSvc.getUser();
+    }
+  }})
   .when('/teams/:team_id', { controller: 'MyTeamCtrl', templateUrl: 'myteam.html', resolve: {
     user: function(UserSvc) {
       return UserSvc.getUser();

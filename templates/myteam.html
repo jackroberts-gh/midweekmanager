@@ -1,5 +1,3 @@
-<div class='container top-buffer'>
-</div>
 <div class="banner">
 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
   <div>
@@ -19,12 +17,14 @@
     <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
     <li><a data-toggle="tab" data-target="#fixs">Fixtures</a></li>
     <li><a data-toggle="tab" data-target="#stats">Statistics</a></li>
-    <li><a data-toggle="tab" data-target="#hons">Honours</a></li>
+    <li><a data-toggle="modal" data-target="#myModal">Invite Players</a></li>
   </ul>
   <br />
   <div class="tab-content">
     <div id="team" class="tab-pane fade in active">
       <div class="container">
+        <h1>Squad</h1>
+        <hr />
         <div class="row">
           <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Goalkeeper' | orderBy: positionOrder">
             <div class="card card-inverse">
@@ -100,13 +100,42 @@
       </table>
     </div>
     <div id="stats" class="tab-pane fade">
-      <h3>Stats placeholder</h3>
-      <p>Lorem ipsum.</p>
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Record</th>
+            <th>Number</th>
+            <th>Player</th>
+          </tr>
+        </thead>
+      <tr>
+          <td>Top Goalscorer</td>
+          <td>{{ topgoalscorer.number }}</td>
+          <td>{{ topgoalscorer.player }}</td>
+      </tr>
+      </table>
     </div>
-    <div id="hons" class="tab-pane fade">
-      <h3>Honours placeholder</h3>
-      <p>Eaque ipsa.</p>
-    </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Join {{team.name}}</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <p class="undefined">Give this code to your team to allow them to join the squad.</p>
+                <input type="text" class="form-control" value="{{team._id}}" readonly="true">
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Thanks</button>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 </div>
