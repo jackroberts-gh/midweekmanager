@@ -1,4 +1,4 @@
-<div class='container top-buffer'>
+<!--<div class='container top-buffer'>
   <h1>Registration</h1>
   <hr/>
   <form ng-submit="register(username, email, firstname, surname, dateofbirth, password)">
@@ -28,4 +28,44 @@
   </div>
   <input class="btn btn-success btn-lg btn-block" type="submit" value="Register">
 </form>
+</div>-->
+
+<div class="register-buffer">
+<div class="form-body">
+  <div class="container">
+    <form class="form-signin" ng-submit="register(username, email, firstname, surname, dateofbirth, password)">
+      <!--<div id="loginerror" class="alert alert-danger fade in hidden">
+        <strong>Error!</strong> Your credentials are incorrect. Please try again.
+      </div>-->
+      <div class="form-group">
+      <label for="inputEmail" class="sr-only">E-Mail</label>
+      <input ng-model="email" ng-change="suggestUsername()" type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input ng-model="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+      <label for="inputFirstname" class="sr-only">Firstname</label>
+      <input ng-model="firstname" type="text" id="inputFirstname" class="form-control" placeholder="First Name" required>
+      <label for="inputSurname" class="sr-only">Surname</label>
+      <input ng-model="surname" type="text" id="inputSurname" class="form-control" placeholder="Surname" required>
+      <label for="inputDateofbirth" class="sr-only">Date of Birth</label>
+      <input ng-model="dateofbirth" type="text" id="inputDateofbirth" class="form-control" placeholder="Date of Birth" required>
+      <label for="inputMobilenumber" class="sr-only">Mobile Number</label>
+      <input ng-model="mobilenumber" type="text" id="inputMobilenumber" class="form-control" placeholder="Mobile Number" required>
+      </div>
+      <div class="form-group">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="inputConfirmpassword" class="sr-only">Confirm</label>
+      <input ng-model="confirmpassword" type="password" id="inputConfirmpassword" class="form-control" placeholder="Confirm Password" required>
+      </div>
+      <!--<div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>-->
+      <input class="btn btn-success btn-lg btn-block" type="submit" value="Register">
+    </form>
+  </div> <!-- /container -->
+</div> <!-- /form-body -->
 </div>

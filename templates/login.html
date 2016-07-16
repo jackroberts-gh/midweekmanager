@@ -1,4 +1,4 @@
-<div class='container top-buffer'>
+<!--<div class='container top-buffer'>
   <h1>Log in</h1>
   <hr/>
   <form ng-submit="login(username, password)">
@@ -15,4 +15,25 @@
   </div>
   <input class="btn btn-success btn-lg btn-block" type="submit" value="Login">
 </form>
+</div>-->
+<div class="login-buffer">
+<div class="form-body">
+  <div class="container">
+    <form class="form-signin" ng-submit="login(username, password)">
+      <div id="loginerror" class="alert alert-danger fade in hidden">
+        <strong>Error!</strong> Your credentials are incorrect. Please try again.
+      </div>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input ng-model="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <!--<div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>-->
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+  </div> <!-- /container -->
+</div> <!-- /form-body -->
 </div>
