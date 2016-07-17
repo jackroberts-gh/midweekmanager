@@ -33,15 +33,15 @@
 <div class="register-buffer">
 <div class="form-body">
   <div class="container">
-    <form class="form-signin" ng-submit="register(username, email, firstname, surname, dateofbirth, password)">
+    <form class="form-signin" ng-submit="register(username, email, firstname, surname, dateofbirth, mobilenumber, password)">
       <!--<div id="loginerror" class="alert alert-danger fade in hidden">
         <strong>Error!</strong> Your credentials are incorrect. Please try again.
       </div>-->
       <div class="form-group">
       <label for="inputEmail" class="sr-only">E-Mail</label>
-      <input ng-model="email" ng-change="suggestUsername()" type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+      <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
       <label for="inputUsername" class="sr-only">Username</label>
-      <input ng-model="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required>
+      <input ng-model="username" ng-blur="checkUsername(username)" type="text" id="inputUsername" class="form-control" placeholder="Username" required>
       </div>
       <div class="form-group">
       <label for="inputFirstname" class="sr-only">Firstname</label>
@@ -49,7 +49,7 @@
       <label for="inputSurname" class="sr-only">Surname</label>
       <input ng-model="surname" type="text" id="inputSurname" class="form-control" placeholder="Surname" required>
       <label for="inputDateofbirth" class="sr-only">Date of Birth</label>
-      <input ng-model="dateofbirth" type="text" id="inputDateofbirth" class="form-control" placeholder="Date of Birth" required>
+      <input ng-model="dateofbirth" type="date" id="inputDateofbirth" class="form-control" placeholder="Date of Birth" required>
       <label for="inputMobilenumber" class="sr-only">Mobile Number</label>
       <input ng-model="mobilenumber" type="text" id="inputMobilenumber" class="form-control" placeholder="Mobile Number" required>
       </div>

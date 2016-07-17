@@ -4,6 +4,14 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 /* Jack's Navbar overwrites */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type=date].form-control,
+  input[type=time].form-control,
+  input[type=datetime-local].form-control,
+  input[type=month].form-control {
+    line-height: inherit !important;
+  }
+}
 .form-body {
   padding-top: 40px;
   padding-bottom: 40px;
