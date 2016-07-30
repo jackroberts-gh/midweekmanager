@@ -6,6 +6,32 @@
 
  /* Jack's Navbar overwrites */
 
+ /* *********************************
+           Big Logo
+  ********************************** */
+.big-logo-row {
+  background: gold;
+
+  .big-logo-container {
+    padding-top: 100px;
+  }
+
+  h1 {
+  font-size: 4em;
+  margin:0;
+  padding:0 0 5px;
+
+  @media (min-width: 400px) { font-size: 4.5em; }
+  @media (min-width: 440px) { font-size: 5.5em; }
+  @media (min-width: 500px) { font-size: 6.5em; }
+  @media (min-width: 630px) { font-size: 7.5em;  }
+  @media (min-width: 768px) { font-size: 9em; padding-bottom: 5px; }
+  @media (min-width: 1200px) { font-size: 12em; }
+  }
+
+}
+
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
 input[type=date].form-control, input[type=time].form-control, input[type=datetime-local].form-control, input[type=month].form-control {
     line-height: inherit !important;
@@ -574,7 +600,7 @@ html { height: 100%;}
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
 .hamburger.is-closed .hamb-bottom {
-  background-color: #cccccc;
+  background-color: #797979;
 }
 .hamburger.is-closed .hamb-top {
   top: 5px;
