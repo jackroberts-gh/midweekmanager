@@ -15,7 +15,7 @@
 .card-title {
   margin-top: 0;
   margin-bottom: .5em;
-  //text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
 .card-subtitle {
@@ -25,6 +25,7 @@
 
 .card-text:last-child {
   margin-bottom: 0;
+  font-style: italic;
 }
 
 .card-link {
@@ -156,9 +157,16 @@
   url("../public/teamicon.jpg") no-repeat center center;
   background-size: cover;
 }
-.card-img-football-2 {
+.card-img-football-2{
   border-radius: @panel-border-radius;
-  background: Red; //url("../public/teamicon.jpg") no-repeat center center;
+  background:
+  /* top, transparent red, faked with gradient */
+  linear-gradient(
+    rgba(100, 149, 237, 0.45),
+    rgba(0, 128, 0, 0.45),
+  ),
+  /* bottom, image */
+  url("../public/teamicon.jpg") no-repeat center center;
   background-size: cover;
 }
 .card-img-player {

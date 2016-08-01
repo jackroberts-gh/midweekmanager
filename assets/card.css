@@ -11,6 +11,7 @@
 .card-title {
   margin-top: 0;
   margin-bottom: .5em;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .card-subtitle {
   margin-top: 0;
@@ -18,6 +19,7 @@
 }
 .card-text:last-child {
   margin-bottom: 0;
+  font-style: italic;
 }
 .card-link {
   text-decoration: none;
@@ -100,7 +102,7 @@
 }
 .card-img-football-2 {
   border-radius: 4px;
-  background: Red;
+  background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(0, 128, 0, 0.45)), /* bottom, image */ url("../public/teamicon.jpg") no-repeat center center;
   background-size: cover;
 }
 .card-img-player {
