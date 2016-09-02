@@ -1,18 +1,20 @@
 var Player = require('../../models/player');
 var router = require('express').Router();
 
+// \\ ** PLAYER API ENDPOINT ** \\ //
+
 router.get('/', function (req, res, next) {
   //if (!req.headers['x-auth']) {
   //  return res.sendStatus(401)
   //}
-  if (req.auth.username) {
+  //if (req.auth.username) {
     Player.find()
     .sort('-date')
     .exec(function (err, players) {
       if (err) { return next(err) }
       res.json(players)
     })
-  }
+  //}
 //  else {
 //    res.status(401)
 //  }
@@ -36,15 +38,16 @@ router.get('/:user_id', function (req, res, next) {
 })
 
 router.post('/', function (req, res, next) {
-  var team = new Team({
-    name:    req.body.name,
-    type:    req.body.type,
-    playday: req.body.playday,
-    manager: req.body.manager
+  var player = new Player({
+    _userid:    req.body._userid,
+    position:   req.body.position,
+    firstname:  req.body.firstname,
+    surname:    req.body.surname
+
   })
-  team.save(function (err, team) {
+  player.save(function (err, player) {
     if (err) { return next(err) }
-    res.status(201).json(team)
+    res.status(201).json(player)
   })
 })
 

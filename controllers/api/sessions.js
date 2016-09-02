@@ -4,6 +4,8 @@ var jwt    = require('jsonwebtoken')
 var config = require('../../config')
 var User   = require('../../models/user')
 
+// \\ ** SESSIONS API ENDPOINT ** \\ //
+
 router.post('/', function (req, res, next) {
   var username = req.body.username
   User.findOne({username: username})

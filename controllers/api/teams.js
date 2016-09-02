@@ -2,7 +2,7 @@ var Team = require('../../models/team');
 var Fixture = require('../../models/fixture');
 var router = require('express').Router();
 
-// \\ ** TEAM SERVICE ** \\ //
+// \\ ** TEAM API ENDPOINT ** \\ //
 
 router.get('/', function (req, res, next) {
   if (!req.headers['x-auth']) {
@@ -82,6 +82,20 @@ router.post('/', function (req, res, next) {
     res.status(201).json(team)
   })
 })
+
+router.put('/player', function (req, res) {
+  Team.findByIdAndUpdate(
+    req.body.team_id,
+    {$push: {players: {_id: req.body.player_id}}},
+        {new: true},
+        function(err, doc){
+            if(err){
+                res.send(err);
+            } else {
+                res.json(doc);
+            }
+        });
+});
 
 router.get('/:team_id', (function(req, res) {
         Team.findById(req.params.team_id, function(err, team) {

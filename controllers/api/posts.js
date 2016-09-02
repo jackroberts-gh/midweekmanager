@@ -1,6 +1,8 @@
 var Post = require('../../models/post');
 var router = require('express').Router();
 
+// \\ ** POSTS API ENDPOINT ** \\ //
+
 router.get('/', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)

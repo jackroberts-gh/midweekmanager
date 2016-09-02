@@ -22,61 +22,24 @@
   <br />
   <div class="tab-content">
     <div id="team" class="tab-pane fade in active">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Goalkeeper' | orderBy: positionOrder">
-            <div class="card card-inverse">
-              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
-              <div class="card-img-overlay">
-                <h1 class="card-title">{{ team.players.indexOf(player) + 1 }}</h1>
-                <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
-                <p class="card-text">Goals: {{player.goals}}</p>
-                <p class="card-text">MOMs: {{player.moms}}</p>
-              </div>
-            </div>
-            <h1>hi</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Defender' | orderBy: positionOrder">
-            <div class="card card-inverse">
-              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
-              <div class="card-img-overlay">
-                <h1 class="card-title">{{ team.players.indexOf(player) + 1 }}</h1>
-                <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
-                <p class="card-text">Goals: {{player.goals}}</p>
-                <p class="card-text">MOMs: {{player.moms}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Midfielder' | orderBy: positionOrder">
-            <div class="card card-inverse">
-              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
-              <div class="card-img-overlay">
-                <h1 class="card-title">{{ team.players.indexOf(player) + 1 }}</h1>
-                <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
-                <p class="card-text">Goals: {{player.goals}}</p>
-                <p class="card-text">MOMs: {{player.moms}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4" ng-repeat="player in team.players | filter: 'Forward' | orderBy: positionOrder">
-            <div class="card card-inverse">
-              <img class="card-img-player" ng-src="public/{{player.position}}/{{icons[$index]}}.jpg" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
-              <div class="card-img-overlay">
-                <h1 class="card-title">{{ team.players.indexOf(player) + 1}}</h1>
-                <h2 class="card-title">{{ player.firstname | uppercase }}<br />{{ player.surname | uppercase }}</h2>
-                <p class="card-text">Goals: {{player.goals}}</p>
-                <p class="card-text">MOMs: {{player.moms}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Goals</th>
+            <th>MOM</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="player in team.players | orderBy:positionOrder">
+          <td>{{ $index+1 }}</td>
+          <td>{{ player.firstname | uppercase }} {{ player.surname | uppercase }}</td>
+          <td>{{ player.position }}</td>
+          <td>{{ player.goals }}</td>
+          <td>{{ player.moms }}</td>
+      </tr>
+      </table>
     </div>
     <div id="fixs" class="tab-pane fade">
       <table class="table">

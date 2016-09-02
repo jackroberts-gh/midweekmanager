@@ -4,6 +4,8 @@ var jwt    = require('jsonwebtoken')
 var User   = require('../../models/user')
 var config = require('../../config')
 
+// \\ ** USERS API ENDPOINT ** \\ //
+
 router.get('/', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)

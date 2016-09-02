@@ -19,7 +19,7 @@
         </div>
     </div>
 </div>
-<form role="form" ng-submit="registerTeam(teamname, teamtype, dayofplay)">
+<form role="form" ng-submit="registerTeam(teamname, teamtype, dayofplay, position)">
     <div class="row setup-content" id="step-1">
 
         <div class="col-xs-12">
@@ -30,26 +30,22 @@
 
                 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="service_name">Team Name</label>
+  <label class="col-md-4 control-label" for="service_name">What is your team called?</label>
   <div class="col-md-5">
     <input ng-model="teamname" id="service_name" name="service_name" type="text" placeholder="" class="form-control input-md">
   </div>
-</div>
 <br>
 <br>
 <!--Select Basic -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="stack_id">Team type</label>
+  <label class="col-md-4 control-label" for="stack_id">What do you play?</label>
   <div class="col-md-5">
     <select ng-model="teamtype" id="stack_id" name="stack_id" class="form-control">
       <option value="Football">Football</option>
     </select>
   </div>
-</div>
 <br>
 <br>
 <!-- Text input-->
-<div class="form-group">
   <label class="col-md-4 control-label" for="service_architecture">What day do you play?</label>
   <div class="col-md-5">
     <select ng-model="dayofplay" id="stack_id" name="stack_id" class="form-control">
@@ -62,9 +58,19 @@
       <option value="Sunday">Sunday</option>
     </select>
 </div>
+<br>
+<br>
+<!-- Text input-->
+  <label class="col-md-4 control-label" for="service_architecture">What position do you play?</label>
+  <div class="col-md-5">
+    <select ng-model="position" id="stack_id" name="stack_id" class="form-control">
+      <option value="Goalkeeper">Goalkeeper</option>
+      <option value="Defender">Defender</option>
+      <option value="Midfielder">Midfielder</option>
+      <option value="Forward">Forward</option>
+    </select>
+  </div>
 </div>
-<br>
-<br>
                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
             </div>
         </div>
