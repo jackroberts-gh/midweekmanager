@@ -2,7 +2,6 @@ angular.module('app')
 .controller('CreateTeamCtrl', function ($scope, UserSvc, TeamService, PlayerService) {
 
   $scope.registerTeam = function (teamname, teamtype, dayofplay, position) {
-
     TeamService.create(teamname, teamtype, dayofplay, $scope.currentUser._id)
     .success(function (team) {
       PlayerService.create($scope.currentUser._id, position, $scope.currentUser.firstname, $scope.currentUser.surname)
@@ -13,6 +12,5 @@ angular.module('app')
         })
       })
     })
-    //  window.location.href = '/#/';
   }
 })

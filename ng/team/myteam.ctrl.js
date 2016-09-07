@@ -3,14 +3,16 @@ angular.module('app')
 
   $scope.icons = [];
 
-  TeamService.fetchOne($routeParams.team_id).success(function(team) {
+  TeamService.fetchOne($routeParams.team_id)
+  .success(function(team) {
       $scope.team = team;
       angular.forEach($scope.team.players, function(value, key) {
         if ($scope[value.position] === undefined) {
-          $parse(value.position).assign($scope, 1);}
-          else {
+          $parse(value.position).assign($scope, 1);
+        }
+        else {
             $scope[value.position]++;
-          }
+        }
           $scope.icons.push($scope[value.position])
       });
     })

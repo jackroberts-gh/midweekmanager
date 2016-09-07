@@ -4,37 +4,37 @@ var router = require('express').Router();
 // \\ ** PLAYER API ENDPOINT ** \\ //
 
 router.get('/', function (req, res, next) {
-  //if (!req.headers['x-auth']) {
-  //  return res.sendStatus(401)
-  //}
-  //if (req.auth.username) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
+  if (req.auth.username) {
     Player.find()
     .sort('-date')
     .exec(function (err, players) {
       if (err) { return next(err) }
       res.json(players)
     })
-  //}
-//  else {
-//    res.status(401)
-//  }
+  }
+  else {
+    res.status(401)
+  }
 })
 
 router.get('/:user_id', function (req, res, next) {
-//  if (!req.headers['x-auth']) {
-//    return res.sendStatus(401)
-//  }
-  //if (req.auth.username) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
+  if (req.auth.username) {
       Player.find({'_userid': req.params.user_id}, '_id')
       .sort('-date')
       .exec(function (err, players) {
         if (err) { return next(err) }
         res.json(players)
       })
-  //}
-//  else {
-  //  res.status(401)
-  //}
+  }
+  else {
+    res.status(401)
+  }
 })
 
 router.post('/', function (req, res, next) {
