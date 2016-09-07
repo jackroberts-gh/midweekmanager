@@ -9,7 +9,7 @@ svc.login = function(username, password) {
   return $http.post('/api/sessions', {
     username: username, password: password
   }).then(function(val) {
-    window.localStorage.token = val.data
+    window.localStorage.midweekmanagertoken = val.data
     $http.defaults.headers.common['X-Auth'] = val.data
     return svc.getUser()
     })
@@ -24,7 +24,7 @@ svc.login = function(username, password) {
   }
 
   svc.logout = function() {
-      window.localStorage.removeItem("token")
+      window.localStorage.removeItem("midweekmanagertoken")
       $http.defaults.headers.common['X-Auth'] = ''
   }
 })

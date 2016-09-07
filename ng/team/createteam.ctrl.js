@@ -7,11 +7,12 @@ angular.module('app')
     .success(function (team) {
       PlayerService.create($scope.currentUser._id, position, $scope.currentUser.firstname, $scope.currentUser.surname)
       .success(function (player) {
-        console.log("assigning player to team " + team._id);
         TeamService.assignPlayerToTeam(team._id, player._id)
-        console.log("afterwards?");
+        .success(function() {
+            window.location.href = '/#/';
+        })
       })
     })
-      window.location.href = '/#/';
+    //  window.location.href = '/#/';
   }
 })

@@ -1,5 +1,5 @@
 <!-- Header -->
-<div>
+<div class="bg">
     <a name="about"></a>
     <div class="intro-header">
         <div class="container">
@@ -11,18 +11,18 @@
                         <h3>Manage your fives, sevens, and elevens</h3>
                         <hr class="intro-divider">
                         <div ng-if="currentUser" id="create-buttons">
-                          <ul class="list-inline create-team">
+                          <ul class="list-inline homepage">
                             <a class="btn btn-lg btn-success" href="#/createteam" role="button">Create a Team</a>
                           </ul>
-                          <ul class="list-inline create-team">
-                          <a class="btn btn-lg btn-primary" href="#/createteam" role="button">Join a Team</a>
+                          <ul class="list-inline homepage">
+                          <a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">Join a Team</a>
                         </ul>
                         </div>
                         <div ng-if="!currentUser" id="create-buttons">
-                          <ul class="list-inline create-team">
+                          <ul class="list-inline homepage">
                             <a class="btn btn-lg btn-success" href="#/register" role="button">Sign up now!</a>
                           </ul>
-                          <ul class="list-inline create-team">
+                          <ul class="list-inline homepage">
                             <a class="btn btn-lg btn-primary" href="#/login" role="button">Log in</a>
                           </ul>
                         </div>
@@ -37,8 +37,6 @@
     <!-- /.intro-header -->
 
     <!-- Page Content -->
-
-<a  name="services"></a>
   <div class="content-section-a">
 
       <div class="container">
@@ -80,35 +78,12 @@
       <!-- /.container -->
 
   </div>
+
   <!-- /.content-section-b -->
-
-  <div class="content-section-a">
-
-      <div class="container">
-
-          <div class="row">
-              <div class="col-lg-5 col-sm-6">
-                  <hr class="section-heading-spacer">
-                  <div class="clearfix"></div>
-                  <h2 class="section-heading">Visualise your teams statistics<br><span class="text-muted">for great insights!</span></h2>
-                  <p class="lead">Optastat schmoptaschmat - using Midweek Manager, see who your toughest opponents are, who's your most valuable player, and who is f****** useless.</p>
-              </div>
-              <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                  <img class="img-responsive" src="public/pitch.jpg" alt="">
-              </div>
-          </div>
-
-      </div>
-      <!-- /.container -->
-
-  </div>
-  <!-- /.content-section-a -->
-
-<a  name="contact"></a>
+<br>
+<br>
   <div class="banner">
-
       <div class="container">
-
           <div class="row">
               <div class="col-lg-6">
                   <h2>Midweek Manager</h2>
@@ -127,23 +102,56 @@
                   </ul>
               </div>
           </div>
-
       </div>
+    </div>
       <!-- /.container -->
-
-  </div>
-</div>
     <!-- /.banner -->
+
+    <!-- join a team modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Join a team</h4>
+          </div>
+          <form name="jointeam" ng-submit="joinTeam(teamToJoinID, position)">
+  <!-- 2 step modal tbc -->
+          <div class="modal-body">
+              <p class="undefined">Enter the code you were given by the manager below: </p>
+              <input type="text" class="form-control" type="text" ng-model="teamToJoinID">
+          </div>
+          <div class="modal-body">
+              <p class="undefined">Choose your position </p>
+              <select ng-model="position" id="position" name="position" class="form-control">
+                <option value="Goalkeeper">Goalkeeper</option>
+                <option value="Defender">Defender</option>
+                <option value="Midfielder">Midfielder</option>
+                <option value="Forward">Forward</option>
+              </select>
+
+          </div>
+          <div class="modal-footer">
+              <input class="btn btn-primary" type="submit" data-dismiss="modal" value="Join">
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- / join a team modal -->
 
     <!-- Footer -->
     <footer>
-        <div class="container">
+        <div class="container bg">
             <div class="row">
                 <div class="col-lg-12">
                     <p class="copyright text-muted small">Copyright &copy; Midweek Manager. All Rights Reserved</p>
-                    <p class="copyright text-muted small">BUILD VERSION 0.1</p>
+                    <p class="copyright text-muted small">BUILD VERSION 1.0.0</p>
                 </div>
             </div>
         </div>
     </footer>
+  </div>
 <!--Scripts for this page-->

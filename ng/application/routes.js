@@ -2,7 +2,7 @@ angular.module('app')
 .config(function($httpProvider, $interpolateProvider, $routeProvider){
   $httpProvider.interceptors.push('httpRequestInterceptor');
   $routeProvider
-  .when('/', { controller: 'HomeCtrl', templateUrl: 'home.html'})
+  .when('/', { controller: 'JoinTeamCtrl', templateUrl: 'home.html'})
   .when('/createteam', { controller: 'CreateTeamCtrl', templateUrl: 'createteam.html', resolve: {
     user: function(UserSvc) {
       return UserSvc.getUser();

@@ -1,7 +1,8 @@
 .card {
   position: relative;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   margin-bottom: 20px;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -110,17 +111,17 @@
   background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(225, 123, 0, 0.45)), /* bottom, image */ url("../public/teamicon.jpg") no-repeat center center;
   background-size: cover;
 }
-.card-img-football-4 {
+.card-img-football-6 {
   border-radius: 4px;
   background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(255, 0, 0, 0.45)), /* bottom, image */ url("../public/teamicon.jpg") no-repeat center center;
   background-size: cover;
 }
-.card-img-football-5 {
+.card-img-football-4 {
   border-radius: 4px;
   background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(0, 128, 0, 0.45)), /* bottom, image */ url("../public/teamicon.jpg") no-repeat center center;
   background-size: cover;
 }
-.card-img-football-6 {
+.card-img-football-5 {
   border-radius: 4px;
   background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(225, 123, 0, 0.45)), /* bottom, image */ url("../public/teamicon.jpg") no-repeat center center;
   background-size: cover;

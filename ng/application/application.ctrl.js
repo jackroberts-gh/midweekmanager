@@ -1,7 +1,7 @@
 angular.module('app')
 .controller('ApplicationCtrl', function($scope, $http, $location, UserSvc) {
- if (window.localStorage.getItem("token") != null) {
-      $http.defaults.headers.common['X-Auth'] = window.localStorage.getItem("token")
+ if (window.localStorage.getItem("midweekmanagertoken") != null) {
+      $http.defaults.headers.common['X-Auth'] = window.localStorage.getItem("midweekmanagertoken")
       UserSvc.getUser().success(function(user) {
         $scope.currentUser = user
       })

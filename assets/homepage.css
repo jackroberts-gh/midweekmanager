@@ -6,12 +6,13 @@
 /* Jack's Navbar overwrites */
 /* *********************************
            Big Logo
-  ********************************** */
+  ***********************************/
 .big-logo-row {
   background: #ffd700;
+  background: url("../public/bgpattern.png");
 }
 .big-logo-row .big-logo-container {
-  padding-top: 100px;
+  padding-top: 75px;
 }
 .big-logo-row h1 {
   font-size: 4em;
@@ -189,7 +190,7 @@
   line-height: 1.428571429;
   border-radius: 15px;
 }
-.create-team {
+.homepage {
   margin-top: 20px;
 }
 .jumbotron {
@@ -230,6 +231,9 @@ h6 {
   color: #f8f8f8;
   background: url("../public/carousel.jpg") no-repeat center center;
   background-size: cover;
+}
+.bg {
+  background: url("../public/bgpattern.png");
 }
 .intro-message {
   position: relative;
@@ -276,12 +280,11 @@ h6 {
 }
 .content-section-a {
   padding: 50px 0;
-  background-color: #f8f8f8;
 }
 .content-section-b {
   padding: 50px 0;
-  border-top: 1px solid #e7e7e7;
-  border-bottom: 1px solid #e7e7e7;
+  --border-top: 1px solid #e7e7e7;
+  --border-bottom: 1px solid #e7e7e7;
 }
 .section-heading {
   margin-bottom: 30px;
@@ -292,7 +295,7 @@ h6 {
   border-top: 3px solid #e7e7e7;
 }
 .banner {
-  padding: 150px 0;
+  padding: 100px 0;
   color: #f8f8f8;
   background: url("../public/bottombanner.jpg") no-repeat center center;
   background-size: cover;

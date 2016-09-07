@@ -5,7 +5,7 @@ angular.module('app')
   // Need to create a player and add to the team upon creation of team.
   TeamService.fetchTeamsIManage($scope.currentUser._id).success(function(teams) {
       $scope.teamsManaged = teams;
-      console.log('teams managed', teams);
+      //console.log('teams managed', teams);
     })
 
     PlayerService.fetchMyPlayers($scope.currentUser._id).success(function(players) {
@@ -15,7 +15,7 @@ angular.module('app')
                })
         TeamService.fetchMyTeams($scope.players).success(function(teams) {
             $scope.teamsPlayedFor = teams;
-            console.log('teams', teams);
+            //console.log('teams', teams);
           })
       })
 
