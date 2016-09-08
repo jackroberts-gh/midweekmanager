@@ -7,6 +7,9 @@ angular.module('app')
       $scope.$emit('login', response.data)
       window.location.href = '/#/';
       })
+      .catch(function(err) {
+        $("#registererror").removeClass('hidden');
+      })
     }
 
     $scope.checkUsername = function() {
