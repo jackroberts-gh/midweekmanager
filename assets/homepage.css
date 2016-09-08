@@ -282,9 +282,9 @@ h6 {
   padding: 50px 0;
 }
 .content-section-b {
-  padding: 50px 0;
-  --border-top: 1px solid #e7e7e7;
-  --border-bottom: 1px solid #e7e7e7;
+  padding: 60px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
 }
 .section-heading {
   margin-bottom: 30px;
@@ -444,7 +444,6 @@ html {
 }
 .sidebar-nav li:first-child a {
   color: #fff;
-  background-color: #2b2b2b;
 }
 .sidebar-nav li:nth-child(2):before {
   background-color: #ec1b5a;

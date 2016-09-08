@@ -4,7 +4,6 @@
     <!-- Start -->
     <!--Scripts-->
     <script src="/scripts/jquery.min.js"></script>
-    <link rel="stylesheet" href="/scripts/bootstrap.min.css">
     <script src="/scripts/bootstrap.min.js"></script>
     <script src="/scripts/angular.js"></script>
     <script src="/scripts/angular-route.js"></script>
@@ -14,6 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Midweek Manager">
     <meta name="author" content="Jack Roberts">
+    <link rel="stylesheet" href="/scripts/bootstrap.min.css">
+    <link rel="stylesheet" href="/scripts/font-awesome.min.css">
     <link rel="stylesheet" href="/public/homepage.css" />
     <link rel="stylesheet" href="/public/card.css" />
   </head>
@@ -25,9 +26,9 @@
       <ul class="nav sidebar-nav">
           <li ng-if="!currentUser" class="sidebar-brand">
             <a>
-               MM
+               <i id="icon" class="fa fa-medium" style="text-shadow: none; font-size: 30px; color: rgb(255, 255, 255); height: 30px; width: 30px; line-height: 30px; border-radius: 0%; text-align: center;"></i> </a>
             </a>
-        </li>
+          </li>
         <div ng-if="currentUser" class="profile-sidebar">
           <div class="profile-userpic">
             <img src="public/profile.jpg" class="img-responsive" alt="">

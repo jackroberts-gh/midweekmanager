@@ -17,11 +17,14 @@ app.use('/scripts', express.static('node_modules/bootstrap/dist/css/'));
 app.use('/scripts', express.static('node_modules/bootstrap/dist/js/'));
 app.use('/scripts', express.static('node_modules/angular/'));
 app.use('/scripts', express.static('node_modules/angular-route/'));
+app.use('/scripts', express.static('node_modules/jquery/dist/'));
+app.use('/scripts', express.static('node_modules/font-awesome/css/'));
 
 app.use('/public', express.static('assets/'));
 app.use('/public', express.static('assets/images/'));
 app.use('/fonts', express.static('node_modules/bootstrap/dist/fonts/'));
+app.use('/fonts', express.static('node_modules/font-awesome/fonts/'));
 
 app.listen(3000, function() {
-  console.log('Server running on port 3000.');
+  console.log('Midweek Manager is running on port 3000.');
 })
