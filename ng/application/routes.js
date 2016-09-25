@@ -1,6 +1,7 @@
 angular.module('app')
 .config(function($httpProvider, $interpolateProvider, $routeProvider){
   $httpProvider.interceptors.push('httpRequestInterceptor');
+
   $routeProvider
   .when('/', { controller: 'JoinTeamCtrl', templateUrl: 'home.html'})
   .when('/createteam', { controller: 'CreateTeamCtrl', templateUrl: 'createteam.html', resolve: {
@@ -27,14 +28,3 @@ angular.module('app')
   .when('/login', { controller: 'LoginCtrl', templateUrl: 'login.html'})
   .when('/logout', { controller: 'LogoutCtrl', template: ""})
 })
-
-.factory('httpRequestInterceptor', function ($q, $location) {
-    return {
-        'responseError': function(rejection) {
-            if(rejection.status === 401){
-                $location.path('/login')
-            }
-            return $q.reject(rejection);
-         }
-     };
-});
