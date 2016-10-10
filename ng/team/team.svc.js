@@ -11,7 +11,6 @@ angular.module('app')
 
   this.fetchMyTeams = function(players) {
     return $http.get('/api/teams/myteams/' + players)
-    // the following didnt work previosly but may come in hand in future: { params: { "players" : players}})
   }
 
   this.fetchOne = function(team_id) {

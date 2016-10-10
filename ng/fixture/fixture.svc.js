@@ -9,8 +9,8 @@ angular.module('app')
     return $http.get('/api/fixtures/' + team_id)
   }
 
-  this.fetchOne = function(team_id) {
-    return $http.get('/api/team/fixture/' + team_id)
+  this.fetchOne = function(fixture_id) {
+    return $http.get('/api/team/fixture/' + fixture_id)
   }
 
   this.create = function(teamname, teamtype, dayofplay, manager) {
@@ -22,8 +22,8 @@ angular.module('app')
     })
   }
 
-  this.assignPlayerToTeam = function(team_id, player_id) {
-    return $http.put('/api/teams/player', {
+  this.assignPlayerToFixture = function(fixture_id, player_id) {
+    return $http.put('/api/team/fixture', {
         team_id: team_id,
         player_id: player_id
     })

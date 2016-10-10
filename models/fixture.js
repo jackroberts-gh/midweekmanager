@@ -8,8 +8,8 @@ var SelectedPlayer = new db.Schema({
 });
 
 var Fixture = db.model('Fixture', {
-  date:                { type: Date },
-  opposition:          { type: String },
+  date:                { type: Date, required: true, default:Date.now },
+  opposition:          { type: String, required: true },
   goalsfor:            { type: Number },
   goalsagainst:        { type: Number },
   played:              { type: [SelectedPlayer] }
