@@ -34,7 +34,8 @@ angular.module('app')
   };
 
   $scope.addFixture = function(date, opposition) {
-    
+    console.log('hitting method');
+    $("#addFixtureModal").modal('hide');
   }
 
 })
