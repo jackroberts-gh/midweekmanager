@@ -7,6 +7,9 @@
 /* *********************************
            Big Logo
   ***********************************/
+.nav-pills {
+  cursor: pointer;
+}
 .big-logo-row {
   background: #ffd700;
   background: url("../public/bgpattern.png");
@@ -354,6 +357,12 @@ p.copyright {
 }
 #myModal {
   margin-top: 250px;
+}
+#addFixtureModal {
+  margin-top: 160px;
+}
+#joinTeamModal {
+  margin-top: 150px;
 }
 .undefined {
   font-weight: 400;
