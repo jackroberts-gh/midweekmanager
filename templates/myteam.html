@@ -94,13 +94,13 @@
       <div id="addfixtureerror" class="alert alert-danger fade in hidden">
         <strong>Uh oh!</strong> You seem to have missed something - please review the fixture.
       </div>
-      <form name="addfixture" ng-submit="addFixture(opposition, date)">
+      <form name="addfixture" ng-submit="addFixture(opposition, fixturedate)">
 <!-- 2 step modal tbc -->
       <div class="modal-body">
           <p class="undefined" >Opposition: </p>
           <input type="text" class="form-control" type="text" ng-model="opposition">
           <p class="undefined" style="margin-top:10px">Date: </p>
-          <input ng-model="date" type="date" id="inputDateofbirth" class="form-control" placeholder="Gameday: " required>
+          <input type="date" id="inputDateofbirth" class="form-control" ng-model="fixturedate">
       </div>
       <div class="modal-footer">
           <input class="btn btn-primary" type="submit" value="Add">

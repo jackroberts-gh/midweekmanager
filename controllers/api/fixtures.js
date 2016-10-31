@@ -21,81 +21,23 @@ router.get('/', function (req, res, next) {
   // }
 })
 
-router.get('/:manager_id', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401)
-  }
-  if (req.auth.username) {
-    Team.find({'manager': req.params.manager_id})
-    .sort('-date')
-    .exec(function (err, teams) {
-      if (err) { return next(err) }
-      res.json(teams)
-    })
-  }
-  else {
-    res.status(401)
-  }
-})
-
-router.get('/myteams/:players', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401)
-  }
-  if (req.auth.username) {
-    var ids = req.params.players.split(",");
-
-    Team.find({'players': { $in : ids } })
-    .sort('-date')
-    .exec(function (err, teams) {
-      if (err) { return next(err) }
-      res.json(teams)
-    })
-  }
-  else {
-    res.status(401)
-  }
-})
-
-router.get('/team/:team_id', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401)
-  }
-  if (req.auth.username) {
-    Team.findById(req.params.team_id)
-    .populate('players')
-    .populate('manager')
-    .populate('fixtures')
-    .sort('-date')
-    .exec(function (err, teams) {
-      if (err) { return next(err) }
-      res.json(teams)
-    })
-  }
-  else {
-    res.status(401)
-  }
-})
-
 router.post('/', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401)
-  }
-  if (req.auth.username) {
-    var team = new Team({
-      name:    req.body.name,
-      type:    req.body.type,
-      playday: req.body.playday,
-      manager: req.body.manager
+//  if (!req.headers['x-auth']) {
+  //  return res.sendStatus(401)
+//  }
+//  if (req.auth.username) {
+    var fixture = new Fixture({
+      opposition: req.body.opposition,
+      fixturedate: req.body.fixturedate
     })
-    team.save(function (err, team) {
+    fixture.save(function (err, fix) {
       if (err) { return next(err) }
-      res.status(201).json(team)
+      res.status(201).json(fix)
     })
-  }
-  else {
-    res.status(401)
-  }
+//  }
+  //else {
+  //  res.status(401)
+  //}
 })
 
 router.put('/player', function (req, res) {

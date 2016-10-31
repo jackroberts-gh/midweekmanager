@@ -135,6 +135,8 @@ router.put('/player', function (req, res) {
   })
 )
 
+// Currently unused below
+
 router.put('/:team_id', function(req, res) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)

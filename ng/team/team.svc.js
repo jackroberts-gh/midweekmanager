@@ -33,4 +33,11 @@ angular.module('app')
     })
   }
 
+  this.assignFixtureToTeam = function(team_id, fixture_id) {
+    return $http.put('/api/teams/fixture', {
+        team_id: team_id,
+        fixture_id: fixture_id
+    })
+  }
+
 })

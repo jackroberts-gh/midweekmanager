@@ -1,4 +1,5 @@
 angular.module('app')
+
 .config(function($httpProvider, $interpolateProvider, $routeProvider){
   $httpProvider.interceptors.push('httpRequestInterceptor');
 

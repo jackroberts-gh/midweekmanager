@@ -13,12 +13,10 @@ angular.module('app')
     return $http.get('/api/fixtures/fixture/' + fixture_id)
   }
 
-  this.create = function(teamname, teamtype, dayofplay, manager) {
+  this.create = function(opposition, fixturedate) {
     return $http.post('/api/fixtures', {
-      name: teamname,
-      type: teamtype,
-      playday: dayofplay,
-      manager: manager
+      opposition: opposition,
+      fixturedate: fixturedate
     })
   }
 
