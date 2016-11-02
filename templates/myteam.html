@@ -52,8 +52,8 @@
             <th>Result</th>
           </tr>
         </thead>
-        <tr ng-repeat="fixture in team.fixtures | orderBy:'date'">
-          <td>{{ fixture.date | date:'dd/MM/yyyy' }}</td>
+        <tr ng-repeat="fixture in team.fixtures | orderBy:'fixturedate'">
+          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }}</td>
           <td>{{ fixture.opposition }}</td>
           <td>{{ fixture.goalsfor }} - {{ fixture.goalsagainst }}</td>
           <td ng-show="fixture.goalsfor > fixture.goalsagainst">Win</td>

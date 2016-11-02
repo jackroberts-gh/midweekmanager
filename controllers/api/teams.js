@@ -21,6 +21,7 @@ router.get('/', function (req, res, next) {
   }
 })
 
+// Fetch teams I manage
 router.get('/:manager_id', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
@@ -38,6 +39,7 @@ router.get('/:manager_id', function (req, res, next) {
   }
 })
 
+// Get all teams my player ID is in
 router.get('/myteams/:players', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
@@ -57,6 +59,7 @@ router.get('/myteams/:players', function (req, res, next) {
   }
 })
 
+// Get team and populate information
 router.get('/team/:team_id', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
@@ -77,6 +80,7 @@ router.get('/team/:team_id', function (req, res, next) {
   }
 })
 
+// Create team
 router.post('/', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
@@ -98,6 +102,7 @@ router.post('/', function (req, res, next) {
   }
 })
 
+// Assign player to team
 router.put('/player', function (req, res) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
@@ -120,7 +125,30 @@ router.put('/player', function (req, res) {
     }
   })
 
-  router.get('/:team_id', (function(req, res) {
+// Assign fixture to team_id// Assign player to team
+router.put('/fixture', function (req, res) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
+  if (req.auth.username) {
+    Team.findByIdAndUpdate(
+      req.body.team_id,
+      {$push: {fixtures: {_id: req.body.fixture_id}}},
+      {new: true},
+      function(err, doc){
+        if(err){
+          res.send(err)
+        } else {
+          res.json(doc)
+        }
+      })
+    }
+    else {
+      res.status(401)
+    }
+  })
+
+router.get('/:team_id', (function(req, res) {
     if (!req.headers['x-auth']) {
       return res.sendStatus(401)
     }

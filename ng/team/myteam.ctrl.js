@@ -2,8 +2,7 @@ angular.module('app')
 .controller('MyTeamCtrl', function ($scope, UserSvc, TeamService, FixtureService, $routeParams, $parse) {
 
   $scope.icons = [];
-
-
+  $scope.fixtures = [];
 
   TeamService.fetchOne($routeParams.team_id)
   .success(function(team) {
@@ -38,8 +37,16 @@ angular.module('app')
   $scope.addFixture = function(opposition, fixturedate) {
     //Call fixture service to create fixture
     FixtureService.create(opposition, fixturedate)
-      .success(function(fixture) {
-          $scope.fixtures.push(fixture);
+      .success(function(fix) {
+        $scope.team.fixtures.push(fix);
+            TeamService.assignFixtureToTeam($routeParams.team_id, fix._id)
+            .success(function() {
+                $("#addFixtureModal").modal('hide');
+            })
+            .error(function() {
+
+            })
+
       })
       .error(function(err) {
         // show error dialog
@@ -47,7 +54,6 @@ angular.module('app')
     // Call team service to assign fixture to team
     // Done
 
-    $("#addFixtureModal").modal('hide');
   }
 
 })
