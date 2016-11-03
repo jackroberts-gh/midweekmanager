@@ -4,7 +4,9 @@ angular.module('app')
   $scope.icons = [];
   $scope.fixtures = [];
 
-  TeamService.fetchOne($routeParams.team_id)
+  var teamid = $routeParams.team_id;
+
+  TeamService.fetchOne(teamid)
   .success(function(team) {
     $scope.team = team;
     angular.forEach($scope.team.players, function(value, key) {
@@ -17,6 +19,10 @@ angular.module('app')
       $scope.icons.push($scope[value.position])
     });
   })
+
+  $scope.showFixture = function(fixture) {
+    $location.path('/teams/' + teamid + '/fixture/' + team.fixture);
+  };
 
   $scope.positionOrder = function (item) {
     switch (item.position) {
@@ -39,21 +45,16 @@ angular.module('app')
     FixtureService.create(opposition, fixturedate)
       .success(function(fix) {
         $scope.team.fixtures.push(fix);
-            TeamService.assignFixtureToTeam($routeParams.team_id, fix._id)
+            TeamService.assignFixtureToTeam(teamid, fix._id)
             .success(function() {
                 $("#addFixtureModal").modal('hide');
             })
             .error(function() {
-
+                // show error modal
             })
-
-      })
-      .error(function(err) {
+          })
+        .error(function(err) {
         // show error dialog
       })
-    // Call team service to assign fixture to team
-    // Done
-
   }
-
 })

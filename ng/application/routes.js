@@ -25,6 +25,11 @@ angular.module('app')
       return UserSvc.getUser();
     }
   }})
+  .when('/teams/:team_id/fixture/:fixture_id', { controller: 'MyFixturesCtrl', controllerAs: 'vm', templateUrl: 'myteamfixtures.html', resolve: {
+    user: function(UserSvc) {
+      return UserSvc.getUser();
+    }
+  }})
   .when('/register', { controller: 'RegisterCtrl', templateUrl: 'register.html'})
   .when('/login', { controller: 'LoginCtrl', templateUrl: 'login.html'})
   .when('/logout', { controller: 'LogoutCtrl', template: ""})

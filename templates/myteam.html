@@ -46,6 +46,7 @@
       <table class="table">
         <thead class="thead-inverse">
           <tr>
+            <th> </th>
             <th>Date</th>
             <th>Opposition</th>
             <th>Score</th>
@@ -53,14 +54,17 @@
           </tr>
         </thead>
         <tr ng-repeat="fixture in team.fixtures | orderBy:'fixturedate'">
+          <td><a class="btn btn-team-page" role="button">View</a></td>
           <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }}</td>
           <td>{{ fixture.opposition }}</td>
           <td>{{ fixture.goalsfor }} - {{ fixture.goalsagainst }}</td>
+          <td ng-show="!fixture.goalsfor && !fixture.goalsagainst">TBC</td>
           <td ng-show="fixture.goalsfor > fixture.goalsagainst">Win</td>
           <td ng-show="fixture.goalsfor < fixture.goalsagainst">Lose</td>
         </tr>
       </table>
-      <a class="btn btn-success" role="button" data-toggle="modal" data-target="#addFixtureModal">Add fixture</a>
+      <hr />
+      <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#addFixtureModal">Add fixture</a>
     </div>
     <div id="stats" class="tab-pane fade">
       <table class="table">

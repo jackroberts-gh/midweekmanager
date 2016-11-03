@@ -7,6 +7,12 @@
 /* *********************************
            Big Logo
   ***********************************/
+.btn-team-page {
+  padding: 4px 12px;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
 .nav-pills {
   cursor: pointer;
 }
@@ -24,33 +30,33 @@
 }
 @media (min-width: 400px) {
   .big-logo-row h1 {
-    font-size: 4.5em;
+    font-size: 3em;
   }
 }
 @media (min-width: 440px) {
   .big-logo-row h1 {
-    font-size: 5.5em;
+    font-size: 4em;
   }
 }
 @media (min-width: 500px) {
   .big-logo-row h1 {
-    font-size: 6.5em;
+    font-size: 5em;
   }
 }
 @media (min-width: 630px) {
   .big-logo-row h1 {
-    font-size: 7.5em;
+    font-size: 5.5em;
   }
 }
 @media (min-width: 768px) {
   .big-logo-row h1 {
-    font-size: 9em;
+    font-size: 5.5em;
     padding-bottom: 5px;
   }
 }
 @media (min-width: 1200px) {
   .big-logo-row h1 {
-    font-size: 12em;
+    font-size: 6em;
   }
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {

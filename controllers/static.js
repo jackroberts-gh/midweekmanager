@@ -10,6 +10,6 @@ router.get('/todolist', function(req, res) {
   res.sendFile('todo.html', { root: rootPath });
 })
 
-router.use(express.static(__dirname + '/../templates'))
+router.use(express.static(__dirname + '/../templates'));
 
 module.exports = router
