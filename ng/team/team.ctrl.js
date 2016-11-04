@@ -9,9 +9,13 @@ angular.module('app')
                })
         TeamService.fetchMyTeams($scope.players)
         .success(function(teams) {
+          if (teams.length === 1) {
+            $location.path('/teams/' + teams[0]._id);
+          }
+          else {
             $scope.teamsPlayedFor = teams;
             //console.log('teams', teams);
-          })
+          }})
       })
 
     $scope.showTeam = function(team) {
