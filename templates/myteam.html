@@ -34,7 +34,7 @@
           </tr>
         </thead>
         <tr ng-repeat="player in team.players | orderBy:positionOrder">
-          <td><a class="btn btn-team-page" role="button">View</a></td>
+          <td><a class="btn btn-team-page" role="button" ng-click="showPlayer(player._userid)">View</a></td>
           <td>{{ player.firstname | uppercase }} {{ player.surname | uppercase }}</td>
           <td>{{ player.position }}</td>
           <td>{{ player.goals }}</td>

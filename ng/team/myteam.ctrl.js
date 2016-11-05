@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('MyTeamCtrl', function ($scope, UserSvc, TeamService, FixtureService, $routeParams, $parse) {
+.controller('MyTeamCtrl', function ($scope, $location, UserSvc, TeamService, FixtureService, $routeParams, $parse) {
 
   $scope.icons = [];
   $scope.fixtures = [];
@@ -20,8 +20,12 @@ angular.module('app')
     });
   })
 
-  $scope.showFixture = function(fixture) {
-    $location.path('/teams/' + teamid + '/fixture/' + team.fixture);
+  $scope.showFixture = function(fixture_id) {
+    $location.path('/teams/' + teamid + '/fixture/' + fixture_id);
+  };
+
+  $scope.showPlayer = function(player_id) {
+    $location.path('/teams/' + teamid + '/player/' + player_id);
   };
 
   $scope.positionOrder = function (item) {

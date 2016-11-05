@@ -3,7 +3,7 @@ angular.module('app')
 
     PlayerService.fetchMyPlayers($scope.currentUser._id)
     .success(function(players) {
-      $scope.players = []
+      $scope.players = [];
       angular.forEach(players, function(item){
                    $scope.players.push(item._id);
                })

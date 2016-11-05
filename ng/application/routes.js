@@ -30,6 +30,11 @@ angular.module('app')
       return UserSvc.getUser();
     }
   }})
+  .when('/teams/:team_id/player/:player_id', { controller: 'MyPlayersCtrl', controllerAs: 'vm', templateUrl: 'myteamplayers.html', resolve: {
+    user: function(UserSvc) {
+      return UserSvc.getUser();
+    }
+  }})
   .when('/register', { controller: 'RegisterCtrl', templateUrl: 'register.html'})
   .when('/login', { controller: 'LoginCtrl', templateUrl: 'login.html'})
   .when('/logout', { controller: 'LogoutCtrl', template: ""})
