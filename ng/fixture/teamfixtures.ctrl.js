@@ -7,5 +7,9 @@ function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $ro
 
   var vm = this;
 
-  
-}
+  FixtureService.fetchFixture($routeParams.fixture_id)
+    .success(function(fixture) {
+        vm.fixture = fixture;
+        console.dir(vm.fixture);
+    })
+  }

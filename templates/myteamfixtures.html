@@ -11,8 +11,8 @@
 <div class="bg">
 <div class="container top-buffer">
   <div class="container">
-  <h2>Insert fixture name here</h2>
-    <h4>Insert Date here</h4>
+  <h1>You vs {{ vm.fixture.opposition }}</h1>
+  <h4>{{ vm.fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ vm.fixture.fixturedate | date:'HH:mm'}}</b></h4>
   <hr />
 
   <br />

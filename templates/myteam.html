@@ -54,8 +54,8 @@
           </tr>
         </thead>
         <tr ng-repeat="fixture in team.fixtures | orderBy:'fixturedate'">
-          <td><a class="btn btn-fixture-page" role="button">View</a></td>
-          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }}</td>
+          <td><a class="btn btn-fixture-page" role="button" ng-click="showFixture(fixture._id)">View</a></td>
+          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
           <td>{{ fixture.opposition }}</td>
           <td>{{ fixture.goalsfor }} - {{ fixture.goalsagainst }}</td>
           <td ng-show="!fixture.goalsfor && !fixture.goalsagainst">TBC</td>
@@ -103,8 +103,8 @@
       <div class="modal-body">
           <p class="undefined" >Opposition: </p>
           <input type="text" class="form-control" type="text" ng-model="opposition">
-          <p class="undefined" style="margin-top:10px">Date: </p>
-          <input type="date" id="inputDateofbirth" class="form-control" ng-model="fixturedate">
+          <p class="undefined" style="margin-top:10px">Date and Time: </p>
+          <input type="datetime-local" id="inputDateOfFixture" class="form-control" ng-model="fixturedate">
       </div>
       <div class="modal-footer">
           <input class="btn btn-primary" type="submit" value="Add">

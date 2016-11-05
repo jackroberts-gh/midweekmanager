@@ -125,7 +125,7 @@ router.put('/player', function (req, res) {
     }
   })
 
-// Assign fixture to team_id// Assign player to team
+// Assign fixture to team_id
 router.put('/fixture', function (req, res) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)

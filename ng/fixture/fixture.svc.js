@@ -9,7 +9,7 @@ angular.module('app')
     return $http.get('/api/fixtures/' + team_id)
   }
 
-  this.fetchOne = function(fixture_id) {
+  this.fetchFixture = function(fixture_id) {
     return $http.get('/api/fixtures/fixture/' + fixture_id)
   }
 
