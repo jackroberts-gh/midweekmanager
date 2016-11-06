@@ -11,7 +11,6 @@
 <div class="bg">
 <div class="container top-buffer">
   <div class="container">
-  <a type="button" class="btn btn-info" ng-click="backToTeam()"><span class="glyphicon glyphicon-menu-left"></span> Back to Team</a>
   <h4>{{ vm.fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ vm.fixture.fixturedate | date:'HH:mm'}}</b></h4>
   <hr />
   <div>
@@ -35,5 +34,7 @@
       </tr>
     </table>
   </div>
+  <hr />
+  <a type="button" class="btn btn-primary" href="javascript:history.back()"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
 </div>
 </div>

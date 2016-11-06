@@ -16,8 +16,8 @@
   <hr />
   <ul class="nav nav-pills">
     <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
-    <li><a data-toggle="tab" data-target="#fixs">Fixtures/Results</a></li>
-    <li><a data-toggle="tab" data-target="#stats">Statistics</a></li>
+    <li><a data-toggle="tab" data-target="#fixs">Fixtures</a></li>
+    <li><a data-toggle="tab" data-target="#results">Results</a></li>
     <li><a data-toggle="modal" data-target="#myModal">Invite</a></li>
   </ul>
   <br />
@@ -58,20 +58,20 @@
       <hr />
       <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#addFixtureModal">Add fixture</a>
     </div>
-    <div id="stats" class="tab-pane fade">
+    <div id="results" class="tab-pane fade">
       <table class="table">
         <thead class="thead-inverse">
           <tr>
-            <th>Record</th>
-            <th>Player</th>
-            <th>Count</th>
+            <th> </th>
+            <th>Vs</th>
+            <th>Date</th>
           </tr>
         </thead>
-      <tr>
-          <td>Top Goalscorer</td>
-          <td>{{ topgoalscorer.number }}</td>
-          <td>{{ topgoalscorer.player }}</td>
-      </tr>
+        <tr ng-repeat="fixture in team.fixtures | orderBy:'fixturedate'">
+          <td><a class="btn btn-fixture-page" role="button" ng-click="showFixture(fixture._id)">View</a></td>
+          <td>{{ fixture.opposition }}</td>
+          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
+        </tr>
       </table>
     </div>
   </div>

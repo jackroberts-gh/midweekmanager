@@ -12,6 +12,7 @@ var Fixture = db.model('Fixture', {
   fixturedate:         { type: Date, required: true },
   goalsfor:            { type: Number },
   goalsagainst:        { type: Number },
+  result:              { type: Boolean, default: false },
   played:              { type: [SelectedPlayer] }
 })
 
