@@ -12,7 +12,7 @@
 <div class="container top-buffer">
   <div class="container">
   <h2>{{ team.name | uppercase }}</h2>
-    <h4>Managed by {{ team.manager.surname | uppercase }}, {{ team.manager.firstname | uppercase }} </h4>
+    <h4>Managed by {{ team.manager.firstname | uppercase }} {{ team.manager.surname | uppercase }} </h4>
   <hr />
   <ul class="nav nav-pills">
     <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
@@ -28,7 +28,6 @@
           <tr>
             <th> </th>
             <th>Name</th>
-            <th>Position</th>
             <th>Goals</th>
             <th>MOM</th>
           </tr>
@@ -36,7 +35,6 @@
         <tr ng-repeat="player in team.players | orderBy:positionOrder">
           <td><a class="btn btn-team-page" role="button" ng-click="showPlayer(player._userid)">View</a></td>
           <td>{{ player.firstname | uppercase }} {{ player.surname | uppercase }}</td>
-          <td>{{ player.position }}</td>
           <td>{{ player.goals }}</td>
           <td>{{ player.moms }}</td>
       </tr>
@@ -47,20 +45,14 @@
         <thead class="thead-inverse">
           <tr>
             <th> </th>
+            <th>Vs</th>
             <th>Date</th>
-            <th>Opposition</th>
-            <th>Score</th>
-            <th>Result</th>
           </tr>
         </thead>
         <tr ng-repeat="fixture in team.fixtures | orderBy:'fixturedate'">
           <td><a class="btn btn-fixture-page" role="button" ng-click="showFixture(fixture._id)">View</a></td>
-          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
           <td>{{ fixture.opposition }}</td>
-          <td>{{ fixture.goalsfor }} - {{ fixture.goalsagainst }}</td>
-          <td ng-show="!fixture.goalsfor && !fixture.goalsagainst">TBC</td>
-          <td ng-show="fixture.goalsfor > fixture.goalsagainst">Win</td>
-          <td ng-show="fixture.goalsfor < fixture.goalsagainst">Lose</td>
+          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
         </tr>
       </table>
       <hr />

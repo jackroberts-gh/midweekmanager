@@ -11,10 +11,29 @@
 <div class="bg">
 <div class="container top-buffer">
   <div class="container">
-  <h1>You vs {{ vm.fixture.opposition }}</h1>
+  <a type="button" class="btn btn-info" ng-click="backToTeam()"><span class="glyphicon glyphicon-menu-left"></span> Back to Team</a>
   <h4>{{ vm.fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ vm.fixture.fixturedate | date:'HH:mm'}}</b></h4>
   <hr />
-
-  <br />
+  <div>
+    <table class="table">
+      <colgroup>
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+      </colgroup>
+      <thead class="thead">
+        <tr>
+          <th style="text-align: right;">YOU</th>
+          <th style="text-align: center;">{{ vm.fixture.goalsfor }} - {{ vm.fixture.goalsagainst }}</th>
+          <th style="text-align: left;">{{ vm.fixture.opposition | uppercase }}</th>
+        </tr>
+      </thead>
+      <tr>
+        <td style="text-align: right;">Goalscorers</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
 </div>
 </div>
