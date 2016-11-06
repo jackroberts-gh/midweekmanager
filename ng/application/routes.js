@@ -30,6 +30,11 @@ angular.module('app')
       return UserSvc.getUser();
     }
   }})
+  .when('/teams/:team_id/result/:fixture_id', { controller: 'MyResultsCtrl', controllerAs: 'vm', templateUrl: 'myteamresults.html', resolve: {
+    user: function(UserSvc) {
+      return UserSvc.getUser();
+    }
+  }})
   .when('/teams/:team_id/player/:player_id', { controller: 'MyPlayersCtrl', controllerAs: 'vm', templateUrl: 'myteamplayers.html', resolve: {
     user: function(UserSvc) {
       return UserSvc.getUser();

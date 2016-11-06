@@ -1,3 +1,4 @@
 var app = angular.module('app', [
-  'ngRoute'
+  'ngRoute',
+  'toggle-switch'
 ])

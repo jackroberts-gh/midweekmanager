@@ -11,23 +11,26 @@
 <div class="bg">
 <div class="container top-buffer">
   <div class="container">
-  <h1>Fixture Detail</h1>
+  <h1>Result Detail</h1>
   <hr />
   <h4>{{ vm.fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ vm.fixture.fixturedate | date:'HH:mm'}}</b></h4>
   <hr />
   <div>
     <table class="table">
-      <thead class="thead-inverse">
+      <colgroup>
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+      </colgroup>
+      <thead class="thead">
         <tr>
-          <th>Player</th>
-          <th>In/Out</th>
-          <th>Goals</th>
-          <th>MoM</th>
+          <th style="text-align: right;">{{ vm.teamname }}</th>
+          <th style="text-align: center;">{{ vm.fixture.goalsfor }} - {{ vm.fixture.goalsagainst }}</th>
+          <th style="text-align: left;">{{ vm.fixture.opposition | uppercase }}</th>
         </tr>
       </thead>
-      <tr ng-repeat="player in vm.players">
-        <td>{{ player.firstname }} {{ player.surname }}</td>
-        <td><toggle-switch ng-model="switchStatus"><toggle-switch></td>
+      <tr>
+        <td style="text-align: right;">Goalscorers</td>
         <td></td>
         <td></td>
       </tr>

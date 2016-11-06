@@ -12,7 +12,7 @@ angular.module('app')
         })
       })
     })
-    .error(function() {
+    .error(function(err) {
         $("#jointeamerror").removeClass('hidden');
       })
     }

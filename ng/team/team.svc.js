@@ -1,20 +1,22 @@
 angular.module('app')
 .service('TeamService', function($http) {
 
+  var currentTeam = {};
+
   this.fetchAll = function() {
     return $http.get('/api/teams')
   }
 
   this.fetchTeamsIManage = function(manager_id) {
-    return $http.get('/api/teams/' + manager_id)
+    return $http.get('/api/teams/' + manager_id);
   }
 
   this.fetchMyTeams = function(players) {
-    return $http.get('/api/teams/myteams/' + players)
+    return $http.get('/api/teams/myteams/' + players);
   }
 
   this.fetchOne = function(team_id) {
-    return $http.get('/api/teams/team/' + team_id)
+    return $http.get('/api/teams/team/' + team_id);
   }
 
   this.create = function(teamname, teamtype, dayofplay, manager) {
