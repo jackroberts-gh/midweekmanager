@@ -2,9 +2,9 @@ var db = require('../db')
 
 var SelectedPlayer = new db.Schema({
   _playerid: { type: db.Schema.Types.ObjectId, ref: 'Player' },
-  goals: { type: Number },
-  mom:  { type: Boolean },
-  in:    { type: Boolean }
+  goals:     { type: Number },
+  mom:       { type: Boolean, default: false },
+  in:        { type: Boolean, default: false }
 });
 
 var Fixture = db.model('Fixture', {
@@ -16,4 +16,4 @@ var Fixture = db.model('Fixture', {
   played:              { type: [SelectedPlayer] }
 })
 
-module.exports = Fixture
+module.exports = Fixture;

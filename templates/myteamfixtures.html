@@ -25,9 +25,9 @@
           <th>MoM</th>
         </tr>
       </thead>
-      <tr ng-repeat="player in vm.players">
+      <tr ng-repeat="player in vm.team.players">
         <td>{{ player.firstname }} {{ player.surname }}</td>
-        <td><toggle-switch ng-model="switchStatus"><toggle-switch></td>
+        <td><toggle-switch on-label="IN" off-label="OUT" ng-model="player.in" ng-disabled="player._userid !== vm.user._id" ng-click="vm.print(player)"></toggle-switch></td>
         <td></td>
         <td></td>
       </tr>
