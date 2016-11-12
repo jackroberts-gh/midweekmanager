@@ -1,13 +1,12 @@
-<div class="bg">
-<div class='jumbotron'>
+<div class='jumbotronny'>
   <div class='container'>
     <h1>Midweek Manager</h1>
-    <p class='lead-jumbotron'>
+    <p class='lead-jumbotronny'>
       Post any feedback/ideas here please!
     </p>
 </div>
 </div>
-<div class="container">
+<div class="container top-buffer bg">
 <form role='form'>
   <div class='form-group'>
     <div class="input-group">
@@ -22,6 +21,7 @@
   <li ng-repeat="post in posts | orderBy:'-date'" class='list-group-item'>
     <strong>@{{ post.username }}</strong>
     <span class='comment'>{{ post.body }}</span>
+    <br />
   </li>
 </ul>
 </div>

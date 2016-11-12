@@ -41,6 +41,7 @@
   <label class="col-md-4 control-label" for="stack_id">What do you play?</label>
   <div class="col-md-5">
     <select ng-model="teamtype" id="stack_id" name="stack_id" class="form-control">
+      <option value="" disabled hidden></option>
       <option value="Football">Football</option>
     </select>
   </div>
@@ -49,7 +50,8 @@
 <!-- Text input-->
   <label class="col-md-4 control-label" for="service_architecture">What day do you play?</label>
   <div class="col-md-5">
-    <select ng-model="dayofplay" id="stack_id" name="stack_id" class="form-control">
+    <select ng-model="dayofplay" id="stack_id" name="stack_id" class="form-control" required>
+    <option value="" disabled hidden></option>
       <option value="Monday">Monday</option>
       <option value="Tuesday">Tuesday</option>
       <option value="Wednesday">Wednesday</option>
@@ -65,6 +67,7 @@
   <label class="col-md-4 control-label" for="service_architecture">What position do you play?</label>
   <div class="col-md-5">
     <select ng-model="position" id="stack_id" name="stack_id" class="form-control">
+      <option value="" disabled hidden></option>
       <option value="Goalkeeper">Goalkeeper</option>
       <option value="Defender">Defender</option>
       <option value="Midfielder">Midfielder</option>

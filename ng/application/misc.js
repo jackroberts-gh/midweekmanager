@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+  $.material.init();
+
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
      isClosed = false;

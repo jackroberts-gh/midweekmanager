@@ -205,18 +205,15 @@
   line-height: 1.428571429;
   border-radius: 15px;
 }
-.homepage {
-  margin-top: 20px;
-}
-.jumbotron {
+.jumbotronny {
   background-color: #6f5499;
   width: 100%;
 }
-.jumbotron h1,
-.jumbotron .h1 {
+.jumbotronny h1,
+.jumbotronny .h1 {
   color: #fff;
 }
-.lead-jumbotron {
+.lead-jumbotronny {
   color: #fff;
 }
 /* EOCHANGES */
@@ -243,12 +240,22 @@ h6 {
   font-weight: 400;
 }
 .intro-header {
-  padding-top: 90px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  padding-top: 90px;
   padding-bottom: 50px;
   text-align: center;
   color: #f8f8f8;
   background: url("../public/carousel.jpg") no-repeat center center;
   background-size: cover;
+}
+@media (max-width: 500px) {
+  .intro-header {
+    padding-top: 90px;
+    padding-bottom: 225px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url("../public/carousel.jpg") no-repeat center center;
+    background-size: cover;
+  }
 }
 .bg {
   background: url("../public/bgpattern.png");
@@ -368,7 +375,7 @@ p.copyright {
   margin-top: 75px;
 }
 .login-buffer {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 .alignwithcards {
   margin-left: 15px;
