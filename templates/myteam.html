@@ -1,19 +1,8 @@
-<div class="banner">
-<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-  <div>
-    <h1>Midweek Manager</h1>
-    <p class='lead-jumbotron'>
-      Manage your fives, sevens, and elevens.
-    </p>
-</div>
-</div>
-</div>
-<div class="bg">
-<div class="container top-buffer">
+<div class="container top-buffer bg">
   <div class="container">
   <h2>{{ team.name | uppercase }}</h2>
     <h4>Managed by {{ team.manager.firstname | uppercase }} {{ team.manager.surname | uppercase }} </h4>
-  <hr />
+  <hr class="dark" />
   <ul class="nav nav-pills">
     <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
     <li><a data-toggle="tab" data-target="#fixs">Fixtures</a></li>
@@ -33,7 +22,7 @@
           </tr>
         </thead>
         <tr ng-repeat="player in team.players | orderBy:positionOrder">
-          <td><a class="btn btn-primary" role="button" ng-click="showPlayer(player._userid)">View</a></td>
+          <td><a class="btn-sm btn-primary" role="button" ng-click="showPlayer(player._userid)">View</a></td>
           <td>{{ player.firstname | uppercase }} {{ player.surname | uppercase }}</td>
           <td>{{ player.goals }}</td>
           <td>{{ player.moms }}</td>
@@ -50,7 +39,7 @@
           </tr>
         </thead>
         <tr ng-repeat="fixture in team.fixtures | filter: { result: false } | orderBy:'fixturedate'">
-          <td><a class="btn btn-primary" role="button" ng-click="showFixture(fixture._id)">View</a></td>
+          <td><a class="btn-sm btn-primary" role="button" ng-click="showFixture(fixture._id)">View</a></td>
           <td>{{ fixture.opposition }}</td>
           <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
         </tr>
@@ -68,7 +57,7 @@
           </tr>
         </thead>
         <tr ng-repeat="fixture in team.fixtures | filter: { result: true } | orderBy:'fixturedate'">
-          <td><a class="btn btn-primary" role="button" ng-click="showResult(fixture._id)">View</a></td>
+          <td><a class="btn-sm btn-primary" role="button" ng-click="showResult(fixture._id)">View</a></td>
           <td>{{ fixture.opposition }}</td>
           <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
         </tr>

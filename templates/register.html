@@ -1,35 +1,3 @@
-<!--<div class='container top-buffer'>
-  <h1>Registration</h1>
-  <hr/>
-  <form ng-submit="register(username, email, firstname, surname, dateofbirth, password)">
-  <div class="form-group">
-    <label>Email</label>
-    <input class="form-control" type="email" ng-model="email" ng-change="suggestUsername()">
-  </div>
-  <div class="form-group">
-    <label>Username</label>
-    <input class="form-control" type="text" ng-model="username">
-  </div>
-  <div class="form-group">
-    <label>First Name</label>
-    <input class="form-control" type="text" ng-model="firstname">
-  </div>
-  <div class="form-group">
-    <label>Surname</label>
-    <input class="form-control" type="text" ng-model="surname">
-  </div>
-  <div class="form-group">
-    <label>Date of Birth</label>
-    <input class="form-control" type="date" ng-model="dateofbirth">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input class="form-control" type="password" ng-model="password">
-  </div>
-  <input class="btn btn-success btn-lg btn-block" type="submit" value="Register">
-</form>
-</div>-->
-
 <div class="register-buffer bg">
 <div class="form-body">
   <div class="container">
@@ -38,6 +6,48 @@
         <strong>Uh oh!</strong> It seems that either that username is in use, or that email is already registered with us.
       </div>
       <div class="form-group">
+        <div class="form-control-wrapper">
+          <input class="form-control empty" ng-model="email" id="inputEmail" type="email">
+          <div class="floating-label">Email</div><span class="material-input"></span></div>
+      </div>
+      <div class="form-group">
+        <div class="form-control-wrapper">
+          <input class="form-control empty" ng-model="username" ng-blur="checkUsername(username)" id="inputUsername" type="text">
+          <div class="floating-label">Username</div><span class="material-input"></span></div>
+      </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="firstname" id="inputFirstname" type="text">
+            <div class="floating-label">First Name</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="surname" id="inputSurname" type="text">
+            <div class="floating-label">Surname</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="dateofbirth" id="inputDateofbirth" type="date">
+        <div class="floating-label">Date of Birth</div><span class="material-input"></span></div>
+          </div>
+          <div class="form-group">
+            <div class="form-control-wrapper">
+              <input class="form-control empty" ng-model="mobilenumber" id="inputMobile" type="text">
+              <div class="floating-label">Mobile Number</div><span class="material-input"></span></div>
+          </div>
+          <div class="form-group">
+            <div class="form-control-wrapper">
+              <input class="form-control empty" ng-model="password" id="inputPassword" type="password">
+              <div class="floating-label">Password</div><span class="material-input"></span></div>
+          </div>
+          <div class="form-group">
+            <div class="form-control-wrapper">
+              <input class="form-control empty" ng-model="confirmpassword" id="inputConfirmPassword" type="password">
+              <div class="floating-label">Confirm Password</div><span class="material-input"></span></div>
+          </div>
+
+
+      <!--<div class="form-group">
       <label for="inputEmail" class="sr-only">E-Mail</label>
       <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
       <label for="inputUsername" class="sr-only">Username</label>
@@ -58,7 +68,7 @@
       <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <label for="inputConfirmpassword" class="sr-only">Confirm</label>
       <input ng-model="confirmpassword" type="password" id="inputConfirmpassword" class="form-control" placeholder="Confirm Password" required>
-      </div>
+    </div>
       <!--<div class="checkbox">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
