@@ -6,10 +6,14 @@ MyFixturesCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureSer
 function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams) {
   var vm = this;
 
-  vm.team = TeamService.currentTeam;
+  vm.team = {};
   vm.fixture = {};
   vm.user = {};
   vm.print = createSelectedPlayer;
+
+  TeamService.fetchOne($routeParams.team_id).success(function(team) {
+    vm.team = team;
+  })
 
   FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
     vm.fixture = fixture;

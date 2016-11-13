@@ -14,11 +14,11 @@ gulp.task('watch:cssless_js', ['cssless_js'], function() {
 gulp.task('cssstyls_js', function() {
   gulp.src('styles/*.styl')
   .pipe(stylus())
-  .pipe(gulp.dest('assets'))
+  .pipe(gulp.dest('dist'))
 })
 
 gulp.task('cssless_js', function() {
   gulp.src('styles/*.less')
   .pipe(less())
-  .pipe(gulp.dest('assets'))
+  .pipe(gulp.dest('dist'))
 })

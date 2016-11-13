@@ -9,7 +9,6 @@ angular.module('app')
 
   TeamService.fetchOne(teamid)
     .success(function(team) {
-      TeamService.currentTeam = team;
       $scope.team = team;
     }
   )

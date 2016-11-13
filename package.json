@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "MONGO_URI=mongodb://localhost/midweekmanager gulp dev"
   },
   "dependencies": {
     "abbrev": "^1.0.7",
@@ -288,6 +288,7 @@
     "validate-npm-package-license": "^3.0.1",
     "vinyl": "^0.5.3",
     "vinyl-sourcemaps-apply": "^0.2.1",
+    "webpack-stream": "^3.2.0",
     "when": "^3.7.7",
     "window-size": "^0.1.0",
     "wordwrap": "^0.0.3",
@@ -296,5 +297,8 @@
     "xdg-basedir": "^2.0.0",
     "xtend": "^4.0.1",
     "yargs": "^3.10.0"
+  },
+  "devDependencies": {
+    "imports-loader": "^0.6.5"
   }
 }

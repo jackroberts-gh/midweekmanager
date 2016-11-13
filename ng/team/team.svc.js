@@ -1,8 +1,6 @@
 angular.module('app')
 .service('TeamService', function($http) {
 
-  var currentTeam = {};
-
   this.fetchAll = function() {
     return $http.get('/api/teams')
   }
