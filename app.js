@@ -27,7 +27,7 @@ app.use('/scripts', express.static('node_modules/arrive/src/'));
 app.use('/scripts', express.static('dist/'));
 
 app.use('/public', express.static('dist/'));
-app.use('/public', express.static('dist/images/'));
+app.use('/public', express.static('assets/'));
 app.use('/fonts', express.static('node_modules/bootstrap/dist/fonts/'));
 app.use('/fonts', express.static('node_modules/font-awesome/fonts/'));
 app.use('/fonts', express.static('node_modules/bootstrap-material-design/dist/fonts/'));
