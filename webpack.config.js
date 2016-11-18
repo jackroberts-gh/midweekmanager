@@ -15,7 +15,7 @@ module.exports = {
   ],
   resolve: {
       alias: {
-          jquery: path.resolve(__dirname, 'node_modules', 'jquery', 'dist', 'jquery.min.js'),
+          jquery: path.resolve(__dirname, 'node_modules', 'jquery', 'dist', 'jquery.js'),
           material: path.resolve(__dirname, 'node_modules', 'bootstrap-material-design', 'dist', 'js', 'material.min.js'),
           ripples: path.resolve(__dirname, 'node_modules', 'bootstrap-material-design', 'dist', 'js', 'ripples.min.js'),
           homepage: path.resolve(__dirname, 'dist', 'homepage.css'),
@@ -23,7 +23,7 @@ module.exports = {
       extensions: ['', '.js', '.jsx', '.css'],
       modulesDirectories: [
           'node_modules'
-        ]  
+        ]
   },
   module: {
     loaders: [

@@ -2,6 +2,7 @@ require('expose?$!expose?jQuery!jquery');
 require('angular');
 require('angular-route');
 require('angular-toggle-switch');
+require('bootstrap');
 require('arrive');
 require('material');
 require('ripples');
