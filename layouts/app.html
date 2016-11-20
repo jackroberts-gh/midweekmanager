@@ -1,30 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Start -->
-    <!--Scripts-
-    <script src="/scripts/jquery.min.js"></script>
-    <script src="/scripts/bootstrap.min.js"></script>-->
-
-
     <!-- Styles and Viewports -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Midweek Manager">
     <meta name="author" content="Jack Roberts">
-    <!--<link rel="stylesheet" href="/scripts/bootstrap.min.css">
-
-    <link rel="stylesheet" href="/scripts/material-fullpalette.css">
-    <link rel="stylesheet" href="/scripts/material.css">
-    <link rel="stylesheet" href="/scripts/ripples.css">
-    <link rel="stylesheet" href="/scripts/roboto.css">-->
-
-    <link rel="stylesheet" href="/scripts/angular-toggle-switch.css">
-    <link rel="stylesheet" href="/scripts/font-awesome.min.css">
-
-
-
+    <link rel="stylesheet" href="/scripts/styles.bundle.css" />
   </head>
   <body ng-app='app' ng-controller='ApplicationCtrl'>
     <div id="wrapper">
@@ -39,7 +22,7 @@
           </li>
         <div ng-if="currentUser" class="profile-sidebar">
           <div class="profile-userpic">
-            <img src="public/profile.jpg" class="img-responsive" alt="">
+            <img src="scripts/profile.jpg" class="img-responsive" alt="">
           </div>
           <div class="profile-usertitle">
             <div class="profile-usertitle-name weighted-text">
@@ -85,6 +68,6 @@
 <div ng-view></div>
 </div>
 <script src="/scripts/vendor.bundle.js"></script>
-<script src="/public/midweek_js.js"></script>
+<script src="/scripts/app.bundle.js"></script>
 </body>
 </html>
