@@ -19,7 +19,7 @@ function MyResultsCtrl(UserSvc, TeamService, PlayerService, FixtureService, $rou
     vm.fixture = fixture;
   })
 
-  UserSvc.getUser().then(function(user) {
+  UserSvc.getUser().success(function(user) {
     vm.user = user;
   })
 

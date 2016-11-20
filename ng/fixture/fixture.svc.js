@@ -20,7 +20,7 @@ angular.module('app')
     })
   }
 
-  this.assignPlayerToFixture = function(fixture_id, player_id) {
+  this.populateFixture = function(fixture_id, player_id) {
     return $http.put('/api/fixtures/player', {
         team_id: team_id,
         player_id: player_id

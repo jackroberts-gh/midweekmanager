@@ -46,6 +46,7 @@ $scope.addFixture = function(opposition, fixturedate) {
     $scope.team.fixtures.push(fix);
     TeamService.assignFixtureToTeam(teamid, fix._id).success(function() {
       $("#addFixtureModal").modal('hide');
+      // populate fixture with players
     })
     .error(function() {
       // show error modal for assign fixture problem
