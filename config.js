@@ -1,4 +1,4 @@
-var uuid = require('node-uuid')
+var uuid = require('node-uuid');
 
 module.exports = {
   secret: uuid.v4()
