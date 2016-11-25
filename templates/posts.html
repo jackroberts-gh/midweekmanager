@@ -19,9 +19,11 @@
 </form>
 <ul class='list-group'>
   <li ng-repeat="post in vm.posts | orderBy:'-date'" class='list-group-item'>
+    <div class="post-bg">
     <strong>@{{ post.username }}</strong>
     <span class='comment'>{{ post.body }}</span>
-    <br />
+  </div>
+  <br />
   </li>
 </ul>
 </div>
