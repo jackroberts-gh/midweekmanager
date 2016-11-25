@@ -10,7 +10,7 @@
                         <h1>Midweek Manager</h1>
                         <h3>Manage your fives, sevens, and elevens</h3>
                         <hr class="intro-divider">
-                        <div ng-if="currentUser" id="create-buttons">
+                        <div ng-if="vm.currentUser" id="create-buttons">
                           <ul class="list-inline homepage">
                             <a class="btn btn-lg btn-success" href="#/createteam" role="button">Create a Team</a>
                           </ul>
@@ -18,7 +18,7 @@
                           <a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#joinTeamModal">Join a Team</a>
                         </ul>
                         </div>
-                        <div ng-if="!currentUser" id="create-buttons">
+                        <div ng-if="!vm.currentUser" id="create-buttons">
                           <ul class="list-inline homepage">
                             <a class="btn btn-lg btn-success" href="#/register" role="button">Sign up now!</a>
                           </ul>

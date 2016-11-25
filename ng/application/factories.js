@@ -1,12 +1,15 @@
 angular.module('app')
+.factory('httpRequestInterceptor', requestInterceptor);
 
-.factory('httpRequestInterceptor', function ($q, $location) {
-    return {
-        'responseError': function(rejection) {
-            if(rejection.status === 401){
-                $location.path('/login')
-            }
-            return $q.reject(rejection);
-         }
-     };
-});
+requestInterceptor.$inject = ['$q', '$location'];
+
+function requestInterceptor($q, $location) {
+  return {
+    'responseError': function(rejection) {
+      if(rejection.status === 401){
+        $location.path('/login')
+      }
+      return $q.reject(rejection);
+    }
+  }
+}

@@ -1,15 +1,28 @@
 angular.module('app')
-.controller('ApplicationCtrl', function($scope, $http, $location, UserSvc) {
- if (window.localStorage.getItem("midweekmanagertoken") != null) {
-      $http.defaults.headers.common['X-Auth'] = window.localStorage.getItem("midweekmanagertoken")
-      UserSvc.getUser().success(function(user) {
-        $scope.currentUser = user
-      })
+.controller('ApplicationCtrl', ApplicationCtrl);
+
+ApplicationCtrl.$inject = ['$scope','$http', '$location', 'UserSvc'];
+
+function ApplicationCtrl($scope, $http, $location, UserSvc) {
+
+  var vm = this;
+
+  activate();
+
+  function activate() {
+    if (window.localStorage.getItem("midweekmanagertoken") != null) {
+         $http.defaults.headers.common['X-Auth'] = window.localStorage.getItem("midweekmanagertoken")
+         UserSvc.getUser().success(function(user) {
+           vm.currentUser = user;
+         })
+     }
   }
+
   $scope.$on('login', function(_, user) {
-    $scope.currentUser = user;
+    vm.currentUser = user;
   })
   $scope.$on('logout', function(_, user) {
-    $scope.currentUser = '';
+    vm.currentUser = '';
   })
-})
+
+}

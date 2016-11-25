@@ -9,7 +9,6 @@ function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $ro
   vm.team = {};
   vm.fixture = {};
   vm.user = {};
-
   vm.createSelectedPlayer = createSelectedPlayer;
   vm.assignMom = assignMom;
 

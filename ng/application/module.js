@@ -1,4 +1,1 @@
-angular.module('app', [
-  'ngRoute',
-  'toggle-switch'
-])
+angular.module('app', ['ngRoute','toggle-switch']);
