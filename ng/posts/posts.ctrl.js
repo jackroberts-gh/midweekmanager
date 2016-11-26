@@ -7,9 +7,14 @@ function PostsCtrl(PostsService) {
 
   var vm = this;
   vm.addPost = addPost;
-  vm.test = test;
 
   activate();
+
+  function activate() {
+    PostsService.fetch().success(function(posts) {
+      vm.posts = posts;
+    })
+  }
 
   function addPost() {
     if (vm.postBody) {
@@ -23,15 +28,5 @@ function PostsCtrl(PostsService) {
         vm.postBody = null
       })
     }
-  }
-
-  function test(test) {
-    console.log(test);
-  }
-
-  function activate() {
-    PostsService.fetch().success(function(posts) {
-      vm.posts = posts;
-    })
   }
 }

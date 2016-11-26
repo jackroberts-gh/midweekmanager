@@ -6,8 +6,8 @@ config.$inject = ['$httpProvider', '$interpolateProvider', '$routeProvider'];
 function config($httpProvider, $interpolateProvider, $routeProvider) {
 
   $routeProvider
-    .when('/', { controller: 'JoinTeamCtrl', templateUrl: 'home.html'})
-    .when('/createteam', { controller: 'CreateTeamCtrl', templateUrl: 'createteam.html', resolve: {
+    .when('/', { controller: 'JoinTeamCtrl', controllerAs: 'vm', templateUrl: 'home.html'})
+    .when('/createteam', { controller: 'CreateTeamCtrl', controllerAs: 'vm', templateUrl: 'createteam.html', resolve: {
       user: function(UserSvc) {
         return UserSvc.getUser();
       }
@@ -17,12 +17,12 @@ function config($httpProvider, $interpolateProvider, $routeProvider) {
         return UserSvc.getUser();
       }
     }})
-    .when('/teams', { controller: 'TeamCtrl', templateUrl: 'teams.html', resolve: {
+    .when('/teams', { controller: 'TeamCtrl', controllerAs: 'vm', templateUrl: 'teams.html', resolve: {
       user: function(UserSvc) {
         return UserSvc.getUser();
       }
     }})
-    .when('/teams/:team_id', { controller: 'MyTeamCtrl', templateUrl: 'myteam.html', resolve: {
+    .when('/teams/:team_id', { controller: 'MyTeamCtrl', controllerAs: 'vm', templateUrl: 'myteam.html', resolve: {
       user: function(UserSvc) {
         return UserSvc.getUser();
       }
@@ -42,9 +42,9 @@ function config($httpProvider, $interpolateProvider, $routeProvider) {
         return UserSvc.getUser();
       }
     }})
-    .when('/register', { controller: 'RegisterCtrl', templateUrl: 'register.html'})
-    .when('/login', { controller: 'LoginCtrl', templateUrl: 'login.html'})
-    .when('/logout', { controller: 'LogoutCtrl', template: ""})
+    .when('/register', { controller: 'RegisterCtrl', controllerAs: 'vm', templateUrl: 'register.html'})
+    .when('/login', { controller: 'LoginCtrl', controllerAs: 'vm', templateUrl: 'login.html'})
+    .when('/logout', { controller: 'LogoutCtrl', controllerAs: 'vm', template: ""})
 
-  $httpProvider.interceptors.push('httpRequestInterceptor');
+    $httpProvider.interceptors.push('httpRequestInterceptor');
 }

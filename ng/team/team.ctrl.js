@@ -1,25 +1,42 @@
 angular.module('app')
-.controller('TeamCtrl', function ($scope, $location, UserSvc, TeamService, PlayerService) {
+.controller('TeamCtrl', TeamCtrl);
 
-  $scope.players = [];
-  $scope.teamsPlayedFor = [];
+TeamCtrl.$inject = ['$scope', '$location', 'TeamService', 'PlayerService'];
 
-  PlayerService.fetchMyPlayers($scope.currentUser._id).success(function(players) {
+function TeamCtrl($scope, $location, TeamService, PlayerService) {
 
-    angular.forEach(players, function(player){
-      $scope.players.push(player._id);
+  var vm = this;
+  vm.players = [];
+  vm.teamsPlayedFor = [];
+
+  vm.showTeam = showTeam;
+  vm.populatePlayers = populatePlayers;
+
+  activate();
+
+  function activate() {
+    PlayerService.fetchMyPlayers($scope.app.currentUser._id)
+    .success(function(players) {
+      angular.forEach(players, function(player){
+        vm.players.push(player._id);
+      })
+      TeamService.fetchMyTeams(vm.players)
+      .success(function(teams) {
+        if (teams.length === 1) {
+          $location.path('/teams/' + teams[0]._id);
+        }
+        else {
+          vm.teamsPlayedFor = teams;
+        }
+      })
     })
-    TeamService.fetchMyTeams($scope.players).success(function(teams) {
-      if (teams.length === 1) {
-        $location.path('/teams/' + teams[0]._id);
-      }
-      else {
-        $scope.teamsPlayedFor = teams;
-      }})
-    })
+  }
 
-    $scope.showTeam = function(team) {
-      $location.path('/teams/' + team._id);
-    };
+  function populatePlayers(players) {
+    //move angular for each to here once all code is done.
+  }
 
-  })
+  function showTeam(team) {
+    $location.path('/teams/' + team._id);
+  }
+}

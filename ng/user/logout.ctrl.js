@@ -1,7 +1,15 @@
 angular.module('app')
-.controller('LogoutCtrl', function ($scope, UserSvc) {
-      UserSvc.logout()
-      $scope.$emit('logout')
-      window.location.href = '/'
+.controller('LogoutCtrl', LogoutCtrl);
+
+LogoutCtrl.$inject = ['$scope', 'UserSvc'];
+
+function LogoutCtrl($scope, UserSvc) {
+
+  activate();
+
+  function activate() {
+    UserSvc.logout()
+    $scope.$emit('logout')
+    window.location.href = '/'
   }
-)
+}
