@@ -10,7 +10,7 @@
                         <h1>Midweek Manager</h1>
                         <h3>Manage your fives, sevens, and elevens</h3>
                         <hr class="intro-divider">
-                        <div ng-if="currentUser" id="create-buttons">
+                        <div ng-if="app.currentUser" id="create-buttons">
                           <ul class="list-inline homepage">
                             <a class="btn btn-lg btn-success" href="#/createteam" role="button">Create a Team</a>
                           </ul>
@@ -18,7 +18,7 @@
                           <a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#joinTeamModal">Join a Team</a>
                         </ul>
                         </div>
-                        <div ng-if="!currentUser" id="create-buttons">
+                        <div ng-if="!app.currentUser" id="create-buttons">
                           <ul class="list-inline homepage">
                             <a class="btn btn-lg btn-success" href="#/register" role="button">Sign up now!</a>
                           </ul>
@@ -78,7 +78,7 @@
           <div id="jointeamerror" class="alert alert-danger fade in hidden">
             <strong>Uh oh!</strong> That ID doesn't seem to exist, or indeed be correct - please try again!
           </div>
-          <form name="jointeam" ng-submit="joinTeam(teamToJoinID, position)">
+          <form name="jointeam" ng-submit="vm.joinTeam(teamToJoinID, position)">
   <!-- 2 step modal tbc -->
           <div class="modal-body">
               <p class="undefined">Enter the code you were given by the manager below: </p>

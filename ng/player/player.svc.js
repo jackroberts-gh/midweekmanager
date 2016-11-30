@@ -1,23 +1,29 @@
 angular.module('app')
-.service('PlayerService', function($http) {
+.service('PlayerService', PlayerService);
 
-  this.fetchAll = function() {
+PlayerService.$inject = ['$http'];
+
+function PlayerService($http) {
+
+  var svc = this;
+
+  svc.fetchAll = function() {
     return $http.get('/api/players')
   }
 
-  this.fetchMyPlayers = function(user_id) {
+  svc.fetchMyPlayers = function(user_id) {
     return $http.get('/api/players/' + user_id)
   }
 
-  this.fetchPlayers = function(team_id) {
+  svc.fetchPlayers = function(team_id) {
     return $http.get('/api/players/' + team_id)
   }
 
-  this.fetchOnePlayer = function(player_id) {
+  svc.fetchOnePlayer = function(player_id) {
     return $http.get('/api/players/:player_id', player_id)
   }
 
-  this.create = function(user_id, position, firstname, surname) {
+  svc.create = function(user_id, position, firstname, surname) {
     return $http.post('/api/players', {
       _userid: user_id,
       position: position,
@@ -25,6 +31,4 @@ angular.module('app')
       surname: surname
     })
   }
-
-
-})
+}

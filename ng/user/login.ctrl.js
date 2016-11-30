@@ -1,13 +1,22 @@
 angular.module('app')
-.controller('LoginCtrl', function ($scope, UserSvc) {
-  $scope.login = function (username, password) {
+.controller('LoginCtrl', LoginCtrl);
+
+LoginCtrl.$inject = ['$scope', 'UserSvc'];
+
+function LoginCtrl($scope, UserSvc) {
+
+  var vm = this;
+  vm.login = login;
+
+
+  function login(username, password) {
     UserSvc.login(username, password)
-    .then(function (response) {
-      $scope.$emit('login', response.data)
-      window.location.href = '/#/';
-    })
-    .catch(function(response) {
-      $("#loginerror").removeClass('hidden');
-    })
-  }
-})
+      .then(function (response) {
+        $scope.$emit('login', response.data)
+        window.location.href = '/#/';
+      })
+      .catch(function(response) {
+        $("#loginerror").removeClass('hidden');
+      })
+    }
+}

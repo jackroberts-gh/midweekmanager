@@ -6,24 +6,31 @@ MyResultsCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureServ
 function MyResultsCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams) {
   var vm = this;
 
-  vm.team = {};
-  vm.fixture = {};
-  vm.user = {};
-  vm.print = print;
+  activate();
 
-  TeamService.fetchOne($routeParams.team_id).success(function(team) {
-    vm.team = team;
-  })
+  function activate() {
+    fetchTeam();
+    fetchFixture();
+    fetchUser();
 
-  FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
-    vm.fixture = fixture;
-  })
+    function fetchTeam() {
+      TeamService.fetchOne($routeParams.team_id).success(function(team) {
+        vm.team = team;
+      })
+    }
 
-  UserSvc.getUser().success(function(user) {
-    vm.user = user;
-  })
+    function fetchFixture() {
+      FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
+        vm.fixture = fixture;
+      })
+    }
 
-  function print(player) {
-    console.dir(player);
+    function fetchUser() {
+      UserSvc.getUser().success(function(user) {
+        vm.user = user;
+      })
+    }
   }
+
+
 }

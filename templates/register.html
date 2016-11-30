@@ -1,7 +1,7 @@
 <div class="register-buffer bg">
 <div class="form-body">
   <div class="container">
-    <form class="form-signin" ng-submit="register(username, email, firstname, surname, dateofbirth, mobilenumber, password)">
+    <form class="form-signin" ng-submit="vm.register(username, email, firstname, surname, dateofbirth, mobilenumber, password)">
       <div id="registererror" class="alert alert-danger fade in hidden">
         <strong>Uh oh!</strong> It seems that either that username is in use, or that email is already registered with us.
       </div>

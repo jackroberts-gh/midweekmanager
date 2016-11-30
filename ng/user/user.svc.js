@@ -1,5 +1,10 @@
 angular.module('app')
-.service('UserSvc', function($http) {
+.service('UserSvc', UserSvc);
+
+UserSvc.$inject = ['$http', '$q'];
+
+function UserSvc($http, $q) {
+
   var svc = this;
 
   svc.getUser = function() {
@@ -29,7 +34,7 @@ angular.module('app')
   }
 
   svc.logout = function() {
-    window.localStorage.removeItem("midweekmanagertoken")
-    $http.defaults.headers.common['X-Auth'] = ''
+    window.localStorage.removeItem("midweekmanagertoken");
+    $http.defaults.headers.common['X-Auth'] = '';
   }
-})
+}

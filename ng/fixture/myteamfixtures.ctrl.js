@@ -6,24 +6,10 @@ MyFixturesCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureSer
 function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams) {
   var vm = this;
 
-  vm.team = {};
-  vm.fixture = {};
-  vm.user = {};
-
   vm.createSelectedPlayer = createSelectedPlayer;
   vm.assignMom = assignMom;
 
-  TeamService.fetchOne($routeParams.team_id).success(function(team) {
-    vm.team = team;
-  })
-
-  FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
-    vm.fixture = fixture;
-  })
-
-  UserSvc.getUser().success(function(user) {
-    vm.user = user;
-  })
+  activate();
 
   function createSelectedPlayer(player) {
     if(vm.user._id === player._userid) {
@@ -41,5 +27,29 @@ function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $ro
       item.mom = false;
     })
     player.mom = true;
+  }
+
+  function activate() {
+    fetchTeam();
+    fetchFixture();
+    fetchUser();
+
+    function fetchTeam() {
+      TeamService.fetchOne($routeParams.team_id).success(function(team) {
+        vm.team = team;
+      })
+    }
+
+    function fetchFixture() {
+      FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
+        vm.fixture = fixture;
+      })
+    }
+
+    function fetchUser() {
+      UserSvc.getUser().success(function(user) {
+        vm.user = user;
+      })
+    }
   }
 }

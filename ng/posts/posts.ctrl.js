@@ -1,20 +1,32 @@
 angular.module('app')
-.controller('PostsCtrl', function ($scope, PostsService) {
-  $scope.addPost = function () {
-    if ($scope.postBody) {
-      PostsService.create(
-        {
-        username: $scope.user,
-        body: $scope.postBody
-      }
-    ).success(function(post) {
-      $scope.posts.unshift(post)
-      $scope.postBody = null
+.controller('PostsCtrl', PostsCtrl);
+
+PostsCtrl.$inject = ['PostsService'];
+
+function PostsCtrl(PostsService) {
+
+  var vm = this;
+  vm.addPost = addPost;
+
+  activate();
+
+  function activate() {
+    PostsService.fetch().success(function(posts) {
+      vm.posts = posts;
     })
-    }
   }
 
-  PostsService.fetch().success(function(posts) {
-      $scope.posts = posts;
-    })
-})
+  function addPost() {
+    if (vm.postBody) {
+      PostsService.create(
+        {
+          username: vm.user,
+          body: vm.postBody
+        }
+      ).success(function(post) {
+        vm.posts.unshift(post)
+        vm.postBody = null
+      })
+    }
+  }
+}

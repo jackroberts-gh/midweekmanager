@@ -1,11 +1,17 @@
 angular.module('app')
-.service('PostsService', function($http) {
+.service('PostsService', PostsService);
 
-  this.fetch = function() {
+PostsService.$inject = ['$http'];
+
+function PostsService($http) {
+
+  var svc = this;
+
+  svc.fetch = function() {
     return $http.get('/api/posts')
   }
-  
-  this.create = function(post) {
+
+  svc.create = function(post) {
     return $http.post('/api/posts', post)
   }
-})
+}

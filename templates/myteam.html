@@ -1,7 +1,7 @@
 <div class="container top-buffer bg">
   <div class="container">
-  <h2>{{ team.name | uppercase }}</h2>
-    <h4>Managed by {{ team.manager.firstname | uppercase }} {{ team.manager.surname | uppercase }} </h4>
+  <h2>{{ vm.team.name | uppercase }}</h2>
+    <h4>Managed by {{ vm.team.manager.firstname | uppercase }} {{ vm.team.manager.surname | uppercase }} </h4>
   <hr class="dark" />
   <ul class="nav nav-pills">
     <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
@@ -21,8 +21,8 @@
             <th>MOM</th>
           </tr>
         </thead>
-        <tr ng-repeat="player in team.players | orderBy:positionOrder">
-          <td><a class="btn-sm btn-primary" role="button" ng-click="showPlayer(player._userid)">View</a></td>
+        <tr ng-repeat="player in vm.team.players | orderBy:vm.positionOrder">
+          <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showPlayer(player._userid)">View</a></td>
           <td>{{ player.firstname | uppercase }} {{ player.surname | uppercase }}</td>
           <td>{{ player.goals }}</td>
           <td>{{ player.moms }}</td>
@@ -38,8 +38,8 @@
             <th>Date</th>
           </tr>
         </thead>
-        <tr ng-repeat="fixture in team.fixtures | filter: { result: false } | orderBy:'fixturedate'">
-          <td><a class="btn-sm btn-primary" role="button" ng-click="showFixture(fixture._id)">View</a></td>
+        <tr ng-repeat="fixture in vm.team.fixtures | filter: { result: false } | orderBy:'fixturedate'">
+          <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showFixture(fixture._id)">View</a></td>
           <td>{{ fixture.opposition }}</td>
           <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
         </tr>
@@ -56,8 +56,8 @@
             <th>Date</th>
           </tr>
         </thead>
-        <tr ng-repeat="fixture in team.fixtures | filter: { result: true } | orderBy:'fixturedate'">
-          <td><a class="btn-sm btn-primary" role="button" ng-click="showResult(fixture._id)">View</a></td>
+        <tr ng-repeat="fixture in vm.team.fixtures | filter: { result: true } | orderBy:'fixturedate'">
+          <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showResult(fixture._id)">View</a></td>
           <td>{{ fixture.opposition }}</td>
           <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
         </tr>
@@ -80,7 +80,7 @@
       <div id="addfixtureerror" class="alert alert-danger fade in hidden">
         <strong>Uh oh!</strong> You seem to have missed something - please review the fixture.
       </div>
-      <form name="addfixture" ng-submit="addFixture(opposition, fixturedate)">
+      <form name="addfixture" ng-submit="vm.addFixture(opposition, fixturedate)">
 <!-- 2 step modal tbc -->
       <div class="modal-body">
           <p class="undefined" >Opposition: </p>
@@ -107,7 +107,7 @@
       <div class="modal-body">
         <form>
           <p class="undefined">Give this code to your players to allow them to join the team.</p>
-          <input type="text" class="form-control" value="{{team._id}}" readonly="true">
+          <input type="text" class="form-control" value="{{vm.team._id}}" readonly="true">
         </form>
       </div>
       <div class="modal-footer">

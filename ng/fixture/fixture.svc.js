@@ -1,30 +1,35 @@
 angular.module('app')
-.service('FixtureService', function($http) {
+.service('FixtureService', FixtureService);
 
-  this.fetchAll = function() {
+FixtureService.$inject = ['$http'];
+
+function FixtureService($http) {
+
+  var svc = this;
+
+  svc.fetchAll = function() {
     return $http.get('/api/fixtures')
   }
 
-  this.fetchFixturesForTeam = function(team_id) {
+  svc.fetchFixturesForTeam = function(team_id) {
     return $http.get('/api/fixtures/' + team_id)
   }
 
-  this.fetchFixture = function(fixture_id) {
+  svc.fetchFixture = function(fixture_id) {
     return $http.get('/api/fixtures/fixture/' + fixture_id)
   }
 
-  this.create = function(opposition, fixturedate) {
+  svc.create = function(opposition, fixturedate) {
     return $http.post('/api/fixtures', {
       opposition: opposition,
       fixturedate: fixturedate
     })
   }
 
-  this.populateFixture = function(fixture_id, player_id) {
+  svc.populateFixture = function(fixture_id, player_id) {
     return $http.put('/api/fixtures/player', {
         team_id: team_id,
         player_id: player_id
     })
   }
-
-})
+}
