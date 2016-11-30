@@ -16,4 +16,4 @@ var Fixture = db.model('Fixture', {
   played:              { type: [SelectedPlayer] }
 })
 
-module.exports = Fixture;
+module.exports = Fixture

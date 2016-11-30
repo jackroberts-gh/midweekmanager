@@ -37,7 +37,7 @@ function config($httpProvider, $interpolateProvider, $routeProvider) {
         return UserSvc.getUser();
       }
     }})
-    .when('/teams/:team_id/player/:player_id', { controller: 'MyPlayersCtrl', controllerAs: 'vm', templateUrl: 'myteamplayers.html', resolve: {
+    .when('/teams/players/:player_id', { controller: 'MyPlayersCtrl', controllerAs: 'vm', templateUrl: 'myteamplayers.html', resolve: {
       user: function(UserSvc) {
         return UserSvc.getUser();
       }

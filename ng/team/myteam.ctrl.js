@@ -24,6 +24,7 @@ function MyTeamCtrl ($location, TeamService, FixtureService, $routeParams) {
     TeamService.fetchOne(teamid)
     .success(function(team) {
       vm.team = team;
+      console.dir(team);
     })
   }
 
@@ -36,7 +37,7 @@ function MyTeamCtrl ($location, TeamService, FixtureService, $routeParams) {
   }
 
   function showPlayer(player_id) {
-    $location.path('/teams/' + teamid + '/player/' + player_id);
+    $location.path('/teams/players/' + player_id);
   }
 
   function positionOrder (item) {

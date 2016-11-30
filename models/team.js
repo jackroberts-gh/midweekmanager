@@ -10,11 +10,16 @@ var Team = db.model('Team', {
                 type: db.Schema.Types.ObjectId, ref: 'Player'
               }
             ],
-  fixtures:  [
+  seasons:  [
+              {
+                type: db.Schema.Types.ObjectId, ref: 'Season'
+              }
+            ],
+  /*fixtures:  [
               {
                 type: db.Schema.Types.ObjectId, ref: 'Fixture'
               }
-            ],
+            ],*/
   goalsfr: { type: Number },
   goalsag: { type: Number }
 })
