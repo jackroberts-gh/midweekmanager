@@ -1,10 +1,17 @@
 angular.module('app')
-.controller('JoinTeamCtrl', function ($scope, TeamService, PlayerService) {
+.controller('JoinTeamCtrl', JoinTeamCtrl);
 
-  $scope.joinTeam = function(team_id, position) {
+JoinTeamCtrl.$inject = ['$scope', 'TeamService', 'PlayerService'];
+
+function JoinTeamCtrl($scope, TeamService, PlayerService) {
+
+  var vm = this;
+  vm.joinTeam = joinTeam;
+
+  function joinTeam(team_id, position) {
     TeamService.fetchOne(team_id)
     .success(function(team) {
-      PlayerService.create($scope.currentUser._id, position, $scope.currentUser.firstname, $scope.currentUser.surname)
+      PlayerService.create($scope.app.currentUser._id, position, $scope.app.currentUser.firstname, $scope.app.currentUser.surname)
       .success(function (player) {
         TeamService.assignPlayerToTeam(team_id, player._id)
         .success(function() {
@@ -15,5 +22,6 @@ angular.module('app')
     .error(function(err) {
         $("#jointeamerror").removeClass('hidden');
       })
-    }
-})
+  }
+
+}

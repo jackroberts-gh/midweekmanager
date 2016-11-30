@@ -10,18 +10,20 @@
 <form role='form'>
   <div class='form-group'>
     <div class="input-group">
-      <input ng-model="postBody" class='form-control'>
+      <input ng-model="vm.postBody" class='form-control'>
       <span class='input-group-btn'>
-        <button ng-click='addPost()' class='btn btn-default'>Add Post</button>
+        <button ng-click='vm.addPost()' class='btn btn-default'>Add Post</button>
       </span>
     </div>
   </div>
 </form>
 <ul class='list-group'>
-  <li ng-repeat="post in posts | orderBy:'-date'" class='list-group-item'>
+  <li ng-repeat="post in vm.posts | orderBy:'-date'" class='list-group-item'>
+    <div class="post-bg">
     <strong>@{{ post.username }}</strong>
     <span class='comment'>{{ post.body }}</span>
-    <br />
+  </div>
+  <br />
   </li>
 </ul>
 </div>

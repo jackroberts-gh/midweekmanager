@@ -7,11 +7,12 @@ function MyPlayersCtrl(UserSvc, TeamService, PlayerService, FixtureService, $rou
 
   var vm = this;
 
-  UserSvc.getPlayersUser($routeParams.player_id)
+  activate();
+
+  function activate() {
+    UserSvc.getPlayersUser($routeParams.player_id)
     .success(function(user) {
-        vm.user = user;
+      vm.user = user;
     })
-
-
-
+  }
 }

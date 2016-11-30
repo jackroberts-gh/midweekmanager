@@ -1,9 +1,8 @@
 <div class="container top-buffer bg">
   <div class="container">
   <h1>Fixture Detail</h1>
-  <hr class="dark"/>
   <h4>{{ vm.fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ vm.fixture.fixturedate | date:'HH:mm'}}</b></h4>
-
+  <hr class="dark"/>
   <div>
     <table class="table">
       <thead class="thead-inverse">
@@ -17,8 +16,8 @@
       <tr ng-repeat="player in vm.team.players">
         <td>{{ player.firstname }} {{ player.surname }}</td>
         <td><toggle-switch on-label="IN" off-label="OUT" ng-model="player.in" ng-disabled="player._userid !== vm.user._id" ng-click="vm.print(player)"></toggle-switch></td>
-        <td></td>
-        <td></td>
+        <td></a><input type="number" style="width:50px;" id="goalsCount" ng-model="player.goals"></td>
+        <td></a><input type="checkbox" style="width:50px;" id="momCount" ng-click="vm.assignMom(player)" ng-model="player.mom"></td>
       </tr>
     </table>
   </div>

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
-var mongodbUri = process.env.MONGO_URI;
+var mongouri = process.env.DB;
 
-mongoose.connect(mongodbUri, function () {
+mongoose.connect(mongouri, function () {
   console.log('mongodb connected')
 })
 

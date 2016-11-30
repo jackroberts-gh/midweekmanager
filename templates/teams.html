@@ -15,7 +15,7 @@
 
 <div class="container">
 <div class="row">
-  <div class="col-md-4" ng-repeat="team in teamsPlayedFor" ng-click="showTeam(team)">
+  <div class="col-md-4" ng-repeat="team in vm.teamsPlayedFor" ng-click="vm.showTeam(team)">
     <div class="card card-inverse">
       <img class="card-img-{{team.type | lowercase}}-{{$index+1}}" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
       <div class="card-img-overlay">

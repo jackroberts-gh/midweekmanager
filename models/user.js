@@ -1,6 +1,6 @@
 var db = require('../db')
 
-var user = db.Schema({
+var User = db.model('User', {
   username:     { type: String, required: true, index: {unique: true, dropDups: true} },
   email:        { type: String, required: true, index: {unique: true, dropDups: true} },
   firstname:    { type: String, required: true },
@@ -9,4 +9,5 @@ var user = db.Schema({
   mobilenumber: { type: Number, required: true, index: {unique: true, dropDups: true} },
   password:     { type: String, required: true, select: false }
 })
-module.exports = db.model('User', user)
+
+module.exports = User

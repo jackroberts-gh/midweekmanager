@@ -1,23 +1,29 @@
 angular.module('app')
-.service('TeamService', function($http) {
+.service('TeamService', TeamService);
 
-  this.fetchAll = function() {
+TeamService.$inject = ['$http'];
+
+function TeamService($http) {
+
+  var svc = this;
+
+  svc.fetchAll = function() {
     return $http.get('/api/teams')
   }
 
-  this.fetchTeamsIManage = function(manager_id) {
+  svc.fetchTeamsIManage = function(manager_id) {
     return $http.get('/api/teams/' + manager_id);
   }
 
-  this.fetchMyTeams = function(players) {
+  svc.fetchMyTeams = function(players) {
     return $http.get('/api/teams/myteams/' + players);
   }
 
-  this.fetchOne = function(team_id) {
+  svc.fetchOne = function(team_id) {
     return $http.get('/api/teams/team/' + team_id);
   }
 
-  this.create = function(teamname, teamtype, dayofplay, manager) {
+  svc.create = function(teamname, teamtype, dayofplay, manager) {
     return $http.post('/api/teams', {
       name: teamname,
       type: teamtype,
@@ -26,18 +32,17 @@ angular.module('app')
     })
   }
 
-  this.assignPlayerToTeam = function(team_id, player_id) {
+  svc.assignPlayerToTeam = function(team_id, player_id) {
     return $http.put('/api/teams/player', {
-        team_id: team_id,
-        player_id: player_id
+      team_id: team_id,
+      player_id: player_id
     })
   }
 
-  this.assignFixtureToTeam = function(team_id, fixture_id) {
+  svc.assignFixtureToTeam = function(team_id, fixture_id) {
     return $http.put('/api/teams/fixture', {
-        team_id: team_id,
-        fixture_id: fixture_id
+      team_id: team_id,
+      fixture_id: fixture_id
     })
   }
-
-})
+}

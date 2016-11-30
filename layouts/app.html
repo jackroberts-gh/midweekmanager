@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Start -->
-    <!--Scripts-
-    <script src="/scripts/jquery.min.js"></script>
-    <script src="/scripts/bootstrap.min.js"></script>-->
-
-
     <!-- Styles and Viewports -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Midweek Manager">
     <meta name="author" content="Jack Roberts">
-    <!--<link rel="stylesheet" href="/scripts/bootstrap.min.css">-->
-
-    <link rel="stylesheet" href="/scripts/bootstrap.min.css">
-    <link rel="stylesheet" href="/scripts/material-fullpalette.css">
-    <link rel="stylesheet" href="/scripts/material.css">
-    <link rel="stylesheet" href="/scripts/ripples.css">
-    <link rel="stylesheet" href="/scripts/roboto.css">
-
-    <link rel="stylesheet" href="/scripts/angular-toggle-switch.css">
-    <link rel="stylesheet" href="/scripts/font-awesome.min.css">
-
-    <link rel="stylesheet" href="/public/card.css" />
-
+    <link rel="stylesheet" href="/scripts/styles.bundle.css" />
   </head>
-  <body ng-app='app' ng-controller='ApplicationCtrl'>
+  <body ng-app='app' ng-controller='ApplicationCtrl as app'>
     <div id="wrapper">
       <div class="overlay"></div>
     <!-- Sidebar -->
@@ -38,16 +20,16 @@
                <i id="icon" class="fa fa-medium" style="text-shadow: none; font-size: 30px; color: rgb(255, 255, 255); height: 30px; width: 30px; line-height: 30px; border-radius: 0%; text-align: center; margin-left:-20px;"></i> </a>
             </a>
           </li>
-        <div ng-if="currentUser" class="profile-sidebar">
+        <div ng-if="app.currentUser" class="profile-sidebar">
           <div class="profile-userpic">
-            <img src="public/profile.jpg" class="img-responsive" alt="">
+            <img src="scripts/profile.jpg" class="img-responsive" alt="">
           </div>
           <div class="profile-usertitle">
             <div class="profile-usertitle-name weighted-text">
-              {{currentUser.firstname}} {{currentUser.surname}}
+              {{app.currentUser.firstname}} {{app.currentUser.surname}}
             </div>
             <div class="profile-usertitle-job weighted-text">
-              Signed in as {{currentUser.username}}
+              Signed in as {{app.currentUser.username}}
             </div>
           </div>
           <div class="profile-userbuttons">
@@ -58,19 +40,19 @@
         <li>
             <a class="weighted-text" href="#/">Home</a>
         </li>
-        <li ng-if="currentUser">
+        <li ng-if="app.currentUser">
             <a class="weighted-text" href="#/teams">Teams</a>
         </li>
-        <li ng-if="currentUser">
+        <li ng-if="app.currentUser">
             <a class="weighted-text" href="#">Fixtures</a>
         </li>
-        <li ng-if="currentUser">
+        <li ng-if="app.currentUser">
             <a class="weighted-text" href="#/feed">Newsfeed</a>
         </li>
-        <li ng-if="!currentUser">
+        <li ng-if="!app.currentUser">
             <a class="weighted-text" href="#/login">Login</a>
         </li>
-        <li ng-if="!currentUser">
+        <li ng-if="!app.currentUser">
             <a class="weighted-text" href="#/register">Register</a>
         </li>
     </ul>
@@ -86,6 +68,6 @@
 <div ng-view></div>
 </div>
 <script src="/scripts/vendor.bundle.js"></script>
-<script src="/public/midweek_js.js"></script>
+<script src="/scripts/app.bundle.js"></script>
 </body>
 </html>

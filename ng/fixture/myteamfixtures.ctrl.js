@@ -6,28 +6,10 @@ MyFixturesCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureSer
 function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams) {
   var vm = this;
 
-  vm.team = {};
-  vm.fixture = {};
-  vm.user = {};
-  vm.print = createSelectedPlayer;
+  vm.createSelectedPlayer = createSelectedPlayer;
+  vm.assignMom = assignMom;
 
-  TeamService.fetchOne($routeParams.team_id).success(function(team) {
-    vm.team = team;
-  })
-
-  FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
-    vm.fixture = fixture;
-  })
-
-  UserSvc.getUser().success(function(user) {
-    vm.user = user;
-  })
-
-  function print(player) {
-    if(vm.user._id === player._userid) {
-      // Submit updated model of  to fixture service
-    }
-  }
+  activate();
 
   function createSelectedPlayer(player) {
     if(vm.user._id === player._userid) {
@@ -36,10 +18,38 @@ function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $ro
         goals: player.goals,
         mom: player.mom,
         in: player.in,
-      };
-
-      console.dir(player);
+      }
     }
   }
 
+  function assignMom(player) {
+    angular.forEach(vm.team.players, function(item) {
+      item.mom = false;
+    })
+    player.mom = true;
+  }
+
+  function activate() {
+    fetchTeam();
+    fetchFixture();
+    fetchUser();
+
+    function fetchTeam() {
+      TeamService.fetchOne($routeParams.team_id).success(function(team) {
+        vm.team = team;
+      })
+    }
+
+    function fetchFixture() {
+      FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
+        vm.fixture = fixture;
+      })
+    }
+
+    function fetchUser() {
+      UserSvc.getUser().success(function(user) {
+        vm.user = user;
+      })
+    }
+  }
 }

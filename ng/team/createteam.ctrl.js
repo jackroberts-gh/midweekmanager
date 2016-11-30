@@ -1,10 +1,18 @@
 angular.module('app')
-.controller('CreateTeamCtrl', function ($scope, UserSvc, TeamService, PlayerService) {
+.controller('CreateTeamCtrl', CreateTeamCtrl);
 
-  $scope.registerTeam = function (teamname, teamtype, dayofplay, position) {
-    TeamService.create(teamname, teamtype, dayofplay, $scope.currentUser._id)
+// May need userservice but currently unlikely
+CreateTeamCtrl.$inject = ['$scope', 'TeamService', 'PlayerService'];
+
+function CreateTeamCtrl($scope, TeamService, PlayerService) {
+
+  var vm = this;
+  vm.registerTeam = registerTeam;
+
+  function registerTeam(teamname, teamtype, dayofplay, position) {
+    TeamService.create(teamname, teamtype, dayofplay, $scope.app.currentUser._id)
     .success(function (team) {
-      PlayerService.create($scope.currentUser._id, position, $scope.currentUser.firstname, $scope.currentUser.surname)
+      PlayerService.create($scope.app.currentUser._id, position, $scope.app.currentUser.firstname, $scope.app.currentUser.surname)
       .success(function (player) {
         TeamService.assignPlayerToTeam(team._id, player._id)
         .success(function() {
@@ -13,4 +21,4 @@ angular.module('app')
       })
     })
   }
-})
+}
