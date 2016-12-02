@@ -1,10 +1,18 @@
+(function() {
+'use strict';
+
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
 var bodyparser = require('body-parser');
+var morgan = require('morgan');
 var app = express();
+var logFile = fs.createWriteStream(__dirname + '/dist/access.log', {flags: 'a'})
 
 app.use(bodyparser.json());
-app.use(require('./auth'));
+app.use(require('./middleware/auth'));
+app.use(morgan('combined', {stream: logFile}));
+
 app.use('/api/posts', require('./controllers/api/posts'));
 app.use('/api/sessions', require('./controllers/api/sessions'));
 app.use('/api/users', require('./controllers/api/users'));
@@ -35,3 +43,4 @@ app.use('/fonts', express.static('node_modules/bootstrap-material-design/dist/fo
 app.listen(process.env.PORT || 3000, function() {
   console.log('Midweek Manager is running on port ' + (process.env.PORT || 3000));
 })
+})();

@@ -41,6 +41,7 @@
     "uuid": "^3.0.0"
   },
   "devDependencies": {
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.1",
@@ -49,6 +50,7 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.0",
+    "morgan": "^1.7.0",
     "nodemon": "^1.11.0"
   }
 }
