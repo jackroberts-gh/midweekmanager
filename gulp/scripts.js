@@ -26,6 +26,5 @@ gulp.task('vendor_js', function () {
     'node_modules/bootstrap-material-design/dist/js/material.js',
     'node_modules/bootstrap-material-design/dist/js/ripples.js'])
     .pipe(concat('vendor.bundle.js'))
-    .pipe(uglify())
     .pipe(gulp.dest('dist'))
 })
