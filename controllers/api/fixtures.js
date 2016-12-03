@@ -1,60 +1,63 @@
-var Team = require('../../models/team');
-var Fixture = require('../../models/fixture');
-var router = require('express').Router();
+(function () {
+  'use strict';
+  let Team = require('../../models/team');
+  let Fixture = require('../../models/fixture');
+  let router = require('express').Router();
 
-// \\ ** FIXTURE API ENDPOINT ** \\ //
+  // \\ ** FIXTURE API ENDPOINT ** \\ //
 
-router.get('/', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401);
-  }
-  if (req.auth.username) {
-    Fixture.find()
-    .sort('-date')
-    .exec(function (err, fixtures) {
-      if (err) { return next(err); }
-      res.json(fixtures);
-    })
-  }
-  else {
-    res.status(401);
-  }
-})
+  router.get('/', function (req, res, next) {
+    if (!req.headers['x-auth']) {
+      return res.sendStatus(401);
+    }
+    if (req.auth.username) {
+      Fixture.find()
+        .sort('-date')
+        .exec(function (err, fixtures) {
+          if (err) { return next(err); }
+          res.json(fixtures);
+        })
+    }
+    else {
+      res.status(401);
+    }
+  })
 
-router.post('/', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401);
-  }
-  if (req.auth.username) {
-    var fixture = new Fixture({
-      opposition: req.body.opposition,
-      fixturedate: req.body.fixturedate
-    })
-    fixture.save(function (err, fix) {
-      if (err) { return next(err); }
-      res.status(201).json(fix);
-    })
-  }
-  else {
-    res.status(401);
-  }
-})
+  router.post('/', function (req, res, next) {
+    if (!req.headers['x-auth']) {
+      return res.sendStatus(401);
+    }
+    if (req.auth.username) {
+      let fixture = new Fixture({
+        opposition: req.body.opposition,
+        fixturedate: req.body.fixturedate
+      })
+      fixture.save(function (err, fix) {
+        if (err) { return next(err); }
+        res.status(201).json(fix);
+      })
+    }
+    else {
+      res.status(401);
+    }
+  })
 
-router.get('/fixture/:fixture_id', function (req, res, next) {
-  if (!req.headers['x-auth']) {
-    return res.sendStatus(401);
-  }
-  if (req.auth.username) {
-    Fixture.findOne({_id: req.params.fixture_id}, function (err, fixture) {
-      if (err) { return next(err); }
-      res.json(fixture);
-    })
-  }
-  else {
-    res.status(401);
-  }
-})
-
+  router.get('/fixture/:fixture_id', function (req, res, next) {
+    if (!req.headers['x-auth']) {
+      return res.sendStatus(401);
+    }
+    if (req.auth.username) {
+      Fixture.findOne({ _id: req.params.fixture_id }, function (err, fixture) {
+        if (err) { return next(err); }
+        res.json(fixture);
+      })
+    }
+    else {
+      res.status(401);
+    }
+  })
+  module.exports = router;
+})();
 /* TO BE CHANGED, COPIED FROM TEAMS.JS
 router.put('/fixture', function (req, res) {
 if (!req.headers['x-auth']) {
@@ -129,4 +132,3 @@ res.json({ message: 'Successfully deleted' });
 
 // \\ ** END OF TEAM SERVICE ** \\ //
 
-module.exports = router;
