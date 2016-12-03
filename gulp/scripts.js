@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
+var exit = require('gulp-exit');
 
 // Watches and builds everything in ng
 gulp.task('watch:all_js', ['app_js', 'vendor_js'], function () {
@@ -14,6 +15,7 @@ gulp.task('app_js', function () {
     .pipe(ngAnnotate())
     .pipe(uglify({ mangle: { toplevel: true } }))
     .pipe(gulp.dest('dist'))
+    .pipe(exit());
 })
 
 gulp.task('vendor_js', function () {
@@ -26,5 +28,7 @@ gulp.task('vendor_js', function () {
     'node_modules/bootstrap-material-design/dist/js/material.js',
     'node_modules/bootstrap-material-design/dist/js/ripples.js'])
     .pipe(concat('vendor.bundle.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('dist'))
+    .pipe(exit());
 })
