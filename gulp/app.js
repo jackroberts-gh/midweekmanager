@@ -9,7 +9,7 @@ gulp.task('watch:ng_js', ['app_js'], function () {
 })
 
 gulp.task('app_js', function () {
-    gulp.src(['ng/application/module.js', 'ng/**/*.js'])
+    return gulp.src(['ng/application/module.js', 'ng/**/*.js'])
         .pipe(concat('app.bundle.js'))
         .pipe(ngAnnotate())
         .pipe(uglify())
