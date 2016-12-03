@@ -9,7 +9,7 @@ gulp.task('watch:styles_js', ['app_css'], function() {
 })
 
 gulp.task('app_css', ['cssless_js', 'cssstyls_js'], function() {
-    return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.css',
+    gulp.src(['node_modules/bootstrap/dist/css/bootstrap.css',
         'node_modules/bootstrap-material-design/dist/css/material.css',
         'node_modules/bootstrap-material-design/dist/css/ripples.css',
         'node_modules/bootstrap-material-design/dist/css/roboto.css',
@@ -22,13 +22,13 @@ gulp.task('app_css', ['cssless_js', 'cssstyls_js'], function() {
 })
 
 gulp.task('cssstyls_js', function() {
-    return gulp.src('styles/*.styl')
+    gulp.src('styles/*.styl')
         .pipe(stylus())
         .pipe(gulp.dest('styles/css'))
 })
 
 gulp.task('cssless_js', function() {
-    return gulp.src('styles/*.less')
+    gulp.src('styles/*.less')
         .pipe(less())
         .pipe(gulp.dest('styles/css'))
 })
