@@ -4,8 +4,7 @@
   "description": "An app for managing your team",
   "main": "server.js",
   "scripts": {
-    "start": "npm run clean && DB=mongodb://localhost/midweekmanager gulp dev",
-    "clean": "rm -r dist"
+    "start": "rm -r dist && DB=mongodb://localhost/midweekmanager gulp dev"
   },
   "repository": {
     "type": "git",
