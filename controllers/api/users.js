@@ -1,8 +1,9 @@
-var router = require('express').Router()
-var bcrypt = require('bcrypt')
-var jwt    = require('jsonwebtoken')
-var User   = require('../../models/user')
-var config = require('../../config')
+'use strict';
+let router = require('express').Router()
+let bcrypt = require('bcrypt')
+let jwt = require('jsonwebtoken')
+let User = require('../../models/user')
+let config = require('../../config')
 
 // \\ ** USERS API ENDPOINT ** \\ //
 
@@ -10,8 +11,8 @@ router.get('/', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401);
   }
-  var auth = jwt.verify(req.headers['x-auth'], config.secret);
-  User.findOne({username: auth.username}, function (err, user) {
+  let auth = jwt.verify(req.headers['x-auth'], config.secret);
+  User.findOne({ username: auth.username }, function (err, user) {
     if (err) { return next(err) }
     res.json(user)
   })
@@ -22,7 +23,7 @@ router.get('/:user_id', function (req, res, next) {
     return res.sendStatus(401);
   }
   if (req.auth.username) {
-    User.findOne({_id: req.params.user_id}, function (err, user) {
+    User.findOne({ _id: req.params.user_id }, function (err, user) {
       if (err) { return next(err); }
       res.json(user);
     })
@@ -33,7 +34,7 @@ router.get('/:user_id', function (req, res, next) {
 })
 
 router.post('/', function (req, res, next) {
-  var user = new User({username: req.body.username, email: req.body.email, firstname: req.body.firstname, surname: req.body.surname, dateofbirth: req.body.dateofbirth, mobilenumber: req.body.mobilenumber})
+  let user = new User({ username: req.body.username, email: req.body.email, firstname: req.body.firstname, surname: req.body.surname, dateofbirth: req.body.dateofbirth, mobilenumber: req.body.mobilenumber })
   bcrypt.hash(req.body.password, 10, function (err, hash) {
     if (err) { return next(err); }
     user.password = hash;

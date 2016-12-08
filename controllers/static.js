@@ -1,8 +1,9 @@
-var express = require('express')
-var router  = express.Router()
-var rootPath = __dirname + '/../layouts'
+'use strict';
+let express = require('express')
+let router = express.Router()
+let rootPath = __dirname + '/../layouts'
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   res.sendFile('app.html', { root: rootPath });
 })
 
