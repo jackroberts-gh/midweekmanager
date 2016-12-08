@@ -1,5 +1,6 @@
-var mongoose = require('mongoose')
-var mongouri = process.env.DB;
+'use strict';
+const mongoose = require('mongoose')
+const mongouri = process.env.DB;
 
 mongoose.connect(mongouri, function () {
   console.log('mongodb connected')

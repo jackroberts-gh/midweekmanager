@@ -1,4 +1,5 @@
 'use strict';
+
 let Team = require('../../models/team');
 let Fixture = require('../../models/fixture');
 let router = require('express').Router();

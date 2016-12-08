@@ -1,4 +1,5 @@
 'use strict';
+
 let Player = require('../../models/player');
 let router = require('express').Router();
 

@@ -1,6 +1,7 @@
-var gulp = require('gulp')
-var fs = require('fs')
-var nodemon = require('gulp-nodemon')
+'use strict';
+const gulp = require('gulp')
+const fs = require('fs')
+const nodemon = require('gulp-nodemon')
 
 fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
     require('./gulp/' + task)

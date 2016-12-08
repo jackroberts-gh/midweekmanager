@@ -1,4 +1,5 @@
 'use strict';
+
 let Season = require('../../models/season');
 let router = require('express').Router();
 
