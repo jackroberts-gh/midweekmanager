@@ -1,6 +1,8 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+'use strict';
+
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 
 gulp.task('vendor_js', function () {
     gulp.src(['node_modules/jquery/dist/jquery.js',

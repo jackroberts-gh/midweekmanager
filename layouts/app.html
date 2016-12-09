@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Styles and Viewports -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Midweek Manager">
-    <meta name="author" content="Jack Roberts">
-    <link rel="stylesheet" href="/scripts/styles.bundle.css" />
-  </head>
-  <body ng-app='app' ng-controller='ApplicationCtrl as app'>
-    <div id="wrapper">
-      <div class="overlay"></div>
+
+<head>
+  <!-- Styles and Viewports -->
+  <meta harset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Midweek Manager">
+  <meta name="author" content="Jack Roberts">
+  <link rel="stylesheet" href="/scripts/styles.bundle.css" />
+</head>
+
+<body ng-app='app' ng-controller='ApplicationCtrl as app'>
+  <div id="wrapper">
+    <div class="overlay"></div>
     <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
       <ul class="nav sidebar-nav">
-          <li class="sidebar-brand">
-            <a>
-               <i id="icon" class="fa fa-medium" style="text-shadow: none; font-size: 30px; color: rgb(255, 255, 255); height: 30px; width: 30px; line-height: 30px; border-radius: 0%; text-align: center; margin-left:-20px;"></i> </a>
-            </a>
-          </li>
+        <li class="sidebar-brand">
+          <a>
+            <i id="icon" class="fa fa-medium" style="text-shadow: none; font-size: 30px; color: rgb(255, 255, 255); height: 30px; width: 30px; line-height: 30px; border-radius: 0%; text-align: center; margin-left:-20px;"></i>
+          </a>
+        </li>
         <div ng-if="app.currentUser" class="profile-sidebar">
           <div class="profile-userpic">
             <img src="scripts/profile.jpg" class="img-responsive" alt="">
@@ -33,41 +34,42 @@
             </div>
           </div>
           <div class="profile-userbuttons">
-              <a role="button" class="btn btn-danger btn-sm" href="#/logout">Logout</a>
-            </div>
+            <a role="button" class="btn btn-danger btn-sm" href="#/logout">Logout</a>
+          </div>
         </div>
         <br />
         <li>
-            <a class="weighted-text" href="#/">Home</a>
+          <a class="weighted-text" href="#/">Home</a>
         </li>
         <li ng-if="app.currentUser">
-            <a class="weighted-text" href="#/teams">Teams</a>
+          <a class="weighted-text" href="#/teams">Teams</a>
         </li>
         <li ng-if="app.currentUser">
-            <a class="weighted-text" href="#">Fixtures</a>
+          <a class="weighted-text" href="#">Fixtures</a>
         </li>
         <li ng-if="app.currentUser">
-            <a class="weighted-text" href="#/feed">Newsfeed</a>
+          <a class="weighted-text" href="#/feed">Newsfeed</a>
         </li>
         <li ng-if="!app.currentUser">
-            <a class="weighted-text" href="#/login">Login</a>
+          <a class="weighted-text" href="#/login">Login</a>
         </li>
         <li ng-if="!app.currentUser">
-            <a class="weighted-text" href="#/register">Register</a>
+          <a class="weighted-text" href="#/register">Register</a>
         </li>
-    </ul>
-</nav>
-<!-- /#sidebar-wrapper -->
-<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-  <span class="hamb-top"></span>
-  <span class="hamb-middle"></span>
-  <span class="hamb-bottom"></span>
-</button>
-</div>
-<div id="page-content-wrapper">
-<div ng-view></div>
-</div>
-<script src="/scripts/vendor.bundle.js"></script>
-<script src="/scripts/app.bundle.js"></script>
+      </ul>
+    </nav>
+
+    <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+  </button>
+  </div>
+  <div id="page-content-wrapper">
+    <div ng-view></div>
+  </div>
+  <script src="/scripts/vendor.bundle.js"></script>
+  <script src="/scripts/app.bundle.js"></script>
 </body>
+
 </html>

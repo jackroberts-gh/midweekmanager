@@ -1,7 +1,9 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var ngAnnotate = require('gulp-ng-annotate');
+'use strict';
+
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const ngAnnotate = require('gulp-ng-annotate');
 
 // Watches and builds everything in ng
 gulp.task('watch:ng_js', ['app_js'], function () {
