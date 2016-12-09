@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 
-gulp.task('vendor_js', function () {
+gulp.task('vendor_js', function() {
     gulp.src(['node_modules/jquery/dist/jquery.js',
         'node_modules/bootstrap/dist/js/bootstrap.js',
         'node_modules/angular/angular.js',

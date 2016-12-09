@@ -1,18 +1,21 @@
-angular.module('app')
-.controller('MyPlayersCtrl', MyPlayersCtrl);
+(function() {
+  'use strict';
+  angular.module('app')
+    .controller('MyPlayersCtrl', MyPlayersCtrl);
 
-MyPlayersCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureService', '$routeParams'];
+  MyPlayersCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureService', '$routeParams'];
 
-function MyPlayersCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams) {
+  function MyPlayersCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams) {
 
-  var vm = this;
+    var vm = this;
 
-  activate();
+    activate();
 
-  function activate() {
-    UserSvc.getPlayersUser($routeParams.player_id)
-    .success(function(user) {
-      vm.user = user;
-    })
+    function activate() {
+      UserSvc.getPlayersUser($routeParams.player_id)
+        .success(function(user) {
+          vm.user = user;
+        })
+    }
   }
-}
+})();
