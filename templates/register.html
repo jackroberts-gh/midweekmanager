@@ -1,53 +1,53 @@
 <div class="register-buffer bg">
-<div class="form-body">
-  <div class="container">
-    <form class="form-signin" ng-submit="vm.register(username, email, firstname, surname, dateofbirth, mobilenumber, password)">
-      <div id="registererror" class="alert alert-danger fade in hidden">
-        <strong>Uh oh!</strong> It seems that either that username is in use, or that email is already registered with us.
-      </div>
-      <div class="form-group">
-        <div class="form-control-wrapper">
-          <input class="form-control empty" ng-model="email" id="inputEmail" type="email">
-          <div class="floating-label">Email</div><span class="material-input"></span></div>
-      </div>
-      <div class="form-group">
-        <div class="form-control-wrapper">
-          <input class="form-control empty" ng-model="username" ng-blur="checkUsername(username)" id="inputUsername" type="text">
-          <div class="floating-label">Username</div><span class="material-input"></span></div>
-      </div>
+  <div class="form-body">
+    <div class="container">
+      <form class="form-signin" ng-submit="vm.register(username, email, firstname, surname, dateofbirth, mobilenumber, password)">
+        <div id="registererror" class="alert alert-danger fade in hidden">
+          <strong>Uh oh!</strong> It seems that either that username is in use, or that email is already registered with us.
+        </div>
         <div class="form-group">
           <div class="form-control-wrapper">
-            <input class="form-control empty" ng-model="firstname" id="inputFirstname" type="text">
+            <input class="form-control empty" ng-model="email" id="inputEmail" type="email" required>
+            <div class="floating-label">Email</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="username" ng-blur="checkUsername(username)" id="inputUsername" type="text" required>
+            <div class="floating-label">Username</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="firstname" id="inputFirstname" type="text" required>
             <div class="floating-label">First Name</div><span class="material-input"></span></div>
         </div>
         <div class="form-group">
           <div class="form-control-wrapper">
-            <input class="form-control empty" ng-model="surname" id="inputSurname" type="text">
+            <input class="form-control empty" ng-model="surname" id="inputSurname" type="text" required>
             <div class="floating-label">Surname</div><span class="material-input"></span></div>
         </div>
         <div class="form-group">
           <div class="form-control-wrapper">
-            <input class="form-control empty" ng-model="dateofbirth" id="inputDateofbirth" type="date">
-        <div class="floating-label">Date of Birth</div><span class="material-input"></span></div>
-          </div>
-          <div class="form-group">
-            <div class="form-control-wrapper">
-              <input class="form-control empty" ng-model="mobilenumber" id="inputMobile" type="text">
-              <div class="floating-label">Mobile Number</div><span class="material-input"></span></div>
-          </div>
-          <div class="form-group">
-            <div class="form-control-wrapper">
-              <input class="form-control empty" ng-model="password" id="inputPassword" type="password">
-              <div class="floating-label">Password</div><span class="material-input"></span></div>
-          </div>
-          <div class="form-group">
-            <div class="form-control-wrapper">
-              <input class="form-control empty" ng-model="confirmpassword" id="inputConfirmPassword" type="password">
-              <div class="floating-label">Confirm Password</div><span class="material-input"></span></div>
-          </div>
+            <input class="form-control empty" ng-model="dateofbirth" id="inputDateofbirth" type="date" required>
+            <div class="floating-label">Date of Birth</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="mobilenumber" id="inputMobile" type="text" required>
+            <div class="floating-label">Mobile Number</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="password" id="inputPassword" type="password" required>
+            <div class="floating-label">Password</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="confirmpassword" id="inputConfirmPassword" type="password" required>
+            <div class="floating-label">Confirm Password</div><span class="material-input"></span></div>
+        </div>
 
 
-      <!--<div class="form-group">
+        <!--<div class="form-group">
       <label for="inputEmail" class="sr-only">E-Mail</label>
       <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
       <label for="inputUsername" class="sr-only">Username</label>
@@ -74,8 +74,10 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>-->
-      <input class="btn btn-success btn-lg btn-block" type="submit" value="Register">
-    </form>
-  </div> <!-- /container -->
-</div> <!-- /form-body -->
+        <input class="btn btn-success btn-lg btn-block" type="submit" value="Register">
+      </form>
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /form-body -->
 </div>

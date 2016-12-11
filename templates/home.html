@@ -1,42 +1,42 @@
 <!-- Header -->
 <div class="bg">
-    <a name="about"></a>
-    <div class="intro-header">
-        <div class="container">
+  <a name="about"></a>
+  <div class="intro-header">
+    <div class="container">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message" id="bs-example-navbar-collapse-1">
-                        <h1>Midweek Manager</h1>
-                        <h3>Manage your fives, sevens, and elevens</h3>
-                        <hr class="intro-divider">
-                        <div ng-if="app.currentUser" id="create-buttons">
-                          <ul class="list-inline homepage">
-                            <a class="btn btn-lg btn-success" href="#/createteam" role="button">Create a Team</a>
-                          </ul>
-                          <ul class="list-inline homepage">
-                          <a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#joinTeamModal">Join a Team</a>
-                        </ul>
-                        </div>
-                        <div ng-if="!app.currentUser" id="create-buttons">
-                          <ul class="list-inline homepage">
-                            <a class="btn btn-lg btn-success" href="#/register" role="button">Sign up now!</a>
-                          </ul>
-                          <ul class="list-inline homepage">
-                            <a class="btn btn-lg btn-primary" href="#/login" role="button">Log in</a>
-                          </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="intro-message" id="bs-example-navbar-collapse-1">
+            <h1>Midweek Manager</h1>
+            <h3>Manage your fives, sevens, and elevens</h3>
+            <hr class="intro-divider">
+            <div ng-if="app.currentUser" id="create-buttons">
+              <ul class="list-inline homepage">
+                <a class="btn btn-lg btn-success" href="#/createteam" role="button">Create a Team</a>
+              </ul>
+              <ul class="list-inline homepage">
+                <a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#joinTeamModal">Join a Team</a>
+              </ul>
             </div>
-
+            <div ng-if="!app.currentUser" id="create-buttons">
+              <ul class="list-inline homepage">
+                <a class="btn btn-lg btn-success" href="#/register" role="button">Sign up now!</a>
+              </ul>
+              <ul class="list-inline homepage">
+                <a class="btn btn-lg btn-primary" href="#/login" role="button">Log in</a>
+              </ul>
+            </div>
+          </div>
         </div>
-        <!-- /.container -->
+      </div>
 
     </div>
-    <!-- /.intro-header -->
+    <!-- /.container -->
 
-    <!-- Page Content -->
+  </div>
+  <!-- /.intro-header -->
+
+  <!-- Page Content -->
   <!-- /.content-section-b -
 
   <div class="banner">
@@ -62,31 +62,31 @@
       </div>
     </div>
       <!-- /.container -->
-    <!-- /.banner -->
+  <!-- /.banner -->
 
-    <!-- join a team modal -->
-    <div class="modal fade" id="joinTeamModal" tabindex="-1" role="dialog" aria-labelledby="Join a Team" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <!-- join a team modal -->
+  <div class="modal fade" id="joinTeamModal" tabindex="-1" role="dialog" aria-labelledby="Join a Team" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="myModalLabel">Join a team</h4>
-          </div>
-          <hr />
-          <div id="jointeamerror" class="alert alert-danger fade in hidden">
-            <strong>Uh oh!</strong> That ID doesn't seem to exist, or indeed be correct - please try again!
-          </div>
-          <form name="jointeam" ng-submit="vm.joinTeam(teamToJoinID, position)">
-  <!-- 2 step modal tbc -->
+          <h4 class="modal-title" id="myModalLabel">Join a team</h4>
+        </div>
+        <hr />
+        <div id="jointeamerror" class="alert alert-danger fade in hidden">
+          <strong>Uh oh!</strong> That ID doesn't seem to exist, or indeed be correct - please try again!
+        </div>
+        <form name="jointeam" ng-submit="vm.joinTeam(teamToJoinID, position)">
+          <!-- 2 step modal tbc -->
           <div class="modal-body">
-              <p class="undefined">Enter the code you were given by the manager below: </p>
-              <input type="text" class="form-control" type="text" ng-model="teamToJoinID" required>
+            <p class="undefined">Enter the code you were given by the manager below: </p>
+            <input type="text" class="form-control" type="text" ng-model="teamToJoinID" required>
           </div>
           <div class="modal-body">
-              <p class="undefined">Choose your position </p>
-              <select ng-model="position" id="position" name="position" class="form-control" required>
+            <p class="undefined">Choose your position </p>
+            <select ng-model="position" id="position" name="position" class="form-control" required>
                 <option value="Goalkeeper">Goalkeeper</option>
                 <option value="Defender">Defender</option>
                 <option value="Midfielder">Midfielder</option>
@@ -95,16 +95,16 @@
 
           </div>
           <div class="modal-footer">
-              <input class="btn btn-primary" type="submit" value="Join">
+            <input class="btn btn-primary" type="submit" value="Join">
           </div>
         </form>
-        </div>
       </div>
     </div>
   </div>
-    <!-- / join a team modal -->
+</div>
+<!-- / join a team modal -->
 
-    <!-- Footer -->
+<!-- Footer -->
 
-  </div>
+</div>
 <!--Scripts for this page-->
