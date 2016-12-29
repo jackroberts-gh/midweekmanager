@@ -7,21 +7,21 @@ let router = require('express').Router();
 // \\ ** TEAM API ENDPOINT ** \\ //
 
 router.get('/', function(req, res, next) {
-  // if (!req.headers['x-auth']) {
-  //   return res.sendStatus(401)
-  // }
-  // if (req.auth.username) {
-  Team.find()
-    .sort('-date')
-    .exec(function(err, teams) {
-      if (err) {
-        return next(err)
-      }
-      res.json(teams)
-    })
-    // } else {
-    //   res.status(401)
-    // }
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
+  if (req.auth.username) {
+    Team.find()
+      .sort('-date')
+      .exec(function(err, teams) {
+        if (err) {
+          return next(err)
+        }
+        res.json(teams)
+      })
+  } else {
+    res.status(401)
+  }
 })
 
 // Fetch teams I manage
