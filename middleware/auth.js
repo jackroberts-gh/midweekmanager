@@ -1,4 +1,3 @@
-
 'use strict';
 
 const jwt = require('jsonwebtoken')
@@ -12,4 +11,3 @@ const auth = function (req, res, next) {
 }
 
 module.exports = auth;
-
