@@ -13,7 +13,6 @@
 
     function activate() {
       if (window.localStorage.getItem("midweekmanagertoken") !== null) {
-        $http.defaults.headers.common['X-Auth'] = window.localStorage.getItem("midweekmanagertoken")
         UserSvc.getUser().success(function(user) {
           app.currentUser = user;
         })
