@@ -22,16 +22,6 @@
           }
         }
       })
-      .when('/feed', {
-        controller: 'PostsCtrl',
-        controllerAs: 'vm',
-        templateUrl: 'posts.html',
-        resolve: {
-          user: function(UserSvc) {
-            return UserSvc.getUser();
-          }
-        }
-      })
       .when('/teams', {
         controller: 'TeamCtrl',
         controllerAs: 'vm',

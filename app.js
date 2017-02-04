@@ -16,7 +16,6 @@ app.use(morgan('combined', {
   stream: logFile
 }));
 
-app.use('/api/posts', require('./controllers/api/posts'));
 app.use('/api/sessions', require('./controllers/api/sessions'));
 app.use('/api/users', require('./controllers/api/users'));
 app.use('/api/teams', require('./controllers/api/teams'));
@@ -43,6 +42,6 @@ app.use('/fonts', express.static('node_modules/bootstrap/dist/fonts/'));
 app.use('/fonts', express.static('node_modules/font-awesome/fonts/'));
 app.use('/fonts', express.static('node_modules/bootstrap-material-design/dist/fonts/'));
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3000, function() {
   console.log('Midweek Manager is running on port ' + (process.env.PORT || 3000));
 })
