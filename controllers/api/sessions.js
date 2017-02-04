@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
           username: username
         }
         let token = jwt.sign(jsonToken, config.secret, {
-          expiresIn: '1m'
+          expiresIn: '1440m'
         })
         res.send(token)
       })

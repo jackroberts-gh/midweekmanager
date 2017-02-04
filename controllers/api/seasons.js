@@ -5,34 +5,34 @@ let router = require('express').Router();
 
 // \\ ** SEASONS API ENDPOINT ** \\ //
 
-router.get('/', function (req, res, next) {
+router.get('/', function(req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401);
   }
   if (req.auth.username) {
-    Fixture.find()
+    Season.find()
       .sort('-date')
-      .exec(function (err, fixtures) {
+      .exec(function(err, seasons) {
         if (err) {
           return next(err);
         }
-        res.json(fixtures);
+        res.json(seasons);
       })
   } else {
     res.status(401);
   }
 })
 
-router.post('/', function (req, res, next) {
+router.post('/', function(req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401);
   }
   if (req.auth.username) {
-    let fixture = new Fixture({
+    let season = new Season({
       opposition: req.body.opposition,
-      fixturedate: req.body.fixturedate
+      seasondate: req.body.seasondate
     })
-    fixture.save(function (err, fix) {
+    season.save(function(err, fix) {
       if (err) {
         return next(err);
       }
@@ -43,18 +43,18 @@ router.post('/', function (req, res, next) {
   }
 })
 
-router.get('/fixture/:fixture_id', function (req, res, next) {
+router.get('/season/:season_id', function(req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401);
   }
   if (req.auth.username) {
-    Fixture.findOne({
-      _id: req.params.fixture_id
-    }, function (err, fixture) {
+    Season.findOne({
+      _id: req.params.season_id
+    }, function(err, season) {
       if (err) {
         return next(err);
       }
-      res.json(fixture);
+      res.json(season);
     })
   } else {
     res.status(401);
@@ -65,7 +65,7 @@ module.exports = router;
 
 
 /* TO BE CHANGED, COPIED FROM TEAMS.JS
-router.put('/fixture', function (req, res) {
+router.put('/season', function (req, res) {
 if (!req.headers['x-auth']) {
 return res.sendStatus(401)
 }
