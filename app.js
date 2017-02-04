@@ -21,6 +21,7 @@ app.use('/api/users', require('./controllers/api/users'));
 app.use('/api/teams', require('./controllers/api/teams'));
 app.use('/api/players', require('./controllers/api/players'));
 app.use('/api/fixtures', require('./controllers/api/fixtures'));
+app.use('/api/seasons', require('./controllers/api/seasons'));
 app.use(require('./controllers/static'));
 
 app.use('/scripts', express.static('node_modules/jquery/dist/'));
