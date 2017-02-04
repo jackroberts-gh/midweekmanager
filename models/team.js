@@ -1,6 +1,8 @@
-var db = require('../db')
+'use strict';
 
-var Team = db.model('Team', {
+const db = require('../db')
+
+const Team = db.model('Team', {
   name: { type: String, required: true },
   manager: { type: db.Schema.Types.ObjectId, ref: 'User' },
   playday: { type: String, required: true },

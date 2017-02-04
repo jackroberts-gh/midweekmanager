@@ -1,22 +1,25 @@
-angular.module('app')
-.controller('LoginCtrl', LoginCtrl);
+(function() {
+  'use strict';
+  angular.module('app')
+    .controller('LoginCtrl', LoginCtrl);
 
-LoginCtrl.$inject = ['$scope', 'UserSvc'];
+  LoginCtrl.$inject = ['$scope', 'UserSvc'];
 
-function LoginCtrl($scope, UserSvc) {
+  function LoginCtrl($scope, UserSvc) {
 
-  var vm = this;
-  vm.login = login;
+    var vm = this;
+    vm.login = login;
 
 
-  function login(username, password) {
-    UserSvc.login(username, password)
-      .then(function (response) {
-        $scope.$emit('login', response.data)
-        window.location.href = '/#/';
-      })
-      .catch(function(response) {
-        $("#loginerror").removeClass('hidden');
-      })
+    function login(username, password) {
+      UserSvc.login(username, password)
+        .then(function(response) {
+          $scope.$emit('login', response.data)
+          window.location.href = '/#/';
+        })
+        .catch(function(response) {
+          $("#loginerror").removeClass('hidden');
+        })
     }
-}
+  }
+})();

@@ -1,15 +1,18 @@
-angular.module('app')
-.controller('LogoutCtrl', LogoutCtrl);
+(function() {
+  'use strict';
+  angular.module('app')
+        .controller('LogoutCtrl', LogoutCtrl);
 
-LogoutCtrl.$inject = ['$scope', 'UserSvc'];
+  LogoutCtrl.$inject = ['$scope', 'UserSvc'];
 
-function LogoutCtrl($scope, UserSvc) {
+  function LogoutCtrl($scope, UserSvc) {
 
-  activate();
+    activate();
 
-  function activate() {
-    UserSvc.logout()
-    $scope.$emit('logout')
-    window.location.href = '/'
+    function activate() {
+      UserSvc.logout()
+      $scope.$emit('logout')
+      window.location.href = '/'
+    }
   }
-}
+})();

@@ -1,30 +1,32 @@
 <div class="bg">
-<div class="container-fluid big-logo-row">
+  <div class="container-fluid big-logo-row">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 big-logo-container">
+          <h1 class="big-logo">Teams <span class="glyphicon glyphicon-hand-down"></span></h1>
+        </div>
+        <!--/.col-xs-12 -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!--/.container -->
+  </div>
+  <!--/.container-fluid -->
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 big-logo-container">
-        <h1 class="big-logo">Teams <span class="glyphicon glyphicon-hand-down"></span></h1>
-      </div><!--/.col-xs-12 -->
-    </div><!--/.row -->
-  </div><!--/.container -->
-</div><!--/.container-fluid -->
-<div class="container">
-  <h1 class="alignwithcards"></h1>
+    <h1 class="alignwithcards"></h1>
     <hr />
-
-
-<div class="container">
-<div class="row">
-  <div class="col-md-4" ng-repeat="team in vm.teamsPlayedFor" ng-click="vm.showTeam(team)">
-    <div class="card card-inverse">
-      <img class="card-img-{{team.type | lowercase}}-{{$index+1}}" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
-      <div class="card-img-overlay">
-        <h2 class="card-title">{{team.name | uppercase}}</h2>
-        <p class="card-text">{{team.type}} on {{team.playday}}</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" ng-repeat="team in vm.teamsPlayedFor" ng-click="vm.showTeam(team)">
+          <div class="card card-inverse">
+            <img class="card-img-{{team.type | lowercase}}-{{$index+1}}" data-holder-rendered="true" style="height: 270px; width: 100%; display: block;">
+            <div class="card-img-overlay">
+              <h2 class="card-title">{{team.name | uppercase}}</h2>
+              <p class="card-text">{{team.type}} on {{team.playday}}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</div>
 </div>

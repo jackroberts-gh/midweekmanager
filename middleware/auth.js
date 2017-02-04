@@ -1,14 +1,13 @@
-(function(){
-  'use strict';
+'use strict';
 
-  var jwt    = require('jsonwebtoken')
-  var config = require('../config')
+const jwt = require('jsonwebtoken')
+const config = require('../config')
 
-  let auth = function (req, res, next) {
-    if (req.headers['x-auth']) {
-      req.auth = jwt.verify(req.headers['x-auth'], config.secret)
-    }
-    next();
+const auth = function(req, res, next) {
+  if (req.headers['x-auth']) {
+    req.auth = jwt.verify(req.headers['x-auth'], config.secret)
   }
-  module.exports = auth;
-})();
+  next();
+}
+
+module.exports = auth;

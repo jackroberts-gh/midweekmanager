@@ -1,71 +1,71 @@
 <div class="container top-buffer bg">
   <div class="container">
-  <h2>{{ vm.team.name | uppercase }}</h2>
+    <h2>{{ vm.team.name | uppercase }}</h2>
     <h4>Managed by {{ vm.team.manager.firstname | uppercase }} {{ vm.team.manager.surname | uppercase }} </h4>
-  <hr class="dark" />
-  <ul class="nav nav-pills">
-    <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
-    <li><a data-toggle="tab" data-target="#fixs">Fixtures</a></li>
-    <li><a data-toggle="tab" data-target="#results">Results</a></li>
-    <li><a data-toggle="modal" data-target="#myModal">Invite</a></li>
-  </ul>
-  <br />
-  <div class="tab-content">
-    <div id="team" class="tab-pane fade in active">
-      <table class="table">
-        <thead class="thead-inverse">
-          <tr>
-            <th> </th>
-            <th>Name</th>
-            <th>Goals</th>
-            <th>MOM</th>
+    <hr class="dark" />
+    <ul class="nav nav-pills">
+      <li class="active"><a data-toggle="tab" data-target="#team">My Team</a></li>
+      <li><a data-toggle="tab" data-target="#fixs">Fixtures</a></li>
+      <li><a data-toggle="tab" data-target="#results">Results</a></li>
+      <li><a data-toggle="modal" data-target="#myModal">Invite</a></li>
+    </ul>
+    <br />
+    <div class="tab-content">
+      <div id="team" class="tab-pane fade in active">
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th> </th>
+              <th>Name</th>
+              <th>Goals</th>
+              <th>MOM</th>
+            </tr>
+          </thead>
+          <tr ng-repeat="player in vm.team.players | orderBy:vm.positionOrder">
+            <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showPlayer(player._userid)">View</a></td>
+            <td>{{ player.firstname | uppercase }} {{ player.surname | uppercase }}</td>
+            <td>{{ player.goals }}</td>
+            <td>{{ player.moms }}</td>
           </tr>
-        </thead>
-        <tr ng-repeat="player in vm.team.players | orderBy:vm.positionOrder">
-          <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showPlayer(player._userid)">View</a></td>
-          <td>{{ player.firstname | uppercase }} {{ player.surname | uppercase }}</td>
-          <td>{{ player.goals }}</td>
-          <td>{{ player.moms }}</td>
-      </tr>
-      </table>
+        </table>
+      </div>
+      <div id="fixs" class="tab-pane fade">
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th> </th>
+              <th>Opposition</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tr ng-repeat="fixture in vm.team.fixtures | filter: { result: false } | orderBy:'fixturedate'">
+            <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showFixture(fixture._id)">View</a></td>
+            <td>{{ fixture.opposition }}</td>
+            <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
+          </tr>
+        </table>
+        <hr />
+        <a class="btn btn-success ripple-effect" role="button" data-toggle="modal" data-target="#addFixtureModal">Add fixture</a>
+      </div>
+      <div id="results" class="tab-pane fade">
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th> </th>
+              <th>Opposition</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tr ng-repeat="fixture in vm.team.fixtures | filter: { result: true } | orderBy:'fixturedate'">
+            <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showResult(fixture._id)">View</a></td>
+            <td>{{ fixture.opposition }}</td>
+            <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
+          </tr>
+        </table>
+        <hr />
+      </div>
     </div>
-    <div id="fixs" class="tab-pane fade">
-      <table class="table">
-        <thead class="thead-inverse">
-          <tr>
-            <th> </th>
-            <th>Opposition</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tr ng-repeat="fixture in vm.team.fixtures | filter: { result: false } | orderBy:'fixturedate'">
-          <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showFixture(fixture._id)">View</a></td>
-          <td>{{ fixture.opposition }}</td>
-          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
-        </tr>
-      </table>
-      <hr />
-      <a class="btn btn-success ripple-effect" role="button" data-toggle="modal" data-target="#addFixtureModal">Add fixture</a>
-    </div>
-    <div id="results" class="tab-pane fade">
-      <table class="table">
-        <thead class="thead-inverse">
-          <tr>
-            <th> </th>
-            <th>Opposition</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tr ng-repeat="fixture in vm.team.fixtures | filter: { result: true } | orderBy:'fixturedate'">
-          <td><a class="btn-sm btn-primary" role="button" ng-click="vm.showResult(fixture._id)">View</a></td>
-          <td>{{ fixture.opposition }}</td>
-          <td>{{ fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ fixture.fixturedate | date:'HH:mm'}}</b></td>
-        </tr>
-      </table>
-      <hr />
   </div>
-  </div>
-</div>
 </div>
 <!-- add a fixture modal -->
 <div class="modal fade" id="addFixtureModal" tabindex="-1" role="dialog" aria-labelledby="Add Fixture" aria-hidden="true">
@@ -81,17 +81,17 @@
         <strong>Uh oh!</strong> You seem to have missed something - please review the fixture.
       </div>
       <form name="addfixture" ng-submit="vm.addFixture(opposition, fixturedate)">
-<!-- 2 step modal tbc -->
-      <div class="modal-body">
-          <p class="undefined" >Opposition: </p>
+        <!-- 2 step modal tbc -->
+        <div class="modal-body">
+          <p class="undefined">Opposition: </p>
           <input type="text" class="form-control" type="text" ng-model="opposition">
           <p class="undefined" style="margin-top:10px">Date and Time: </p>
           <input type="datetime-local" id="inputDateOfFixture" class="form-control" ng-model="fixturedate">
-      </div>
-      <div class="modal-footer">
+        </div>
+        <div class="modal-footer">
           <input class="btn btn-primary" type="submit" value="Add">
-      </div>
-    </form>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -102,7 +102,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Join {{team.name}}</h4>
+        <h4 class="modal-title" id="myModalLabel">Join {{vm.team.name}}</h4>
       </div>
       <div class="modal-body">
         <form>
@@ -111,7 +111,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thanks</button>
+        <br />
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Thanks</button>
       </div>
     </div>
   </div>

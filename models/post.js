@@ -1,9 +1,11 @@
-var db = require('../db')
+'use strict';
 
-var Post = db.model('Post', {
+const db = require('../db')
+
+const Post = db.model('Post', {
   username: { type: String, required: true },
-  body:     { type: String, required: true },
-  date:     { type: Date,   required: true, default: Date.now }
+  body: { type: String, required: true },
+  date: { type: Date, required: true, default: Date.now }
 })
 
 module.exports = Post

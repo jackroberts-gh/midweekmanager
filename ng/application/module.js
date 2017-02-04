@@ -1,1 +1,5 @@
-angular.module('app', ['ngRoute','toggle-switch']);
+(function() {
+  'use strict';
+  angular
+    .module('app', ['ngRoute', 'toggle-switch']);
+})();

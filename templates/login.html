@@ -17,31 +17,33 @@
 </form>
 </div>-->
 <div class="login-buffer bg">
-<div class="form-body">
-  <div class="container">
-    <form class="form-signin" ng-submit="vm.login(username, password)">
-      <div id="loginerror" class="alert alert-danger fade in hidden">
-        <strong>Uh oh!</strong> Your credentials are incorrect. Please try again.
-      </div>
-  <div class="form-group">
-    <div class="form-control-wrapper">
-      <input class="form-control empty" ng-model="username" id="inputUsername" type="text">
-      <div class="floating-label">Username</div><span class="material-input"></span></div>
-    </div>
-  <div class="form-group">
-    <div class="form-control-wrapper">
-      <input class="form-control empty" ng-model="password" id="inputPassword" type="password">
-      <div class="floating-label">Password</div><span class="material-input"></span></div>
-</div>
-<!--<div class="checkbox">
+  <div class="form-body">
+    <div class="container">
+      <form class="form-signin" ng-submit="vm.login(username, password)">
+        <div id="loginerror" class="alert alert-danger fade in hidden">
+          <strong>Uh oh!</strong> Your credentials are incorrect. Please try again.
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="username" id="inputUsername" type="text" required>
+            <div class="floating-label">Username</div><span class="material-input"></span></div>
+        </div>
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input class="form-control empty" ng-model="password" id="inputPassword" type="password" required>
+            <div class="floating-label">Password</div><span class="material-input"></span></div>
+        </div>
+        <!--<div class="checkbox">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>-->
-      <button id="inputLogin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </div>
-    </form>
+        <button id="inputLogin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </div>
-  </div> <!-- /container -->
-</div> <!-- /form-body -->
+    </form>
+  </div>
+</div>
+<!-- /container -->
+</div>
+<!-- /form-body -->
 </div>

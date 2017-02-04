@@ -1,70 +1,71 @@
-(function () {
-  'use strict';
-  let Season = require('../../models/season');
-  let router = require('express').Router();
+'use strict';
 
-  // \\ ** SEASONS API ENDPOINT ** \\ //
+let Season = require('../../models/season');
+let router = require('express').Router();
 
-  router.get('/', function (req, res, next) {
-    if (!req.headers['x-auth']) {
-      return res.sendStatus(401);
-    }
-    if (req.auth.username) {
-      Fixture.find()
-        .sort('-date')
-        .exec(function (err, fixtures) {
-          if (err) {
-            return next(err);
-          }
-          res.json(fixtures);
-        })
-    } else {
-      res.status(401);
-    }
-  })
+// \\ ** SEASONS API ENDPOINT ** \\ //
 
-  router.post('/', function (req, res, next) {
-    if (!req.headers['x-auth']) {
-      return res.sendStatus(401);
-    }
-    if (req.auth.username) {
-      let fixture = new Fixture({
-        opposition: req.body.opposition,
-        fixturedate: req.body.fixturedate
-      })
-      fixture.save(function (err, fix) {
+router.get('/', function(req, res, next) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401);
+  }
+  if (req.auth.username) {
+    Season.find()
+      .sort('-date')
+      .exec(function(err, seasons) {
         if (err) {
           return next(err);
         }
-        res.status(201).json(fix);
+        res.json(seasons);
       })
-    } else {
-      res.status(401);
-    }
-  })
+  } else {
+    res.status(401);
+  }
+})
 
-  router.get('/fixture/:fixture_id', function (req, res, next) {
-    if (!req.headers['x-auth']) {
-      return res.sendStatus(401);
-    }
-    if (req.auth.username) {
-      Fixture.findOne({
-        _id: req.params.fixture_id
-      }, function (err, fixture) {
-        if (err) {
-          return next(err);
-        }
-        res.json(fixture);
-      })
-    } else {
-      res.status(401);
-    }
-  })
-  module.exports = router;
-})();
+router.post('/', function(req, res, next) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401);
+  }
+  if (req.auth.username) {
+    let season = new Season({
+      opposition: req.body.opposition,
+      seasondate: req.body.seasondate
+    })
+    season.save(function(err, fix) {
+      if (err) {
+        return next(err);
+      }
+      res.status(201).json(fix);
+    })
+  } else {
+    res.status(401);
+  }
+})
+
+router.get('/season/:season_id', function(req, res, next) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401);
+  }
+  if (req.auth.username) {
+    Season.findOne({
+      _id: req.params.season_id
+    }, function(err, season) {
+      if (err) {
+        return next(err);
+      }
+      res.json(season);
+    })
+  } else {
+    res.status(401);
+  }
+})
+
+module.exports = router;
+
 
 /* TO BE CHANGED, COPIED FROM TEAMS.JS
-router.put('/fixture', function (req, res) {
+router.put('/season', function (req, res) {
 if (!req.headers['x-auth']) {
 return res.sendStatus(401)
 }
