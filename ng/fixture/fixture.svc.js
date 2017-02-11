@@ -21,6 +21,12 @@
       return $http.get('/api/fixtures/fixture/' + fixture_id)
     }
 
+    svc.confirmResult = function(fixture_id) {
+      return $http.put('/api/fixtures/result', {
+        fixture_id: fixture_id
+      })
+    }
+
     svc.create = function(opposition, fixturedate) {
       return $http.post('/api/fixtures', {
         opposition: opposition,

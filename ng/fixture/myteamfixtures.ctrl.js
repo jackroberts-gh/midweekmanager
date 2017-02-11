@@ -3,13 +3,16 @@
   angular.module('app')
     .controller('MyFixturesCtrl', MyFixturesCtrl);
 
-  MyFixturesCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureService', '$routeParams'];
+  MyFixturesCtrl.$inject = ['UserSvc', 'TeamService', 'PlayerService', 'FixtureService', '$routeParams', '$location'];
 
-  function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams) {
+  function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams, $location) {
     var vm = this;
 
     vm.createSelectedPlayer = createSelectedPlayer;
     vm.assignMom = assignMom;
+    vm.inOrOut = inOrOut;
+    vm.goalCount = goalCount;
+    vm.confirmResult = confirmResult;
 
     activate();
 
@@ -24,11 +27,25 @@
       }
     }
 
+    function inOrOut() {
+
+    }
+
     function assignMom(player) {
       angular.forEach(vm.team.players, function(item) {
         item.mom = false;
       })
       player.mom = true;
+    }
+
+    function goalCount() {
+      console.log('goal count');
+    }
+
+    function confirmResult() {
+      FixtureService.confirmResult($routeParams.fixture_id).success(function(fixture) {
+        $location.path('/teams/' + $routeParams.team_id);
+      })
     }
 
     function activate() {

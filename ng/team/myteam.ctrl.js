@@ -26,7 +26,6 @@
       TeamService.fetchOne(teamid)
         .success(function(team) {
           vm.team = team;
-          console.dir(team);
         })
     }
 
