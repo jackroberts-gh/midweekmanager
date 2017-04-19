@@ -126,6 +126,21 @@
   background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(225, 123, 0, 0.45)), /* bottom, image */ url("/scripts/teamicon.jpg") no-repeat center center;
   background-size: cover;
 }
+.card-img-football-8 {
+  border-radius: 4px;
+  background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(255, 0, 0, 0.45)), /* bottom, image */ url("/scripts/teamicon.jpg") no-repeat center center;
+  background-size: cover;
+}
+.card-img-football-7 {
+  border-radius: 4px;
+  background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(225, 123, 0, 0.45)), /* bottom, image */ url("/scripts/teamicon.jpg") no-repeat center center;
+  background-size: cover;
+}
+.card-img-football-9 {
+  border-radius: 4px;
+  background: linear-gradient(rgba(100, 149, 237, 0.45), rgba(0, 128, 0, 0.45)), /* bottom, image */ url("/scripts/teamicon.jpg") no-repeat center center;
+  background-size: cover;
+}
 .card-img-player {
   border-radius: 4px;
   /*background: url("../scripts/playericon.jpg") no-repeat center center;*/

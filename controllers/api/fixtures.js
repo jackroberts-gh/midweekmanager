@@ -82,4 +82,27 @@ router.put('/result', function(req, res) {
   }
 })
 
+router.put('/player', function(req, res) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
+  if (req.auth.username) {
+    Fixture.findByIdAndUpdate(req.body.fixture_id, {
+      $set: {
+        played: req.body.player
+      }
+    }, {
+      upsert: true
+    }, function(err, doc) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.json(doc)
+      }
+    })
+  } else {
+    res.status(401)
+  }
+})
+
 module.exports = router;

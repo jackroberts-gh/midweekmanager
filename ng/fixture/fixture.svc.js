@@ -34,10 +34,10 @@
       })
     }
 
-    svc.populateFixture = function(fixture_id, player_id) {
+    svc.updatePlayerInFixture = function(fixture_id, player) {
       return $http.put('/api/fixtures/player', {
-        team_id: team_id,
-        player_id: player_id
+        fixture_id: fixture_id,
+        player: player
       })
     }
   }

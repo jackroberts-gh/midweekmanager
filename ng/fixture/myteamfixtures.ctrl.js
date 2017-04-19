@@ -8,15 +8,15 @@
   function MyFixturesCtrl(UserSvc, TeamService, PlayerService, FixtureService, $routeParams, $location) {
     var vm = this;
 
-    vm.createSelectedPlayer = createSelectedPlayer;
     vm.assignMom = assignMom;
-    vm.inOrOut = inOrOut;
+    vm.inOut = inOut;
     vm.goalCount = goalCount;
     vm.confirmResult = confirmResult;
 
     activate();
 
-    function createSelectedPlayer(player) {
+    function inOut(player) {
+      // if player already exists in fixture, set in/out status to player.in
       if (vm.user._id === player._userid) {
         var newPlayer = {
           _playerid: player._id,
@@ -25,9 +25,10 @@
           in: player.in,
         }
       }
-    }
 
-    function inOrOut() {
+      FixtureService.updatePlayerInFixture($routeParams.fixture_id, newPlayer).success(function(fixture) {
+        console.dir(fixture);
+      })
 
     }
 
