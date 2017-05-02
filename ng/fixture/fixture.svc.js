@@ -34,10 +34,9 @@
       })
     }
 
-    svc.updatePlayerInFixture = function(fixture_id, player) {
+    svc.update = function(fixture) {
       return $http.put('/api/fixtures/player', {
-        fixture_id: fixture_id,
-        player: player
+        fixture: fixture
       })
     }
   }

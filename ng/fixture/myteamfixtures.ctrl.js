@@ -16,21 +16,37 @@
     activate();
 
     function inOut(player) {
-      // if player already exists in fixture, set in/out status to player.in
-      if (vm.user._id === player._userid) {
-        var newPlayer = {
-          _playerid: player._id,
-          goals: player.goals,
-          mom: player.mom,
-          in: player.in,
-        }
+
+      console.dir(player);
+
+      var playr = {
+        _playerid: player._id,
+        goals: player.goals,
+        mom: player.mom === true ? true : false,
+        in: player.in,
       }
 
-      FixtureService.updatePlayerInFixture($routeParams.fixture_id, newPlayer).success(function(fixture) {
-        console.dir(fixture);
+      var found = false;
+
+      angular.forEach(vm.fixture.played, function(item) {
+        if (item._playerid === player._id) {
+          item.goals = player.goals;
+          item.mom = player.mom;
+          item.in = player.in;
+          found = true;
+        }
       })
 
+      if (!found) {
+        vm.fixture.played.push(playr);
+      }
+
+      FixtureService.update(vm.fixture).success(function(fixture) {
+        console.dir(fixture);
+      })
     }
+
+
 
     function assignMom(player) {
       angular.forEach(vm.team.players, function(item) {
@@ -50,27 +66,26 @@
     }
 
     function activate() {
-      fetchTeam();
-      fetchFixture();
-      fetchUser();
+      fetchTeam().success(fetchFixture).success(fetchUser);
 
       function fetchTeam() {
-        TeamService.fetchOne($routeParams.team_id).success(function(team) {
+        return TeamService.fetchOne($routeParams.team_id).success(function(team) {
           vm.team = team;
         })
       }
 
       function fetchFixture() {
-        FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
+        return FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
           vm.fixture = fixture;
         })
       }
 
       function fetchUser() {
-        UserSvc.getUser().success(function(user) {
+        return UserSvc.getUser().success(function(user) {
           vm.user = user;
         })
       }
+
     }
   }
 })();
