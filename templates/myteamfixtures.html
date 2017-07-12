@@ -16,10 +16,10 @@
         <tr ng-repeat="player in vm.team.players">
           <td>{{ player.firstname }} {{ player.surname }}</td>
           <td>
-            <toggle-switch on-label="IN" off-label="OUT" ng-model="player.in" ng-disabled="player._userid !== vm.user._id" ng-click="vm.inOut(player)"></toggle-switch>
+            <toggle-switch on-label="IN" off-label="OUT" ng-model="player.in" ng-disabled="player._userid !== vm.user._id" ng-click="vm.updateIt(player)"></toggle-switch>
           </td>
           <td>
-            </a><input type="number" ng-change="vm.goalCount()" ng-disabled="player._userid !== vm.user._id" style="width:50px;" id="goalsCount" ng-model="player.goals"></td>
+            </a><input type="number" ng-change="vm.updateIt(player)" ng-disabled="player._userid !== vm.user._id" style="width:50px;" id="goalsCount" ng-model="player.goals"></td>
           <td>
             </a><input type="checkbox" style="width:50px;" id="momCount" ng-click="vm.assignMom(player)" ng-model="player.mom"></td>
         </tr>

@@ -69,7 +69,6 @@ router.put('/result', function(req, res) {
   if (req.auth.username) {
     Fixture.findById(req.body.fixture_id, function(err, fixture) {
       fixture.result = true;
-
       fixture.save(function(err) {
         if (err) {
           res.send(err);

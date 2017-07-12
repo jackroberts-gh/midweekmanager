@@ -21,8 +21,12 @@
       return $http.get('/api/players/' + team_id)
     }
 
-    svc.fetchOnePlayer = function(player_id) {
-      return $http.get('/api/players/:player_id', player_id)
+    svc.fetchOnePlayer = function(user_id) {
+      return $http.get('/api/players/' + user_id)
+    }
+
+    svc.fetchOnePlayerWithPlayerId = function(player_id) {
+      return $http.get('/api/players/player/' + player_id)
     }
 
     svc.create = function(user_id, position, firstname, surname) {

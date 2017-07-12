@@ -11,26 +11,25 @@
     activate();
 
     function activate() {
-      fetchTeam();
-      fetchFixture();
-      fetchUser();
+      fetchTeam().success(fetchFixture);
 
       function fetchTeam() {
-        TeamService.fetchOne($routeParams.team_id).success(function(team) {
+        return TeamService.fetchOne($routeParams.team_id).success(function(team) {
           vm.team = team;
         })
       }
 
       function fetchFixture() {
-        FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
+        return FixtureService.fetchFixture($routeParams.fixture_id).success(function(fixture) {
           vm.fixture = fixture;
+          angular.forEach(vm.fixture.played, function(item) {
+            PlayerService.fetchOnePlayerWithPlayerId(item._playerid).success(function(player) {
+              item.surname = player.surname;
+              console.dir(player);
+            })
+          })
         })
-      }
-
-      function fetchUser() {
-        UserSvc.getUser().success(function(user) {
-          vm.user = user;
-        })
+        console.dir(vm.fixture.played);
       }
     }
   }

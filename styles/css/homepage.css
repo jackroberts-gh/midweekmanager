@@ -258,16 +258,16 @@ h6 {
 }
 .intro-header {
   padding-top: 90px;
-  padding-bottom: 50px;
+  padding-bottom: 200px;
   text-align: center;
   color: #f8f8f8;
   background: url("/scripts/carousel.jpg") no-repeat center center;
   background-size: cover;
 }
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .intro-header {
     padding-top: 90px;
-    padding-bottom: 225px;
+    padding-bottom: 250px;
     text-align: center;
     color: #f8f8f8;
     background: url("/scripts/carousel.jpg") no-repeat center center;

@@ -1,30 +1,30 @@
 <div class="container bg top-buffer">
   <div class="container">
-  <h1>Result Detail</h1>
-  <h4>{{ vm.fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ vm.fixture.fixturedate | date:'HH:mm'}}</b></h4>
-  <hr class="dark"/>
-  <div>
-    <table class="table">
-      <colgroup>
-        <col style="width: 33%" />
-        <col style="width: 33%" />
-        <col style="width: 33%" />
-      </colgroup>
-      <thead class="thead">
-        <tr>
-          <th style="text-align: right;">{{ vm.team.name }}</th>
-          <th style="text-align: center;">{{ vm.fixture.goalsfor }} - {{ vm.fixture.goalsagainst }}</th>
-          <th style="text-align: left;">{{ vm.fixture.opposition | uppercase }}</th>
+    <h1>Result Detail</h1>
+    <h4>{{ vm.fixture.fixturedate | date:'dd/MM/yyyy' }} @ <b>{{ vm.fixture.fixturedate | date:'HH:mm'}}</b></h4>
+    <hr class="dark" />
+    <div>
+      <table class="table">
+        <colgroup>
+          <col style="width: 33%" />
+          <col style="width: 33%" />
+          <col style="width: 33%" />
+        </colgroup>
+        <thead class="thead">
+          <tr>
+            <th style="text-align:right;">{{ vm.team.name }}</th>
+            <th style="text-align:center;">{{ vm.fixture.goalsfor }} - {{ vm.fixture.goalsagainst }}</th>
+            <th style="text-align:left;">{{ vm.fixture.opposition | uppercase }}</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="player in vm.fixture.played">
+          <td style="text-align:right;"> {{ player.surname }} ({{ player.goals }})</td>
+          <td style="text-align:center;"></td>
+          <td style="text-align:left;"></td>
         </tr>
-      </thead>
-      <tr>
-        <td style="text-align:right;"></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+      </table>
+    </div>
+    <hr />
+    <a type="button" class="btn btn-primary" href="javascript:history.back()"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
   </div>
-  <hr />
-  <a type="button" class="btn btn-primary" href="javascript:history.back()"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
-</div>
 </div>

@@ -43,6 +43,26 @@ router.get('/:user_id', function(req, res, next) {
   }
 })
 
+router.get('/player/:player_id', function(req, res, next) {
+  if (!req.headers['x-auth']) {
+    return res.sendStatus(401)
+  }
+  if (req.auth.username) {
+    Player.findOne({
+        '_id': req.params.player_id
+      })
+      .sort('-date')
+      .exec(function(err, players) {
+        if (err) {
+          return next(err)
+        }
+        res.json(players)
+      })
+  } else {
+    res.status(401)
+  }
+})
+
 router.post('/', function(req, res, next) {
   let player = new Player({
     _userid: req.body._userid,
