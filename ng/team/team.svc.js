@@ -18,7 +18,9 @@
     }
 
     svc.fetchMyTeams = function(players) {
-      return $http.get('/api/teams/myteams/' + players);
+      if (players.length !== 0) {
+        return $http.get('/api/teams/myteams/' + players);
+      }
     }
 
     svc.fetchOne = function(team_id) {

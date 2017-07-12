@@ -20,11 +20,8 @@
       PlayerService.fetchMyPlayers($scope.app.currentUser._id)
         .success(function(players) {
           angular.forEach(players, function(player) {
-              vm.players.push(player._id);
-            })
-            .error(function(err) {
-              vm.teamsPlayedFor = 0;
-            })
+            vm.players.push(player._id);
+          })
           TeamService.fetchMyTeams(vm.players)
             .success(function(teams) {
               if (teams.length === 1) {
